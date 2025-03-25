@@ -1,9 +1,10 @@
 [build]
-  base = "client"
-  command = "npm run build"
+  base = "."
+  command = "cd client && npm run build"
   publish = "client/build"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+ 
