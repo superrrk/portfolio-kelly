@@ -1,5 +1,7 @@
-<h1> Kelly Truong's Online Portfolio </h1>
+<h1>
+  <a href="https://kellytruong.netlify.app/" target="_blank">Kelly Truong's Portfolio</a>
+</h1>
 
-**Tools:** React.js, JavaScript, CSS (SCSS), JSON, HTML
+**Tools/Frameworks:** React.js, JavaScript, CSS (SCSS), JSON, HTML
 
 welcome to my porfolio of personal projects! + learning development
