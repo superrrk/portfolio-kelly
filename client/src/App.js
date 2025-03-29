@@ -1,20 +1,49 @@
 import './App.scss'
-import { Routes, Route} from 'react-router-dom'
-import Layout from './components/Layout'
 import Home from './components/Home'
-import About from './components/About'
-import Contact from './components/Contact'
+import { useEffect, useRef } from 'react'
 
-function App() {  
+function App() {
+  const cursorRef = useRef(null)
+
+  useEffect(() => {
+    const cursor = cursorRef.current
+    
+    const moveCursor = (e) => {
+      cursor.style.left = e.clientX + 'px'
+      cursor.style.top = e.clientY + 'px'
+    }
+
+    const growCursor = () => {
+      cursor.classList.add('cursor-grow')
+    }
+
+    const shrinkCursor = () => {
+      cursor.classList.remove('cursor-grow')
+    }
+
+    // Add event listeners
+    document.addEventListener('mousemove', moveCursor)
+    
+    // Add hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-card')
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', growCursor)
+      el.addEventListener('mouseleave', shrinkCursor)
+    })
+
+    return () => {
+      document.removeEventListener('mousemove', moveCursor)
+      interactiveElements.forEach(el => {
+        el.removeEventListener('mouseenter', growCursor)
+        el.removeEventListener('mouseleave', shrinkCursor)
+      })
+    }
+  }, [])
+
   return (
     <>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-    </Routes>
+      <div className="custom-cursor" ref={cursorRef}></div>
+      <Home />
     </>
   )
 }

@@ -1,4 +1,4 @@
-$primary-color: #ffd700;
+$primary-color: #CBF7ED;
 
 @import 'animate.css';
 @import '~loaders.css/src/animations/pacman.scss';
@@ -16,6 +16,29 @@ $primary-color: #ffd700;
 @font-face {
   font-family: 'Coolvetica';
   src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font: 300 11px/1.4 'Helvetica Neue', 'sans-serif';
+  color: #444;
+  background: #1d1d1d;
+  overflow: visible;
+  display: block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 input,

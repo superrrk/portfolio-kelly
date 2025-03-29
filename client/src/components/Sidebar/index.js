@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
   faHome,
-  faUser
+  faUser,
+  faCode
 } from '@fortawesome/free-solid-svg-icons';
 import { 
     faLinkedin,
@@ -14,65 +15,80 @@ import {
     faYoutube
  } from '@fortawesome/free-brands-svg-icons';
 
+const Sidebar = () => {
+    const scrollToProjects = () => {
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            // First ensure we're on the home page
+            if (window.location.pathname !== '/') {
+                window.location.href = '/#projects';
+                return;
+            }
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
-const Sidebar = () => (
-    <div className='nav-bar'>
-        <Link className='logo' to='/'>
-            <img src={LogoK} alt="logo" />
-            <img className='sub-logo' src={LogoSubstitle} alt="slobodan" />
-        </Link>
-        <nav>
-            <NavLink exact="true" activeclassname="active" to="/"> 
-                <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
-            </NavLink>
-            <NavLink
-            exact="true"
-            activeclassname="active"
-            className="about-link"
-            to="/about"
-            > 
-                <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-            </NavLink>
-            <NavLink 
-                exact="true" 
-                activeclassname="active" 
-                className="contact-link" 
-                to="/contact"
-            > 
-                <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
-            </NavLink>
-        </nav>
-        <ul>
-            <li>
-                <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://www.linkedin.com/in/kellybtruong/"
-                >
-                    <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
+    return (
+        <div className='nav-bar'>
+            <Link className='logo' to='/'>
+                <img src={LogoK} alt="logo" />
+                <img className='sub-logo' src={LogoSubstitle} alt="slobodan" />
+            </Link>
+            <nav>
+                <NavLink exact="true" activeclassname="active" to="/"> 
+                    <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+                </NavLink>
+                <a onClick={scrollToProjects} className="projects-link nav-link">
+                    <FontAwesomeIcon icon={faCode} color="#4d4d4e" />
                 </a>
-            </li>
-            <li>
-                <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://github.com/superrrk"
-                >
-                    <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
-                </a>
-            </li>
-            <li>
-                <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://www.youtube.com/@superrrk"
-                >
-                    <FontAwesomeIcon icon={faYoutube} color="#4d4d4e" />
-                </a>
-            </li>
-        </ul>
-
-    </div>
-)
+                <NavLink
+                exact="true"
+                activeclassname="active"
+                className="about-link"
+                to="/about"
+                > 
+                    <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+                </NavLink>
+                <NavLink 
+                    exact="true" 
+                    activeclassname="active" 
+                    className="contact-link" 
+                    to="/contact"
+                > 
+                    <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+                </NavLink>
+            </nav>
+            <ul>
+                <li>
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://www.linkedin.com/in/kellybtruong/"
+                    >
+                        <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://github.com/superrrk"
+                    >
+                        <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://www.youtube.com/@superrrk"
+                    >
+                        <FontAwesomeIcon icon={faYoutube} color="#4d4d4e" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    )
+}
 
 export default Sidebar

@@ -33,8 +33,7 @@ const About = () => {
                             idx={15}
                         />
                     </h1>
-                    <p>BOOM FDLJSLFJKSDLJFJDLSK
-                    </p>
+                    <p>sophomore at Columbia University studying Computer Science</p>
                     <p> VERY CONFIDENT BOOM</p>
                     <p> FINISHER BOOM</p>
                 </div>
