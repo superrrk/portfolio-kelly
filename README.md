@@ -9,3 +9,7 @@
 welcome to my porfolio of personal projects! + learning development
 
 <img width="1501" alt="Image" src="https://github.com/user-attachments/assets/ddf20633-0efc-444c-b104-b953989f12dd" />
+
+### live demo
+https://github.com/user-attachments/assets/1979cd27-4b2a-4e89-b223-eabb40fe6ff8
+
