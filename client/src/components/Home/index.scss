@@ -685,12 +685,11 @@ section {
 
 .project-card {
     position: relative;
-    background-color: #2d2d2d;
-    border-radius: 12px;
+    padding: 20px;
     overflow: hidden;
     min-height: 240px;
     transform: translateY(0);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: cardEntrance 0.8s ease-out forwards;
     animation-delay: calc(var(--index) * 0.1s);
     opacity: 0;
@@ -734,9 +733,9 @@ section {
         backdrop-filter: blur(5px);
 
         h3 {
+            font-size: 24px;
             color: #fff;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 600;
             font-family: 'Coolvetica';
             padding-bottom: 8px;
@@ -761,10 +760,10 @@ section {
         }
 
         p {
-            color: #fff;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #f5f5f5;
+            margin-bottom: 15px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -772,28 +771,17 @@ section {
         }
 
         .tech-stack {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transition-delay: 0.2s;
-
+            margin: 15px 0;
+            
             span {
-                background: rgba(203, 247, 237, 0.15);
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 1rem;
-                color: #CBF7ED;
-                backdrop-filter: blur(5px);
-                transition: all 0.3s ease;
-
-                &:hover {
-                    background: rgba(203, 247, 237, 0.3);
-                    transform: translateY(-2px);
-                }
+                background-color: #406E8E;
+                color: #fff;
+                padding: 4px 10px;
+                border-radius: 4px;
+                font-size: 14px;
+                display: inline-block;
+                margin-right: 8px;
+                margin-bottom: 10px;
             }
         }
 
@@ -826,8 +814,8 @@ section {
     }
 
     &:hover {
-        transform: translateY(-15px);
-        box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         z-index: 2;
 
         .project-image {
@@ -842,6 +830,32 @@ section {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+    }
+
+    .demo-btn, .github-btn {
+        background: transparent;
+        border: 1px solid #CBF7ED;
+        color: #CBF7ED;
+        padding: 6px 12px;
+        margin-left: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background: #CBF7ED;
+            color: #161925;
+        }
+    }
+    
+    .github-btn {
+        border-color: #8EA8C3;
+        color: #8EA8C3;
+        
+        &:hover {
+            background: #8EA8C3;
+            color: #161925;
         }
     }
 }
