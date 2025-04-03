@@ -68,6 +68,23 @@ const Home = () => {
   }, []);
 
   const projects = [
+    
+    {
+      title: "Portfolio Optimizer",
+      description: "An interactive portfolio optimizer based off the Markowitz model.",
+      image: require("../../assets/images/portfolio_optimizer_kelly.png"),
+      techStack: ["HTML", "CSS", "Python", "Pandas", "NumPy"],
+      demoLink: "https://portfolio-optimizer-app-15a8bb2b8ecf.herokuapp.com/",
+      githubLink: "https://github.com/superrrk/portfolio-optimizer"
+    },
+    {
+      title: "Image Detector",
+      description: "A full-stack web app that detects AI generated vs. real images via a custom trained Convolutional Neural Network (CNN).",
+      image: require("../../assets/images/image_detector.png"),
+      techStack: ["Python", "React", "HTML", "SCSS"],
+      demoLink: "https://demo.project3.com",
+      githubLink: "https://github.com/superrrk/image-detector"
+    },
     {
       title: "Portfolio Website",
       description: "A comprehensive full-stack application that demonstrates modern web development practices and clean architecture.",
@@ -75,22 +92,6 @@ const Home = () => {
       techStack: ["React", "JavaScript", "SCSS", "HTML"],
       demoLink: "https://demo.project1.com",
       githubLink: "https://github.com/superrrk/portfolio-kelly"
-    },
-    {
-      title: "Project 2",
-      description: "An innovative mobile-first web application that solves real-world problems with elegant solutions.",
-      image: "https://placehold.co/600x400",
-      techStack: ["Vue.js", "Firebase", "Tailwind CSS"],
-      demoLink: "https://demo.project2.com",
-      githubLink: "https://github.com/yourusername/project2"
-    },
-    {
-      title: "Project 3",
-      description: "A performant and scalable backend service that handles complex data processing and real-time updates.",
-      image: "https://placehold.co/600x400",
-      techStack: ["Python", "Django", "PostgreSQL", "Redis"],
-      demoLink: "https://demo.project3.com",
-      githubLink: "https://github.com/yourusername/project3"
     }
   ];
 
