@@ -68,7 +68,6 @@ const Home = () => {
   }, []);
 
   const projects = [
-    
     {
       title: "Portfolio Optimizer",
       description: "An interactive portfolio optimizer based off the Markowitz model.",
@@ -92,6 +91,30 @@ const Home = () => {
       techStack: ["React", "JavaScript", "SCSS", "HTML"],
       demoLink: "https://demo.project1.com",
       githubLink: "https://github.com/superrrk/portfolio-kelly"
+    },
+    {
+      title: "VSnap",
+      description: "A social platform for VSA members to share family photos and track participation points. Features include photo submissions, point counting, and family leaderboards.",
+      image: "https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=300&fit=crop&blur=20&q=10",
+      techStack: ["React", "Node.js", "MongoDB", "AWS S3"],
+      demoLink: "https://vsnap-demo.com",
+      githubLink: "https://github.com/superrrk/vsnap"
+    },
+    {
+      title: "QuickSeat",
+      description: "An innovative solution to the reservation bot problem, making it easier for genuine customers to secure their desired dining spots.",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&blur=20&q=10",
+      techStack: ["Python", "FastAPI", "PostgreSQL", "Redis"],
+      demoLink: "https://quickseat-demo.com",
+      githubLink: "https://github.com/superrrk/quickseat"
+    },
+    {
+      title: "Coming Soon...",
+      description: "Something exciting is in the works. Stay tuned for updates on my next project!",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&blur=20&q=10",
+      techStack: ["Coming Soon"],
+      demoLink: "#",
+      githubLink: "#"
     }
   ];
 
