@@ -146,6 +146,17 @@ const Home = () => {
     <>
       <div className={`main-container ${loading ? 'loading' : 'loaded'}`}>
         <section id="home" className="home-section">
+          {/* Sparkles for hero section */}
+          <span className="sparkle sparkle-hero-top-left">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2 L10 7 L16 9 L10 11 L9 16 L8 11 L2 9 L8 7 Z" fill="white" fillOpacity="0.5"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-hero-bottom-right">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.4"/>
+            </svg>
+          </span>
           <div className="text-zone">
             <h1>
               <span className={letterClass}>h</span>
@@ -231,24 +242,21 @@ const Home = () => {
                 <FontAwesomeIcon icon={faPython} color="#EC4D28" />
               </div>
             </div>
-            <nav className="nav-icons">
-              <div className="icon-link" onClick={() => scrollToSection('home')}>
-                <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
-              </div>
-              <div className="icon-link" onClick={() => scrollToSection('about')}>
-                <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-              </div>
-              <div className="icon-link" onClick={() => scrollToSection('projects')}>
-                <FontAwesomeIcon icon={faCode} color="#4d4d4e" />
-              </div>
-              <div className="icon-link" onClick={() => scrollToSection('contact')}>
-                <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
-              </div>
-            </nav>
           </div>
         </section>
 
         <section id="about" className="about-section">
+          {/* Sparkles for about section */}
+          <span className="sparkle sparkle-about-top-right">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.4"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-about-bottom-left">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 1 L5.5 4 L9 5 L5.5 6 L5 9 L4.5 6 L1 5 L4.5 4 Z" fill="white" fillOpacity="0.3"/>
+            </svg>
+          </span>
           <div className="text-zone">
             <h1>
               <AnimatedLetters
@@ -278,7 +286,113 @@ const Home = () => {
           </div>
         </section>
 
+        <section id="experience" className="experience-section">
+          {/* Sparkles for experience section */}
+          <span className="sparkle sparkle-experience-top-left">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2 L12 8 L18 10 L12 12 L10 18 L8 12 L2 10 L8 8 Z" fill="white" fillOpacity="0.8"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-experience-bottom-right">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z" fill="white" fillOpacity="0.7"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-experience-mid-left">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2 L9 6 L14 8 L9 10 L8 14 L7 10 L2 8 L7 6 Z" fill="white" fillOpacity="0.6"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-experience-mid-right">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.5"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-experience-timeline">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2 L10 7 L16 9 L10 11 L9 16 L8 11 L2 9 L8 7 Z" fill="white" fillOpacity="0.9"/>
+            </svg>
+          </span>
+          {/* New sparkles close to cards */}
+          <span className="sparkle sparkle-experience-card1">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.7"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-experience-card2">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1 L7 4 L11 6 L7 8 L6 11 L5 8 L1 6 L5 4 Z" fill="white" fillOpacity="0.6"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-experience-card3">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2 L9 6 L14 8 L9 10 L8 14 L7 10 L2 8 L7 6 Z" fill="white" fillOpacity="0.8"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-experience-card4">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2 L12 8 L18 10 L12 12 L10 18 L8 12 L2 10 L8 8 Z" fill="white" fillOpacity="0.7"/>
+            </svg>
+          </span>
+          <h2>experience</h2>
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <div className="timeline-date">Summer 2025</div>
+                <h3>Quantum Computing Intern</h3>
+                <h4>bp</h4>
+                <ul>
+                  <li>Optimized Mixed Integer Programming (MIP) problems by benchmarking quantum, hybrid, and classical solvers,
+                  mitigated constraint violations in 95% of test cases</li>
+                  <li>Integrated novel QUBO transformation algorithms, improving solver throughput by 80%</li>
+                  <li>Presented results to CTO and Head of Global Sourcing, garnering further funding for quantum computing research</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <div className="timeline-date">2024 - 2025</div>
+                <h3>Research Assistant</h3>
+                <h4>DiTect Lab @Columbia University</h4>
+                <ul>
+                  <li>Developed an IOS application to increase pedestrian safety by alerting the user of incoming traffic via an Apple
+Watch application in XCode, React.js, and Swift alongside the MQTT Protocol</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <div className="timeline-content">
+                <div className="timeline-date">Summer 2023</div>
+                <h3>Consultant Intern</h3>
+                <h4>Accenture</h4>
+                <ul>
+                  <li>Produced an MVP (Minimum Viable Product) and a pitch deck addressing efficient and active studying methods
+                  within an all-in-one hub-style app as a personal project</li>
+                  <li>Trained professional storytelling, data analysis, and branding skills to present a group project to 200+ industry
+                  professionals within the Accenture network</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="projects" className="projects-section">
+          {/* Sparkles for projects section */}
+          <span className="sparkle sparkle-projects-top-left">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2 L9 6 L14 8 L9 10 L8 14 L7 10 L2 8 L7 6 Z" fill="white" fillOpacity="0.4"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-projects-bottom-right">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1 L7 4 L11 6 L7 8 L6 11 L5 8 L1 6 L5 4 Z" fill="white" fillOpacity="0.35"/>
+            </svg>
+          </span>
           <h2>projects</h2>
           <div className="projects-grid">
             {projects.map((project, index) => (
@@ -315,6 +429,32 @@ const Home = () => {
         </section>
 
         <section id="contact" className="contact-section">
+          {/* Decorative sparkles */}
+          <span className="sparkle sparkle-left"></span>
+          <span className="sparkle sparkle-right"></span>
+          <span className="sparkle sparkle-bottom-left"></span>
+          {/* New sparkles closer to the form */}
+          <span className="sparkle sparkle-top-left">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 2 L10 7 L16 9 L10 11 L9 16 L8 11 L2 9 L8 7 Z" fill="white" fillOpacity="0.5"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-top-right">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.4"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-mid-left">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 1 L5.5 4 L9 5 L5.5 6 L5 9 L4.5 6 L1 5 L4.5 4 Z" fill="white" fillOpacity="0.3"/>
+            </svg>
+          </span>
+          <span className="sparkle sparkle-mid-right">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1 L7 4 L11 6 L7 8 L6 11 L5 8 L1 6 L5 4 Z" fill="white" fillOpacity="0.35"/>
+            </svg>
+          </span>
+          {/* End sparkles */}
           <div className="text-zone">
             <h1>
               <AnimatedLetters

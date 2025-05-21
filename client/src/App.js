@@ -7,10 +7,22 @@ function App() {
 
   useEffect(() => {
     const cursor = cursorRef.current
-    
+    let mouseX = 0
+    let mouseY = 0
+    let rafId
+
+    const updateCursor = () => {
+      cursor.style.left = mouseX + 'px'
+      cursor.style.top = mouseY + 'px'
+      rafId = null
+    }
+
     const moveCursor = (e) => {
-      cursor.style.left = e.clientX + 'px'
-      cursor.style.top = e.clientY + 'px'
+      mouseX = e.clientX
+      mouseY = e.clientY
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateCursor)
+      }
     }
 
     const growCursor = () => {
@@ -37,6 +49,7 @@ function App() {
         el.removeEventListener('mouseenter', growCursor)
         el.removeEventListener('mouseleave', shrinkCursor)
       })
+      if (rafId) cancelAnimationFrame(rafId)
     }
   }, [])
 
