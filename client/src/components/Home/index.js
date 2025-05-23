@@ -11,7 +11,6 @@ import {
   faPython,
   faJava,
 } from '@fortawesome/free-brands-svg-icons'
-import { faHome, faUser, faEnvelope, faCode } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import emailjs from '@emailjs/browser'
 const Home = () => {
