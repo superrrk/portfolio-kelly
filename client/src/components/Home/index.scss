@@ -74,6 +74,10 @@
 .daydream-thread {width:100%;height:125px;overflow:visible;}
 .daydream-thread path{stroke:#cba9a2;stroke-width:1.5;fill:none;stroke-dasharray:7 9;opacity:.75;}
 .experience-section{padding-top:108px;padding-bottom:130px}
+.experience-intro-block{padding-left:clamp(10px,1.6vw,22px);}
+.experience-intro-block .section-heading{max-width:12ch;}
+@media(max-width:680px){.experience-intro-block{padding-left:0}.experience-intro-block .section-heading{max-width:none}}
+
 .experience-list {border-top:1px solid var(--line)}
 .experience-item{display:grid;grid-template-columns:200px 1fr 35px;gap:22px;border-bottom:1px solid var(--line);padding:32px 4px 33px;}
 .experience-date {font:11px var(--mono);color:#97a69a;padding-top:6px}
@@ -131,3 +135,143 @@
 .about-photo-frame {border-radius: 42% 42% 14px 14px / 29% 29% 14px 14px;}
 .about-photo-frame img {filter:saturate(.92);}
 @media(max-width:520px){.about-photo-wrap{padding:12px 15px 30px}.about-doodle.doodle-two{right:0;bottom:0;font-size:17px}}
+
+/* Editorial, monochrome tech marks: tiny signposts, not a competing logo wall. */
+.tag-row .tech-tag, .experience-tools .tech-tag {display:inline-flex;align-items:center;gap:6px;font:10px var(--mono);letter-spacing:0;color:#627969;background:#eff3ec;border:1px solid #e1e9df;border-radius:30px;padding:8px 11px;white-space:nowrap}
+.tech-tag-icon {font-size:12px;opacity:.72;flex-shrink:0}
+.project-context {display:block;color:#9a9c91;font:11px var(--mono);margin:-3px 0 15px}
+.project-highlight{min-height:0!important;font-weight:600;font-size:12px!important;color:#526e59!important;line-height:1.65!important;border-left:2px solid #bdd0bf;padding:2px 0 2px 12px;margin:19px 0 0}
+.project-highlight span{font-size:14px;color:#a9b8a5;margin-right:8px}
+.project-card>p:not(.project-highlight){min-height:130px;}
+.project-actions{display:flex;gap:25px;align-items:center;flex-wrap:wrap;margin:0 0 8px}
+.project-link-icon{font-size:12px;opacity:.8;margin-right:3px}
+.project-roadmap{border-top:1px solid #e1e7df;padding:14px 0;margin:4px 0 20px;color:#617965;font-size:12px;}
+.project-roadmap summary{font-family:var(--mono);font-size:11px;cursor:pointer;list-style:none;font-weight:600}
+.project-roadmap summary::-webkit-details-marker{display:none}
+.project-roadmap summary span{float:right}
+.project-roadmap ul{margin:13px 0 6px;padding-left:18px;color:#738475;line-height:1.8}
+.project-roadmap small{color:#9a9f93}
+/* Original concept art for the Scrap capstone; intentionally not a screenshot. */
+.scrap-visual{background:#f0e9eb;}
+.scrap-illustration{width:100%;height:100%;position:relative;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.scrap-scribble{position:absolute;top:12px;right:7%;font:italic 21px var(--serif);color:#ab939b;transform:rotate(7deg)}
+.scrap-polaroid{position:absolute;left:8%;top:19%;z-index:0;transform:rotate(-13deg);background:#fffdfb;padding:10px 10px 28px;box-shadow:0 12px 25px #897f7f24;width:40%;max-width:170px;color:#9c9090;font:italic 10px var(--serif);text-align:center}
+.scrap-polaroid-photo{display:grid;place-items:center;height:109px;background:linear-gradient(155deg,#dfe6d9 40%,#d4d6ca 41%,#e5bdbc 70%);color:#f9f1e6;font:70px var(--serif);margin-bottom:7px}
+.scrap-phone{width:172px;height:238px;background:#fffdfb;border:5px solid #fffaf8;border-radius:27px;box-shadow:0 10px 34px #71697a32,0 0 0 1px #ddd3d6;position:relative;z-index:2;transform:rotate(8deg);padding:8px 13px;}
+.scrap-notch{background:#cfc4c8;width:37px;height:5px;border-radius:15px;margin:1px auto 12px}
+.scrap-phone-name{font:italic 28px var(--serif);color:#625b5f;margin:0;line-height:1}
+.scrap-phone-name span{font:16px var(--serif);color:#cfa8ad}
+.scrap-phone-kicker{font:9px var(--mono);color:#ab989d;display:block;margin:6px 0 9px}
+.scrap-memory-card{background:#f1e9e7;border-radius:9px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:9px;min-height:121px;}
+.scrap-memory-flower{font-size:22px;color:#be9f99;line-height:1}
+.scrap-memory-date{font:7px var(--mono);color:#a78c91}
+.scrap-memory-card strong{font:italic 14px var(--serif);color:#776a72}
+.scrap-memory-note{font:8px var(--mono);color:#a39494}
+.scrap-phone-footer{display:flex;justify-content:space-between;margin-top:10px;color:#8e8188;font:9px var(--mono)}
+.scrap-asterisk{position:absolute;right:13%;bottom:16%;color:#b49b9e;font:42px var(--serif)}
+.project-illustration-disclaimer{position:absolute;bottom:0;right:0;font:8px var(--mono);color:#b1a3a5;letter-spacing:.035em}
+.daydream-visual{background:#e8efea;}
+.daydream-illustration{width:100%;height:100%;display:grid;place-items:center;color:#73917d;position:relative}
+.daydream-illustration pre{font:15px/1.35 var(--mono);letter-spacing:1px;color:#779581;margin:0;transform:rotate(-5deg);text-shadow:0 0 1px #a6b6a7;white-space:pre;}
+.daydream-mini-label,.daydream-mini-footer{position:absolute;font:9px var(--mono);color:#8fa69a;left:12px}
+.daydream-mini-label{top:8px}.daydream-mini-footer{bottom:6px}
+/* Make the work experience read as confident engineering, without a flashy resume aesthetic. */
+.experience-section{background:linear-gradient(180deg,rgba(237,242,235,.18),rgba(250,249,245,0) 70%)}
+.experience-item{grid-template-columns:165px minmax(0,1fr) 24px;gap:32px;padding:39px 2px 43px}
+.experience-date{display:flex;flex-direction:column;gap:13px;padding-top:9px;color:#617569;font:10px var(--mono);letter-spacing:.035em}
+.experience-date time{font-weight:600;color:#607763}
+.experience-date .experience-index{font-size:9px;color:#96a99a;letter-spacing:.13em}
+.experience-date span:last-child{font-size:9px;color:#9bac9e}
+.experience-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.experience-item h3{font:400 39px/1 var(--serif);letter-spacing:-.04em;color:#3b5842;display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin:0 0 10px}
+.experience-item h3 small{font:600 16px/1.4 var(--sans);letter-spacing:-.02em;color:#45584a}
+.experience-hairline{display:inline-block;width:24px;height:1px;background:#a9bdac}
+.experience-chip{background:#edf2eb;border:1px solid #dce7dc;padding:7px 12px;border-radius:99px;font:10px var(--mono);color:#6e866f;white-space:nowrap}
+.experience-item .experience-subtitle{font:11px var(--mono);color:#9ca99c;margin:0 0 20px}
+.experience-item ul{padding-left:17px;max-width:870px}
+.experience-item li{color:#667b6b;font-size:14px;line-height:1.86;margin:10px 0}
+.experience-item li strong{color:#365640;font-weight:650}
+.experience-item li::marker{color:#9faf9f}
+.experience-tools{display:flex;gap:7px;flex-wrap:wrap;margin-top:23px}
+.experience-ornament{font:26px var(--serif);color:#b6c9b5;margin-top:4px}
+@media(max-width:900px){.experience-item{grid-template-columns:115px minmax(0,1fr) 15px;gap:15px}.experience-item h3{font-size:34px}.experience-item h3 small{font-size:14px}}
+@media(max-width:680px){.experience-item{grid-template-columns:1fr;gap:14px}.experience-date{flex-direction:row;align-items:center;flex-wrap:wrap;gap:9px}.experience-ornament{display:none}.experience-item li{font-size:13px}.project-card>p:not(.project-highlight){min-height:0}.scrap-scribble{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.scrap-phone,.scrap-polaroid,.daydream-illustration pre{transition:none;animation:none}}
+
+
+/* The studio belongs after proof of engineering: a future-facing, editorial sketchbook.
+   WIP labels prevent concepts from reading like shipped products. */
+.project-card-meta{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.project-status{display:inline-flex;align-items:center;font:9px var(--mono);letter-spacing:.045em;color:#58715d;border:1px solid #d9e4d9;border-radius:30px;background:#eff4ed;padding:6px 10px}
+.studio-section{background:#f4f2ee;padding:118px 0 132px;border-top:1px solid #e8e5df;border-bottom:1px solid #e8e5df;}
+.studio-header{display:flex;align-items:end;justify-content:space-between;gap:70px;margin-bottom:52px}
+.studio-header .section-heading{margin-top:15px}
+.studio-intro{max-width:340px;padding-bottom:6px}
+.studio-intro p{font-size:14px;line-height:1.9;color:#687869;margin:0 0 20px}
+.studio-intro span{font:9px/1.7 var(--mono);letter-spacing:.06em;color:#a39796}
+.studio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.studio-card{padding:24px 22px 26px;border:1px solid #e3e2db;background:#faf9f5;border-radius:11px;display:flex;flex-direction:column;min-height:420px;transition:transform .25s ease,border-color .25s ease}
+.studio-card:hover{transform:translateY(-4px);border-color:#c7d4c9}
+.studio-card-top{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;color:#9c9d96;font:9px/1.6 var(--mono);letter-spacing:.02em}
+.studio-state{display:inline-flex;align-items:center;gap:6px;color:#6c806e;font:9px/1.4 var(--mono);white-space:nowrap}
+.studio-state-dot{height:5px;width:5px;border-radius:100%;background:#a5baa4}
+.studio-art{height:130px;border-radius:8px;background:#ecede6;margin:21px 0 22px;position:relative;overflow:hidden;display:grid;place-items:center}
+.studio-warm .studio-art{background:linear-gradient(130deg,#efeee7,#e9e3e0)}
+.studio-rose .studio-art{background:linear-gradient(130deg,#f2edec,#eae3e7)}
+.studio-sage .studio-art{background:linear-gradient(130deg,#e9f0e8,#e4ece6)}
+.studio-line{position:absolute;width:70%;height:74px;border:1px solid #c4d3c4;border-radius:50%;transform:rotate(-16deg)}
+.studio-rose .studio-line{border-color:#d7c5c8}
+.studio-warm .studio-line{border-color:#d5c8bf}
+.studio-mark{font:64px/.9 var(--serif);font-style:italic;color:#8ea894;position:relative;z-index:1;transform:rotate(-12deg)}
+.studio-warm .studio-mark{color:#be9f96}.studio-rose .studio-mark{color:#c5a4a8}
+.studio-mark-mini{position:absolute;right:21%;top:21px;color:#bbc8b9;font:25px var(--serif)}
+.studio-card h3{font:400 35px/1.04 var(--serif);letter-spacing:-.04em;margin:0 0 12px;color:#34443a}
+.studio-card p{font-size:12px;line-height:1.85;color:#738275;margin:0 0 18px;max-width:330px}
+.studio-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.studio-tags span{font:9px var(--mono);color:#778b7a;padding:7px 9px;border:1px solid #e2e9df;border-radius:20px;background:#f4f6f1}
+.studio-card-bottom{padding-top:19px;min-height:40px}.studio-card-bottom .inline-link{font-size:11px}.studio-pending{font:10px var(--mono);color:#a19d9c}
+@media(max-width:1000px){.studio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.studio-card{min-height:395px}.studio-header{gap:30px}}
+@media(max-width:700px){.studio-section{padding:85px 0}.studio-header{display:block;margin-bottom:34px}.studio-intro{padding-top:26px}.studio-grid{grid-template-columns:1fr}.studio-card{min-height:0}.studio-art{height:125px}.studio-card h3{font-size:38px}}
+@media(prefers-reduced-motion:reduce){.studio-card,.studio-card:hover{transition:none;transform:none}}
+
+
+/* v8: a tighter editorial rhythm from the portrait through the contact footer. */
+.about-section{padding:76px 0 72px}
+.about-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(34px,5vw,64px);align-items:center}
+.about-photo-wrap{max-width:340px;padding:12px 15px 18px}
+.about-copy .section-heading{margin-bottom:22px}
+.about-copy p{font-size:14px;line-height:1.8;margin-bottom:14px;max-width:550px}
+.little-things{margin:23px 0 23px}
+.playground-section{padding:78px 0 82px}
+.playground-grid{grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);gap:clamp(32px,5.5vw,70px);align-items:start}
+.playground-copy{padding-top:53px}
+.playground-copy p{margin-top:14px}
+.daydream-footer{padding-top:77px;padding-bottom:27px}
+.daydream-footer h2{font-size:clamp(66px,7.7vw,108px);margin:18px 0 24px}
+.daydream-footer .footer-actions{margin:27px 0 57px}
+@media(max-width:780px){
+ .about-section{padding:66px 0 65px}.about-grid{grid-template-columns:1fr;gap:30px}
+ .about-photo-wrap{max-width:320px}.playground-section{padding:64px 0 66px}
+ .playground-grid{grid-template-columns:1fr;gap:20px}.playground-copy{padding-top:0}
+ .daydream-footer{padding-top:60px}.daydream-footer .footer-actions{margin-bottom:43px}
+}
+@media(max-width:520px){.about-photo-wrap{max-width:290px}.about-section{padding:52px 0 56px}.about-copy .section-heading{margin-bottom:14px}.playground-section{padding:54px 0 60px}}
+
+/* v9: a curated two-piece studio and a recruiter-friendly LinkedIn link. */
+.studio-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:950px;gap:24px}
+.studio-card{min-height:365px}
+.studio-header{margin-bottom:35px}
+.studio-section{padding-top:88px;padding-bottom:98px}
+.hero-linkedin{font:600 12px var(--sans);color:#506d57;text-decoration:none;padding:12px 5px;text-underline-offset:4px}
+.hero-linkedin:hover,.hero-linkedin:focus-visible{text-decoration:underline}
+@media(max-width:700px){.studio-grid{grid-template-columns:1fr;max-width:520px}.studio-section{padding:65px 0}.studio-card{min-height:auto}}
+
+/* v11: quiet, recognizable social marks instead of wordy pill links. */
+.social-icon-pair{display:inline-flex;align-items:center;gap:9px;flex-wrap:nowrap;}
+.social-icon-link{width:43px;height:43px;display:inline-flex;justify-content:center;align-items:center;border:1px solid #d5dfd4;background:rgba(250,249,245,.4);border-radius:50%;color:#4d6854;font-size:18px;text-decoration:none;transition:transform .2s ease,background .2s ease,border-color .2s ease;}
+.social-icon-link:hover{background:#edf3ec;border-color:#a8bdac;transform:translateY(-2px);}
+.social-icon-link:focus-visible{outline:2px solid #668d71;outline-offset:3px;}
+.hero-ctas .social-icon-pair{margin-left:4px;}
+.footer-actions .social-icon-pair{margin-left:3px;}
+@media(max-width:520px){.social-icon-link{height:41px;width:41px;font-size:17px}.hero-ctas .social-icon-pair{margin-left:0}}
+@media(prefers-reduced-motion:reduce){.social-icon-link{transition:none}.social-icon-link:hover{transform:none}}

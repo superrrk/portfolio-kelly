@@ -1,0 +1,72 @@
+/* Three interactive postcard scenes: pared back, calm, and touch-friendly. */
+.little-worlds{min-width:0;width:100%;}
+.world-tabs{display:flex;align-items:center;gap:7px;margin-bottom:13px;flex-wrap:wrap}
+.world-tab{appearance:none;border:1px solid #D6DFD5;background:transparent;color:#6D8070;padding:10px 17px;border-radius:40px;cursor:pointer;font:500 12px/1.2 var(--mono,monospace);letter-spacing:-.025em;transition:background .2s,border-color .2s,color .2s}
+.world-tab span{font-size:16px;line-height:0;vertical-align:middle}
+.world-tab:hover,.world-tab.is-active{background:#F8FAF4;color:#3E5947;border-color:#AFC5B1}
+.world-stage{height:365px;width:100%;position:relative;border:1px solid #E1E9DE;border-radius:16px;overflow:hidden;isolation:isolate;cursor:crosshair;transition:background .45s;}
+.world-stage:focus-visible,.world-tab:focus-visible,.world-actions button:focus-visible{outline:2px solid #567862;outline-offset:3px}
+.world-scene-name,.world-total,.world-tap-note{position:absolute;z-index:60;font:10px/1.2 var(--mono,monospace);letter-spacing:.025em;pointer-events:none}
+.world-scene-name{top:19px;left:22px}.world-total{top:19px;right:22px}.world-tap-note{bottom:18px;left:22px;opacity:.72}
+.world-meadow{background:linear-gradient(180deg,#F1F5F1 0%,#EBF1E9 70%,#DDE9D6 100%);color:#829B87}
+.world-cloud{position:absolute;height:14px;width:69px;opacity:.66;border-radius:30px;background:#FAFCF6;box-shadow:18px -8px 0 3px #FAFCF6,38px -2px 0 1px #FAFCF6}
+.cloud-left{left:19%;top:93px;transform:scale(.68)}.cloud-right{right:19%;top:142px;transform:scale(.5);opacity:.46}
+.world-meadow-hill{position:absolute;border-radius:50% 50% 0 0;bottom:-28%;width:120%;height:58%;pointer-events:none}
+.hill-back{left:-31%;background:#E0ECDA;transform:rotate(4deg)}.hill-front{right:-28%;background:#D2E3CF;bottom:-37%;transform:rotate(-6deg)}
+.world-ground-line{position:absolute;bottom:35px;height:1px;left:9%;width:82%;background:#B4C9B1;opacity:.7}
+.world-flower{position:absolute;bottom:37px;width:58px;transform:translateX(-50%);transform-origin:50% 100%;overflow:visible;pointer-events:none;animation:littleFlowerGrow .65s cubic-bezier(.2,1.15,.28,1) both,littleFlowerSway 4s ease-in-out 1s infinite alternate}
+@keyframes littleFlowerGrow{from{transform:translateX(-50%) translateY(24px) scale(.25);opacity:0}to{transform:translateX(-50%) translateY(0) scale(1);opacity:1}}
+@keyframes littleFlowerSway{from{rotate:-2deg}to{rotate:2deg}}
+.world-pond{background:linear-gradient(180deg,#EFF3ED 0%,#E4EDE8 45%,#D3E4E0 47%,#C7DBD6 100%);color:#718C8C}
+.world-pond-horizon{position:absolute;top:46%;left:0;width:100%;height:1px;background:#C0D5CA}
+.world-pond-water{position:absolute;top:58%;left:-3%;width:106%;height:31%;border-top:1px solid #B7CFC7;border-bottom:1px solid #B7CFC7;border-radius:50%;opacity:.38}
+.world-lilypad{position:absolute;bottom:68px;left:19%;width:58px;height:19px;transform:rotate(-10deg);border-radius:50%;background:#A2BFA7;border:1px solid #82A28F;z-index:3;pointer-events:none}
+.world-lilypad:after{content:'';position:absolute;inset:-2px 22px 8px 23px;transform:rotate(-20deg);background:#C8DDD8}
+.world-lilypad span{position:absolute;top:-17px;left:17px;color:#DCB2B6;font-size:24px}
+.pad-two{left:auto;right:23%;bottom:92px;width:45px;height:13px;transform:rotate(8deg);opacity:.8}
+.pad-two span{display:none}
+.world-reeds{position:absolute;bottom:62px;right:9%;font:24px/20px var(--mono,monospace);color:#8AAA92;opacity:.75;pointer-events:none}
+.world-ripple{position:absolute;z-index:5;width:16px;height:10px;border:1.7px solid #83ADA8;border-radius:50%;transform:translate(-50%,-50%) scale(.1);pointer-events:none;animation:littleRipple 3s ease-out both}
+.world-ripple:before,.world-ripple:after{content:'';position:absolute;inset:-1px;border-radius:50%;border:1.3px solid #87ABA7;animation:littleRipple 3s .22s ease-out both}
+.world-ripple:after{animation-delay:.5s}
+@keyframes littleRipple{0%{transform:translate(-50%,-50%) scale(.12);opacity:.75}100%{transform:translate(-50%,-50%) scale(10);opacity:0}}
+.world-night{background:radial-gradient(ellipse at 70% 30%,#4E6069 0%,#3B515B 42%,#2E424A 100%);color:#C9D5CC;border-color:#60726C}
+.world-night .world-scene-name,.world-night .world-total,.world-night .world-tap-note{color:#D5DFD4}
+.world-moon{position:absolute;top:60px;right:22%;width:60px;height:60px;background:#EEE8D2;border-radius:50%;box-shadow:0 0 40px #F0EBC134;pointer-events:none}
+.world-moon:after{content:'';position:absolute;inset:-12px -8px 10px 17px;border-radius:50%;background:#485D65}
+.world-night-hill{position:absolute;width:130%;height:39%;left:-15%;bottom:-26%;border-radius:50%;background:#334C4C}
+.world-fixed-star,.world-star{position:absolute;color:#F2EED6;pointer-events:none;user-select:none}
+.star-a{left:20%;top:24%;font-size:11px;opacity:.65}.star-b{left:72%;top:54%;font-size:18px;opacity:.75}.star-c{left:44%;top:34%;font-size:23px;opacity:.3}
+.world-star{z-index:5;transform:translate(-50%,-50%);text-shadow:0 0 9px #F0EBC18A;animation:littleStarAppear .45s ease-out both,littleStarTwinkle 3.6s .5s ease-in-out infinite alternate}
+@keyframes littleStarAppear{from{opacity:0;scale:.35}to{opacity:1;scale:1}}
+@keyframes littleStarTwinkle{from{opacity:.43;rotate:-6deg}to{opacity:1;rotate:6deg}}
+.world-actions{margin-top:15px;display:flex;align-items:center;gap:14px;justify-content:flex-start;flex-wrap:wrap}
+.world-actions button{appearance:none;cursor:pointer;border:0;font-size:12px;line-height:1.2}
+.world-action-primary{border-radius:30px!important;background:#415E4B;color:#fff;padding:13px 19px;font-weight:650}
+.world-action-primary:hover{background:#314A3B}
+.world-action-reset{color:#718174;background:transparent;padding:12px 8px}
+.world-action-reset:hover{text-decoration:underline}
+@media(max-width:780px){.world-stage{height:315px}.world-tab{padding:11px 13px;font-size:11px}.world-tabs{gap:6px}}
+@media(max-width:520px){.world-stage{height:295px}.world-scene-name{left:16px}.world-total{right:16px}.world-tap-note{left:16px}.world-flower{width:49px}.world-actions{gap:9px}.world-action-primary{padding:12px 15px}}
+@media(prefers-reduced-motion:reduce){.world-stage,.world-tab{transition:none}.world-flower,.world-ripple,.world-star{animation:none}.world-ripple{transform:translate(-50%,-50%) scale(4);opacity:.5}}
+
+/* Illustrated ambience sits behind the interactions and never captures taps. */
+.world-backdrop-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.world-stage .world-meadow-hill,.world-stage .world-night-hill{z-index:1}
+.world-cloud,.world-ground-line,.world-lilypad,.world-reeds,.world-moon,.world-fixed-star{z-index:2}
+.world-flower{z-index:3}
+.world-stage{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.world-tabs{margin-bottom:11px}
+.world-actions{margin-top:12px}
+@media(max-width:520px){.world-stage{height:285px}.world-actions{margin-top:12px}}
+
+/* The pond hosts little swimming ducks. Tapping adds a duck, not a water ring. */
+.world-duck{position:absolute;z-index:7;width:106px;height:74px;transform:translate(-50%,-50%);pointer-events:none;animation:duckDrift var(--duck-time,5s) ease-in-out var(--duck-phase,0s) infinite alternate;filter:drop-shadow(0 4px 3px #71988e20)}
+.world-duck-svg{width:100%;height:100%;overflow:visible;animation:duckBob 2.2s ease-in-out infinite alternate}
+.world-duck.duck-left .world-duck-svg{transform:scaleX(-1);animation:duckBobLeft 2.35s ease-in-out infinite alternate}
+.world-duck.duck-tiny{width:82px;height:57px}
+@keyframes duckDrift{0%{translate:-9px 1px}100%{translate:12px -3px}}
+@keyframes duckBob{0%{transform:translateY(0) rotate(-1deg)}100%{transform:translateY(-3px) rotate(1.5deg)}}
+@keyframes duckBobLeft{0%{transform:scaleX(-1) translateY(0) rotate(-1deg)}100%{transform:scaleX(-1) translateY(-3px) rotate(1.5deg)}}
+@media(max-width:520px){.world-duck{width:88px;height:63px}.world-duck.duck-tiny{width:69px;height:51px}}
+@media(prefers-reduced-motion:reduce){.world-duck,.world-duck-svg,.world-duck.duck-left .world-duck-svg{animation:none}.world-duck.duck-left .world-duck-svg{transform:scaleX(-1)}}
