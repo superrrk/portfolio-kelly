@@ -1,25 +1,51 @@
-<h1>
-  <a href="https://kellytruong.netlify.app/" target="_blank">Kelly Truong's Portfolio</a>
-</h1>
+# Kelly Truong · Daydream Portfolio
 
-### <a href="https://kellytruong.netlify.app/" target="_blank">kellytruong.netlify.app/</a>
----
+An editorial portfolio with an original, interactive ASCII bunny, tiny creative experiments, and case studies grounded in real engineering work.
 
-💻 Tools/Frameworks: React.js, JavaScript, CSS (SCSS), JSON, HTML
----
+**Live site (after deployment):** https://kellytruong.netlify.app/
 
-welcome to my porfolio of personal projects! + learning development
+## Built with
+- React and JavaScript in the existing Create React App project
+- SCSS for responsive layout and design tokens
+- Canvas 2D for the ASCII character and spring interactions
+- SVG for illustrations, diagrams, and a tiny interactive garden
 
-<img width="1501" alt="Image" src="https://github.com/user-attachments/assets/ddf20633-0efc-444c-b104-b953989f12dd" />
+## Run locally
 
-### 📸 Live Demo
-https://github.com/user-attachments/assets/1979cd27-4b2a-4e89-b223-eabb40fe6ff8
+```bash
+cd client
+npm install
+npm start
+```
 
----
-## Contact
+Open `http://localhost:3000`.
 
-Kelly Truong - [LinkedIn](https://www.linkedin.com/in/kellybtruong/) 
+## Deploy
 
-Project Link: [https://github.com/superrrk/portfolio-kelly](https://github.com/superrrk/portfolio-kelly)
+The existing `netlify.toml` builds the React app inside `client` and publishes `client/build`.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Résumé
+
+The current uploaded résumé is provided at `client/public/TRUONG_KELLY.pdf`. The visible portfolio content reflects the provided document: IBM, bp, Columbia B.S. Computer Science (expected May 2027), AI-Generated Image Detector and Markowitz Portfolio Optimizer.
+
+## Accessibility
+
+- Mobile-first responsive layout
+- Keyboard-accessible navigation, original interactive bunny, and flower garden
+- Reduced-motion support for ambient animation
+- Clear accessible names and descriptive screenshot alt text
+
+## Editing
+
+- Content and sections: `client/src/components/Home/index.js`
+- Bunny animation: `client/src/components/Home/AsciiBunny.js`
+- Design tokens: `client/src/App.scss`
+- Styling: `client/src/components/Home/index.scss`
+- Résumé: `client/public/TRUONG_KELLY.pdf`
+
+The older components in the repository remain available for reference but are no longer rendered by `App.js`.
+
+
+## November 2026 refresh
+
+This update adds the original interactive ASCII bunny theme, the supplied 2026 headshot, detailed IBM and bp experience from the uploaded résumé, current project descriptions, and the current résumé PDF. Review `README_APPLY.md`; the `DEPLOY_ON_MAC.command` helper can build and publish once local GitHub credentials are available.

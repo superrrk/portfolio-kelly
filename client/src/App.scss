@@ -1,61 +1,22 @@
-$primary-color: #CBF7ED;
-
-@import 'animate.css';
-@import '~loaders.css/src/animations/pacman.scss';
-
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('./assets/fonts/helvetica-neu.ttf') format('ttf');
+:root {
+  --page: #faf9f5;
+  --ink: #354139;
+  --muted: #768579;
+  --soft-ink: #536457;
+  --line: #e3e8df;
+  --sage: #839e8b;
+  --sage-light: #eef2eb;
+  --blush: #cdaaa6;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', 'Baskerville', Georgia, serif;
+  --sans: 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 }
-
-@font-face {
-  font-family: 'La Belle Aurore';
-  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Coolvetica';
-  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0;
-  font: 300 11px/1.4 'Helvetica Neue', 'sans-serif';
-  color: #444;
-  background: #1d1d1d;
-  overflow: visible;
-  display: block;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-input,
-textarea {
-  font-family: 'Gelvetica'
-}
-
-.loader-active {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-  height: 50px;
-  animation: fadeOut 1s 1s;
-  animation-fill-mode: forwards;
-}
+*, *::before, *::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { margin:0; font-family:var(--sans); background:var(--page); color:var(--ink); font-size:15px; -webkit-font-smoothing:antialiased; }
+button, input, textarea { font:inherit; }
+button, a { -webkit-tap-highlight-color:transparent; }
+a { color:inherit; }
+::selection { background:#d4dfd3; color:#27372d; }
+:focus-visible { outline:2px solid #6c937b; outline-offset:4px; }
+@media (prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} *,*::before,*::after {animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important;} }

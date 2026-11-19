@@ -1,520 +1,153 @@
-import './index.scss'
-import { useEffect, useState, useRef } from 'react'
-import AnimatedLetters from '../AnimatedLetters'
-import {
-  faHtml5,
-  faJsSquare,
-  faReact,
-  faGithub,
-  faLinkedin,
-  faSwift,
-  faPython,
-  faJava,
-} from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import emailjs from '@emailjs/browser'
-const Home = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const [loading, setLoading] = useState(true)
-  const form = useRef()
+import { useEffect, useState } from 'react';
+import AsciiBunny from './AsciiBunny';
+import detectorImage from '../../assets/images/image_detector.png';
+import optimizerImage from '../../assets/images/portfolio_optimizer_kelly.png';
+import headshot from '../../assets/images/kelly-headshot-2026.webp';
+import './index.scss';
 
-  useEffect(() => {
-    // Initial loading delay
-    const loadingTimer = setTimeout(() => {
-      setLoading(false)
-    }, 1500)
+const RESUME_URL = `${process.env.PUBLIC_URL || ''}/TRUONG_KELLY.pdf`;
 
-    // Letter animation delay - increased to 5 seconds to ensure all letters are animated
-    const letterTimer = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 5000)
+const education = [
+  'Columbia University · B.S. Computer Science',
+  'Expected May 2027',
+];
 
-    return () => {
-      clearTimeout(loadingTimer)
-      clearTimeout(letterTimer)
-    }
-  }, [])
+const projects = [
+  {
+    no: '01', title: 'AI-Generated Image Detector', type: 'MACHINE LEARNING · FULL STACK',
+    description: 'A full-stack image verification tool combining a PyTorch CNN, Flask API, and React frontend. Achieved 87% accuracy classifying AI-generated versus real faces on a dataset of more than 1,000 images.',
+    skills: ['Python', 'React', 'PyTorch', 'Flask', 'AWS S3'],
+    github: 'https://github.com/superrrk/image-detector',
+    image: detectorImage,
+    alt: 'Screenshot from the AI-Generated Image Detector project',
+    visual: 'image-visual',
+  },
+  {
+    no: '02', title: 'Markowitz Portfolio Optimizer', type: 'DATA ANALYTICS · FULL STACK',
+    description: 'A collaborative financial analysis application that calculates Sharpe ratio and portfolio variance with NumPy, then brings the results to life in interactive Chart.js visualizations.',
+    skills: ['Python', 'Flask', 'React', 'NumPy', 'Chart.js'],
+    github: 'https://github.com/superrrk/portfolio-optimizer',
+    image: optimizerImage,
+    alt: 'Screenshot from the Markowitz Portfolio Optimizer project',
+    visual: 'optimizer-visual',
+  },
+];
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      const headerOffset = 80; // Adjust this value based on your header height
-      const elementPosition = section.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
-
-  // Add scroll performance optimization
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          // Your scroll handling code here if needed
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const projects = [
-    {
-      title: "Portfolio Optimizer",
-      description: "An interactive portfolio optimizer based off the Markowitz model.",
-      image: require("../../assets/images/portfolio_optimizer_kelly.png"),
-      techStack: ["HTML", "CSS", "Python", "Pandas", "NumPy"],
-      demoLink: "https://portfolio-optimizer-app-15a8bb2b8ecf.herokuapp.com/",
-      githubLink: "https://github.com/superrrk/portfolio-optimizer"
-    },
-    {
-      title: "Image Detector",
-      description: "A full-stack web app that detects AI generated vs. real images via a custom trained Convolutional Neural Network (CNN).",
-      image: require("../../assets/images/image_detector.png"),
-      techStack: ["Python", "React", "HTML", "SCSS"],
-      demoLink: "https://demo.project3.com",
-      githubLink: "https://github.com/superrrk/image-detector"
-    },
-    {
-      title: "Portfolio Website",
-      description: "A comprehensive full-stack application that demonstrates modern web development practices and clean architecture.",
-      image: require('../../assets/images/portfolio_kelly.png'),
-      techStack: ["React", "JavaScript", "SCSS", "HTML"],
-      demoLink: "https://demo.project1.com",
-      githubLink: "https://github.com/superrrk/portfolio-kelly"
-    },
-    {
-      title: "VSA Website",
-      description: "A social platform for VSA members to share family photos and track participation points. Features include photo submissions, point counting, and family leaderboards.",
-      image: "https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=300&fit=crop&blur=20&q=10",
-      techStack: ["React", "Node.js", "MongoDB", "Vercel", "Supabase"],
-      demoLink: "https://anhchiem.vercel.app/",
-      githubLink: "https://github.com/tvytran/VSAWebsite"
-    },
-    {
-      title: "QuickSeat",
-      description: "An innovative solution to the reservation bot problem, making it easier for genuine customers to secure their desired dining spots.",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&blur=20&q=10",
-      techStack: ["Python", "FastAPI", "PostgreSQL", "Redis"],
-      demoLink: "https://quickseat-demo.com",
-      githubLink: "https://github.com/superrrk/quickseat"
-    },
-    {
-      title: "Coming Soon...",
-      description: "Something exciting is in the works. Stay tuned for updates on my next project!",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&blur=20&q=10",
-      techStack: ["Coming Soon"],
-      demoLink: "#",
-      githubLink: "#"
-    }
-  ];
-
-  const sendEmail = (e) => {
-    e.preventDefault()
-    if (loading) return
-
-    setLoading(true)
-    emailjs
-      .sendForm(
-        'service_4ett30f',
-        'template_840pcyv',
-        form.current,
-        'J3gvU42uIYaCZmTu_'
-      )
-      .then(() => {
-        alert('Message successfully sent!')
-        setLoading(false)
-        window.location.reload(false)
-      })
-      .catch((error) => {
-        console.error('EmailJS error:', error)
-        alert('Failed to send message, please try again.')
-        setLoading(false)
-      })
-  }
-
+function AgentDiagram() {
+  const points = [[45,82],[133,35],[221,82],[133,132],[307,46],[307,123]];
   return (
-    <>
-      <div className={`main-container ${loading ? 'loading' : 'loaded'}`}>
-        <section id="home" className="home-section">
-          {/* Sparkles for hero section */}
-          <span className="sparkle sparkle-hero-top-left">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 2 L10 7 L16 9 L10 11 L9 16 L8 11 L2 9 L8 7 Z" fill="white" fillOpacity="0.5"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-hero-bottom-right">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.4"/>
-            </svg>
-          </span>
-          <div className="text-zone">
-            <h1>
-              <span className={letterClass}>h</span>
-              <span className={`${letterClass} _12`}>i</span>
-              <span className={`${letterClass} _13`}>,</span>
-              <br />
-              <span className={`${letterClass} _14`}>i</span>
-              <span className={`${letterClass} _15`}>'</span>
-              <span className={`${letterClass} _16`}>m</span>
-              <span className={`${letterClass} _17`}> </span>
-              <span className={`${letterClass} _18 highlight`}>k</span>
-              <span className={`${letterClass} _19 highlight`}>e</span>
-              <span className={`${letterClass} _20 highlight`}>l</span>
-              <span className={`${letterClass} _21 highlight`}>l</span>
-              <span className={`${letterClass} _22 highlight`}>y</span>
-              <span className={`${letterClass} _23`}>,</span>
-              <br />
-              <span className={`${letterClass} _24`}>a</span>
-              <span className={`${letterClass} _25`}> </span>
-              <span className={`${letterClass} _26`}>s</span>
-              <span className={`${letterClass} _27`}>t</span>
-              <span className={`${letterClass} _28`}>u</span>
-              <span className={`${letterClass} _29`}>d</span>
-              <span className={`${letterClass} _30`}>e</span>
-              <span className={`${letterClass} _31`}>n</span>
-              <span className={`${letterClass} _32`}>t</span>
-              <span className={`${letterClass} _33`}> </span>
-              <span className={`${letterClass} _34`}>d</span>
-              <span className={`${letterClass} _35`}>e</span>
-              <span className={`${letterClass} _36`}>v</span>
-              <span className={`${letterClass} _37`}>e</span>
-              <span className={`${letterClass} _38`}>l</span>
-              <span className={`${letterClass} _39`}>o</span>
-              <span className={`${letterClass} _40`}>p</span>
-              <span className={`${letterClass} _41`}>e</span>
-              <span className={`${letterClass} _42`}>r</span>
-              <span className={`${letterClass} _43`}>.</span>
-            </h1>
-            <h2>Student / Developer</h2>
-            <div className="social-icons-landing">
-              <a
-                href="https://github.com/superrrk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faGithub} color="#CBF7ED" />
-              </a>
-              <a
-                href="https://linkedin.com/in/kellybtruong"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faLinkedin} color="#CBF7ED" />
-              </a>
-            </div>
-            <div className="button-container">
-              <button onClick={() => scrollToSection('projects')} className='flat-button'>
-                VIEW PROJECTS
-              </button>
-              <button onClick={() => scrollToSection('contact')} className='flat-button'>
-                CONTACT ME
-              </button>
-            </div>
-          </div>
-          <div className="stage-cube-cont">
-            <div className="cubespinner">
-              <div className="face1">
-                <FontAwesomeIcon icon={faSwift} color="#DD0031" />
-              </div>
-              <div className="face2">
-                <FontAwesomeIcon icon={faHtml5} color="#F06529" />
-              </div>
-              <div className="face3">
-                <FontAwesomeIcon icon={faJava} color="#28A4D9" />
-              </div>
-              <div className="face4">
-                <FontAwesomeIcon icon={faReact} color="#5ED4F4" />
-              </div>
-              <div className="face5">
-                <FontAwesomeIcon icon={faJsSquare} color="#EFD81D" />
-              </div>
-              <div className="face6">
-                <FontAwesomeIcon icon={faPython} color="#EC4D28" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="about-section">
-          {/* Sparkles for about section */}
-          <span className="sparkle sparkle-about-top-right">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.4"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-about-bottom-left">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 1 L5.5 4 L9 5 L5.5 6 L5 9 L4.5 6 L1 5 L4.5 4 Z" fill="white" fillOpacity="0.3"/>
-            </svg>
-          </span>
-          <div className="text-zone">
-            <h1>
-              <AnimatedLetters
-                letterClass={letterClass}
-                strArray={['a', 'b', 'o', 'u', 't', ' ', 'm', 'e']}
-                idx={15}
-              />
-            </h1>
-            <h2>
-              <p>based in <b>New York, NY</b></p>
-              <br></br>
-              <p><b>Computer Science</b></p>
-              <p><b>Sophomore at Columbia University 2027</b></p>
-            </h2>
-            <br>
-            </br>
-            <p>Interested in AI, ML, and full-stack development. </p>
-            <p>Experienced in Python, Java, and C. </p>
-          </div>
-          <div className="button-container">
-              <button onClick={() => window.open('/TRUONG_KELLY.pdf', '_blank')} className='resume-button'>
-                VIEW RESUME
-              </button>
-          </div>
-          <div className="about-image">
-            <img src={require('../../assets/images/headshot.jpeg')} alt="Kelly" />
-          </div>
-        </section>
-
-        <section id="projects" className="projects-section">
-          {/* Sparkles for projects section */}
-          <span className="sparkle sparkle-projects-top-left">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 2 L9 6 L14 8 L9 10 L8 14 L7 10 L2 8 L7 6 Z" fill="white" fillOpacity="0.4"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-projects-bottom-right">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 1 L7 4 L11 6 L7 8 L6 11 L5 8 L1 6 L5 4 Z" fill="white" fillOpacity="0.35"/>
-            </svg>
-          </span>
-          <h2>projects</h2>
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <div 
-                className="project-card" 
-                key={index} 
-                style={{'--index': index}}
-              >
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="project-image"
-                />
-                <div className="project-content">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="tech-stack">
-                    {project.techStack.map((tech, techIndex) => (
-                      <span key={techIndex}>{tech}</span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                      Live Demo
-                    </a>
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="experience" className="experience-section">
-          {/* Sparkles for experience section */}
-          <span className="sparkle sparkle-experience-top-left">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 2 L12 8 L18 10 L12 12 L10 18 L8 12 L2 10 L8 8 Z" fill="white" fillOpacity="0.8"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-experience-bottom-right">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z" fill="white" fillOpacity="0.7"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-experience-mid-left">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 2 L9 6 L14 8 L9 10 L8 14 L7 10 L2 8 L7 6 Z" fill="white" fillOpacity="0.6"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-experience-mid-right">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.5"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-experience-timeline">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 2 L10 7 L16 9 L10 11 L9 16 L8 11 L2 9 L8 7 Z" fill="white" fillOpacity="0.9"/>
-            </svg>
-          </span>
-          {/* New sparkles close to cards */}
-          <span className="sparkle sparkle-experience-card1">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.7"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-experience-card2">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 1 L7 4 L11 6 L7 8 L6 11 L5 8 L1 6 L5 4 Z" fill="white" fillOpacity="0.6"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-experience-card3">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 2 L9 6 L14 8 L9 10 L8 14 L7 10 L2 8 L7 6 Z" fill="white" fillOpacity="0.8"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-experience-card4">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 2 L12 8 L18 10 L12 12 L10 18 L8 12 L2 10 L8 8 Z" fill="white" fillOpacity="0.7"/>
-            </svg>
-          </span>
-          <h2>experience</h2>
-          <div className="timeline">
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <div className="timeline-date">Summer 2025</div>
-                <h3>Quantum Computing Intern</h3>
-                <h4>bp</h4>
-                <ul>
-                  <li>Optimized Mixed Integer Programming (MIP) problems by benchmarking quantum, hybrid, and classical solvers,
-                  mitigated constraint violations in 95% of test cases</li>
-                  <li>Integrated novel QUBO transformation algorithms, improving solver throughput by 80%</li>
-                  <li>Presented results to CTO and Head of Global Sourcing, garnering further funding for quantum computing research</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <div className="timeline-date">2024 - 2025</div>
-                <h3>Research Assistant</h3>
-                <h4>DiTect Lab @Columbia University</h4>
-                <ul>
-                  <li>Developed an IOS application to increase pedestrian safety by alerting the user of incoming traffic via an Apple
-Watch application in XCode, React.js, and Swift alongside the MQTT Protocol</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <div className="timeline-date">Summer 2023</div>
-                <h3>Consultant Intern</h3>
-                <h4>Accenture</h4>
-                <ul>
-                  <li>Produced an MVP (Minimum Viable Product) and a pitch deck addressing efficient and active studying methods
-                  within an all-in-one hub-style app as a personal project</li>
-                  <li>Trained professional storytelling, data analysis, and branding skills to present a group project to 200+ industry
-                  professionals within the Accenture network</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="contact-section">
-          {/* Decorative sparkles */}
-          <span className="sparkle sparkle-left"></span>
-          <span className="sparkle sparkle-right"></span>
-          <span className="sparkle sparkle-bottom-left"></span>
-          {/* New sparkles closer to the form */}
-          <span className="sparkle sparkle-top-left">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 2 L10 7 L16 9 L10 11 L9 16 L8 11 L2 9 L8 7 Z" fill="white" fillOpacity="0.5"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-top-right">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 1 L8 5 L13 7 L8 9 L7 13 L6 9 L1 7 L6 5 Z" fill="white" fillOpacity="0.4"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-mid-left">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 1 L5.5 4 L9 5 L5.5 6 L5 9 L4.5 6 L1 5 L4.5 4 Z" fill="white" fillOpacity="0.3"/>
-            </svg>
-          </span>
-          <span className="sparkle sparkle-mid-right">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 1 L7 4 L11 6 L7 8 L6 11 L5 8 L1 6 L5 4 Z" fill="white" fillOpacity="0.35"/>
-            </svg>
-          </span>
-          {/* End sparkles */}
-          <div className="text-zone">
-            <h1>
-              <AnimatedLetters
-                letterClass={letterClass}
-                strArray={['c', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e']}
-                idx={15}
-              />
-            </h1>
-            <div className="contact-form">
-              <form ref={form} onSubmit={sendEmail}>
-                <ul>
-                  <li className="half">
-                    <input type="text" name="name" placeholder="Name" required />
-                  </li>
-                  <li className="half">
-                    <input type="email" name="email" placeholder="Email" required />
-                  </li>
-                  <li>
-                    <input
-                      placeholder="Subject"
-                      type="text"
-                      name="subject"
-                      required
-                    />
-                  </li>
-                  <li>
-                    <textarea
-                      placeholder="Message"
-                      name="message"
-                      required
-                    ></textarea>
-                  </li>
-                  <li>
-                    <input type="submit" className="flat-button" value="SEND" />
-                  </li>
-                </ul>
-              </form>
-            </div>
-          </div>
-        </section>
-
-        {/* Social Media Icons */}
-        <div className="social-icons">
-          <a
-            href="https://github.com/superrrk"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
-          </a>
-          <a
-            href="https://linkedin.com/in/kellybtruong"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
-          </a>
-        </div>
-      </div>
-    </>
-  )
+    <div className="agent-art" aria-label="Abstract system diagram connecting agents and workflows" role="img">
+      <span className="agent-art-label">AGENT SYSTEMS / FIELD NOTES</span>
+      <svg viewBox="0 0 350 175" aria-hidden="true">
+        <path d="M45 82L133 35L221 82L133 132Z M133 35V132 M45 82H221 M221 82L307 46 M221 82L307 123" fill="none" stroke="#8ca999" strokeWidth="1.25" />
+        {points.map(([x,y],index)=><g key={index}><circle cx={x} cy={y} r={index===2?14:8} fill={index===2?'#adc5b1':'#eef4ed'} stroke="#7f9f8a" strokeWidth="1.4"/><circle cx={x} cy={y} r="2.5" fill="#82a58b" /></g>)}
+        <text x="133" y="161" textAnchor="middle" fill="#718b77" fontSize="9" fontFamily="monospace">state · tools · people</text>
+      </svg>
+      <span className="agent-art-stamp">made of many little moving parts ✳</span>
+    </div>
+  );
 }
 
-export default Home
+function ThreadDivider() {
+  return <svg className="daydream-thread" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 98 C134 140 236 13 345 84 S552 153 637 76 S803 14 852 81 S1053 118 1200 36" /></svg>;
+}
+
+function Garden() {
+  const [flowers, setFlowers] = useState([]);
+  const colors = ['#d5ada6', '#e9cf8a', '#bdcdb8', '#c6b8d1', '#e1bdb6'];
+  const add = () => setFlowers(items => {
+    if(items.length >= 14) return items;
+    const i=items.length;
+    return [...items,{id:i,left:12+((i*47.3)%75),height:68+((i*29)%74),color:colors[i%colors.length]}];
+  });
+  return (
+    <div className="garden-panel" role="group" aria-label="A little flower garden that you can grow">
+      <div className="garden-actions"><button type="button" className="btn btn-dark" onClick={add}>plant a flower ✳</button><button type="button" className="btn btn-quiet" onClick={()=>setFlowers([])}>start fresh ↺</button></div>
+      <div className="garden-canvas" onClick={add} role="button" tabIndex={0} aria-label="Plant a flower" onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();add();}}}>
+        <span className="garden-small-title">AN EXPERIMENT IN GROWING THINGS</span>
+        <span className="garden-count">{String(flowers.length).padStart(2,'0')} / 14</span>
+        <span className="garden-placeholder">{flowers.length===0?'a tiny garden is waiting for you…':''}</span>
+        <span className="garden-ground" aria-hidden="true" />
+        {flowers.map(f=><svg key={f.id} className="garden-flower" style={{left:`${f.left}%`,height:`${f.height}px`}} viewBox="0 0 64 160" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M32 157 Q28 118 32 43" stroke="#8ca98e" strokeWidth="2.5" fill="none" />
+          <path d="M32 109Q10 80 4 94Q8 119 32 123 M30 92Q46 64 59 79Q58 102 30 110" fill="#bed0b9" stroke="#97b09a" strokeWidth="1.2" />
+          <g transform="translate(32 38)" fill={f.color} stroke="#aa9f9a" strokeWidth=".7">
+            {[0,60,120,180,240,300].map(a=><ellipse key={a} transform={`rotate(${a})`} cx="0" cy="-15" rx="9" ry="17"/>)}
+            <circle r="9" fill="#e6c68b" stroke="none"/>
+          </g>
+        </svg>)}
+      </div>
+      <p className="garden-caption">Tiny generative garden · built with React and SVG</p>
+    </div>
+  );
+}
+
+export default function Home() {
+  const [menuOpen,setMenuOpen] = useState(false);
+  useEffect(()=>{
+    if(!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}})},{threshold:.07});
+    document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+    return ()=>observer.disconnect();
+  },[]);
+  const closeMenu=()=>setMenuOpen(false);
+  return (
+    <div className="daydream-site" id="top">
+      <a className="skip-link" href="#work">Skip to work</a>
+      <header className="daydream-header">
+        <div className="site-container header-inner">
+          <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Kelly Truong, back to top">kelly.truong <span>✳</span></a>
+          <button className="mobile-menu-toggle" onClick={()=>setMenuOpen(o=>!o)} aria-label={menuOpen?'Close menu':'Open menu'} aria-controls="daydream-nav" aria-expanded={menuOpen}>{menuOpen?'close ×':'menu +'}</button>
+          <nav id="daydream-nav" className={`header-links ${menuOpen?'is-open':''}`} aria-label="Main navigation">
+            <a onClick={closeMenu} href="#work">work</a><a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">playground</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <section className="site-container hero" id="home" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / CURIOUS MAKER</div>
+            <h1 id="hero-title">hi, i'm <em>kelly.</em></h1>
+            <h2>i make complex things<br/><i>feel a little more human.</i></h2>
+            <p>I'm a Columbia computer science student building AI systems, thoughtful interfaces, and the occasional little daydream.</p>
+            <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my work <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a></div>
+            <div className="hero-side-note"><span>NEW YORK, NY</span><span>EXPECTED GRADUATION · MAY 2027</span></div>
+          </div>
+          <AsciiBunny />
+        </section>
+        <div className="site-container fineprint-strip"><span>001 / A LITTLE CURIOSITY</span><span>AI SYSTEMS ✳ HUMAN-CENTERED SOFTWARE ✳ CREATIVE COMPUTING</span><span>SCROLL TO WANDER ↓</span></div>
+        <section className="site-container section-pad" id="work" aria-labelledby="work-title">
+          <div className="section-header fade-up"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>Interfaces, models, and systems — made to solve problems and make new things possible.</p></div>
+          <article className="work-feature fade-up">
+            <AgentDiagram />
+            <div className="work-feature-copy"><div className="eyebrow">FEATURED EXPERIENCE / IBM · 2026</div><h3>Building for<br/><em>AI agents.</em></h3><p>At IBM, I worked on human-in-the-loop workflows, stateful LangGraph execution, Node.js support in the Agent Development Kit, and file-message handling across the full stack.</p><div className="tag-row"><span>LangGraph</span><span>Node.js</span><span>TypeScript</span><span>Python</span></div><a href="#experience" className="inline-link">read about my experience <span>↗</span></a></div>
+          </article>
+          <div className="project-grid">
+            {projects.map(p=><article className="project-card fade-up" key={p.no}>
+              <div className={`project-image-wrap ${p.visual}`}><div className="project-image-index">{p.no} / PROJECT STUDY</div><img loading="lazy" src={p.image} alt={p.alt}/></div>
+              <div className="project-card-meta">{p.type}</div><h3>{p.title}</h3><p>{p.description}</p><div className="tag-row">{p.skills.map(s=><span key={s}>{s}</span>)}</div><a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer">view source on GitHub <span>↗</span></a>
+            </article>)}
+          </div>
+        </section>
+        <div className="site-container"><ThreadDivider /></div>
+        <section className="site-container section-pad experience-section" id="experience" aria-labelledby="experience-title">
+          <div className="section-header fade-up"><div><div className="eyebrow">02 / THE REAL-WORLD BITS</div><h2 id="experience-title" className="section-heading">a bit of <em>experience.</em></h2></div><p>A few places where I've gotten to turn ideas into working systems.</p></div>
+          <div className="experience-list fade-up">
+            <div className="experience-item"><div className="experience-date">MAY — AUG 2026</div><div><h3>Software Engineering Intern <span>· IBM</span></h3><p>Austin, TX · watsonx Orchestrate / Agent Development Kit</p><ul><li>Implemented checkpoint-backed interrupt messaging across the UI, APIs, and agent runtime, persisting per-task execution state and correlating user responses with the correct paused LangGraph run. This enabled isolated, concurrent human–agent workflows.</li><li>Extended the Agent Development Kit with Node.js support for JavaScript and TypeScript agents, bringing feature parity with Python agents across stateful execution workflows.</li><li>Built end-to-end file-message handling across the UI, APIs, and agent execution boundaries so uploaded documents could enter LangGraph workflows and generated artifacts could return to users.</li></ul></div><span className="experience-ornament">✳</span></div>
+            <div className="experience-item"><div className="experience-date">MAY — AUG 2024</div><div><h3>Software Engineering Intern <span>· bp</span></h3><p>Houston, TX · Optimization / Quantum Computing</p><ul><li>Built benchmarking pipelines comparing quantum, hybrid, and classical solvers for mixed-integer programming (MIP) problems, mitigating constraint violations in 95% of test cases.</li><li>Improved and integrated QUBO transformation algorithms using Python and Qiskit, increasing solver throughput by 80%.</li><li>Presented results to more than 40 stakeholders, connecting technical performance measurements to business impact.</li></ul></div><span className="experience-ornament">✧</span></div>
+          </div>
+          <div className="education-card fade-up"><div className="eyebrow">EDUCATION & COMMUNITY</div><strong>{education[0]}</strong><span>{education[1]}</span><p>QuestBridge National Match Scholar · Gates Scholar · Dell Scholar</p><p>CodePath · iOS Development Honors Certificate (iOS101) · Technical Interview Prep (TIP102)</p><p>Columbia Vietnamese Students Association · VP / Marketing Chair · Columbia Esports Gaming · Treasurer / Marketing</p></div>
+          <div className="skills-area fade-up"><div className="eyebrow">A FEW TOOLS I REACH FOR</div><div className="skills-grid"><div><strong>languages</strong><p>Python · Java · Swift · C · JavaScript · TypeScript · SQL</p></div><div><strong>frameworks & libraries</strong><p>React · Flask · Node.js · LangGraph · PyTorch · NumPy · Chart.js</p></div><div><strong>tools & cloud</strong><p>Git · GitHub Actions · AWS S3 · AWS CLI · Netlify · Xcode · VS Code</p></div></div></div>
+        </section>
+        <section className="about-section" id="about" aria-labelledby="about-title"><div className="site-container about-grid">
+          <div className="about-photo-wrap fade-up"><div className="about-photo-frame"><img loading="lazy" decoding="async" src={headshot} alt="Portrait of Kelly Truong smiling in a white top" /></div><span className="about-doodle doodle-one">✳</span><span className="about-doodle doodle-two">hello, from the other side of the screen ↗</span></div>
+          <div className="about-copy fade-up"><div className="eyebrow">03 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I'm Kelly, a computer science student at Columbia University who likes building at the intersection of systems, design, and the way people actually use technology.</p><p>When I'm away from my keyboard, I'm usually learning a crochet stitch, making matcha, or finding a small creative project to obsess over.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
+        </div></section>
+        <section className="playground-section" id="playground" aria-labelledby="playground-title"><div className="site-container playground-grid">
+          <div className="playground-copy fade-up"><div className="eyebrow">04 / A LITTLE PLAY</div><h2 id="playground-title" className="section-heading">things made<br/><em>just because.</em></h2><p>I like interfaces that invite you to explore. This little interactive garden is one of those things — tap to leave a flower behind.</p><p className="playground-note">✧ a small experiment, no login required</p></div><Garden />
+        </div></section>
+      </main>
+      <footer className="site-container daydream-footer" id="contact"><div className="eyebrow">05 / SAY HELLO</div><h2>have a little <em>idea?</em></h2><p>Whether it's a collaboration, an engineering challenge, or a curious question, I'd love to hear about it.</p><div className="footer-actions"><a className="btn btn-dark" href="mailto:truong.kelly17@gmail.com">send me a note ↗</a><a className="btn btn-light" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a className="btn btn-light" href="https://linkedin.com/in/kellybtruong" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} KELLY TRUONG</span><span>MADE WITH CODE, CURIOSITY & A LITTLE YARN ✳</span><a href="#top">back to top ↑</a></div></footer>
+    </div>
+  );
+}
