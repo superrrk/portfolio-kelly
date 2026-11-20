@@ -275,3 +275,52 @@
 .footer-actions .social-icon-pair{margin-left:3px;}
 @media(max-width:520px){.social-icon-link{height:41px;width:41px;font-size:17px}.hero-ctas .social-icon-pair{margin-left:0}}
 @media(prefers-reduced-motion:reduce){.social-icon-link{transition:none}.social-icon-link:hover{transform:none}}
+
+/* Study Buddy is a group design case study; artwork is illustrative, not a screenshot. */
+.studybuddy-visual{background:#E9EFEA;}
+.studybuddy-illustration{display:grid;place-items:center;width:100%;height:100%;position:relative;padding:28px 15px;color:#506956;}
+.studybuddy-kicker,.studybuddy-visual-note{position:absolute;left:17px;font:9px var(--mono,monospace);letter-spacing:.05em;color:#8AA08F;}
+.studybuddy-kicker{top:14px;}.studybuddy-visual-note{bottom:10px;}
+.studybuddy-window{background:#F9F9F4;border:1px solid #D3DFD3;box-shadow:0 12px 25px #60766017;border-radius:13px;width:min(295px,94%);padding:18px 20px;transform:rotate(-3deg);}
+.studybuddy-window-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font:24px var(--serif,Georgia);letter-spacing:-.02em;}
+.studybuddy-flower{color:#B5A2AF}.studybuddy-dots{font:18px var(--mono,monospace);color:#9AAB9D;}
+.studybuddy-skeleton{display:flex;align-items:center;gap:12px;background:#EFF3EC;padding:11px;border-radius:9px;margin-bottom:8px;}
+.studybuddy-skeleton.alt{background:#F2EDEB;}
+.studybuddy-avatar{width:29px;height:29px;border-radius:50%;background:#DBE5D7;display:grid;place-items:center;color:#8BA38D;}
+.studybuddy-skeleton.alt .studybuddy-avatar{background:#E6D9DD;color:#BD9DA9;}
+.studybuddy-lines{display:grid;gap:6px;flex:1}.studybuddy-lines i{height:5px;background:#CCD9CE;border-radius:4px;max-width:100px}.studybuddy-lines i:last-child{width:60%;opacity:.65}.studybuddy-check{color:#7D9B86;}
+.studybuddy-tags{display:flex;gap:5px;margin-top:12px}.studybuddy-tags span{font:8px var(--mono,monospace);border:1px solid #DFE7DC;padding:5px 8px;border-radius:20px;color:#7D907F;}
+@media(max-width:520px){.studybuddy-window{padding:14px}.studybuddy-window-top{font-size:22px}}
+
+/* v14: consistent editorial inset around Experience heading AND all entries. */
+.daydream-site .experience-section{padding-left:clamp(34px,8vw,118px);padding-right:clamp(34px,8vw,118px);}
+.daydream-site .experience-item{padding-left:clamp(5px,1.2vw,14px);padding-right:clamp(5px,1.2vw,14px);}
+@media(max-width:680px){.daydream-site .experience-section{padding-left:24px;padding-right:24px}.daydream-site .experience-item{padding-left:3px;padding-right:3px}}
+
+/* V15 recruiter polish: legible metadata and calm, confident contrast. */
+.daydream-site .kicker,.daydream-site .eyebrow{font-size:11px;letter-spacing:.085em;color:#59725f;}
+.daydream-site .work-feature p,.daydream-site .project-card>p,.daydream-site .experience-item li{color:#536b5a;}
+.daydream-site .project-card-meta,.daydream-site .experience-date,.daydream-site .project-context{font-size:11px;color:#58715e;}
+.daydream-site .tag-row .tech-tag,.daydream-site .experience-tools .tech-tag{font-size:11px;color:#4e6a56;}
+.daydream-site .work-feature .eyebrow{font-weight:600;}
+.daydream-site .hero-copy>p{max-width:485px;color:#526b58;line-height:1.85;}
+.daydream-site .experience-section .section-header>p{max-width:370px;color:#526b58;}
+@media(max-width:520px){.daydream-site .kicker{font-size:10px;white-space:normal}.daydream-site .eyebrow{font-size:10px}}
+
+/* Compact earlier experience: honest scope, visible proof, no competing hero cards. */
+.earlier-work{margin:56px 0 8px;padding-top:28px;border-top:1px solid var(--line)}
+.earlier-work-intro{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:0 0 23px}
+.earlier-work-intro h3{font:400 clamp(27px,2.8vw,37px)/1.1 var(--serif);letter-spacing:-.035em;color:#425947;margin:0}
+.earlier-work-intro h3 em{color:#94a998;font-weight:400}
+.earlier-work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.earlier-work-card{min-width:0;background:#f4f6f1;border:1px solid #dce6da;border-radius:12px;padding:26px 28px 24px;display:flex;flex-direction:column;gap:0}
+.earlier-work-top{display:flex;justify-content:space-between;gap:14px;color:#809487;font:10px/1.5 var(--mono);letter-spacing:.015em}
+.earlier-work-card h4{font:400 clamp(28px,2.7vw,35px)/1.08 var(--serif);letter-spacing:-.035em;color:#3c5944;margin:17px 0 7px}
+.earlier-work-role{font-size:12px;font-weight:650;color:#526c58!important;margin:0 0 16px!important}
+.earlier-work-card > p:not(.earlier-work-role){font:13px/1.8 var(--sans);color:#65796a;margin:0 0 17px}
+.earlier-work-card > p strong{font-weight:650;color:#385643}
+.earlier-work-tags{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 19px;padding-top:5px}
+.earlier-work-tags span{font:10px/1.3 var(--mono);color:#718675;border:1px solid #dbe5d8;border-radius:50px;padding:6px 9px}
+.earlier-work-card>a{align-self:flex-start;text-decoration:none;color:#456e52;font-size:12px;font-weight:650;border-bottom:1px solid #afc5b2;padding-bottom:4px}
+.earlier-work-card>a:hover{color:#263d2d}
+@media(max-width:780px){.earlier-work-intro{align-items:start;flex-direction:column;gap:8px}.earlier-work-grid{grid-template-columns:1fr}.earlier-work-card{padding:22px 23px}.earlier-work{margin-top:40px}}

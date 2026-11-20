@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faPython, faSwift, faNodeJs, faJs, faGithub, faLinkedin, faGitAlt } from '@fortawesome/free-brands-svg-icons';
 import AsciiBunny from './AsciiBunny';
 import CreativeScenes from './CreativeScenes';
+import CrochetGallery from './CrochetGallery';
 import detectorImage from '../../assets/images/image_detector.png';
 import optimizerImage from '../../assets/images/portfolio_optimizer_kelly.png';
 import headshot from '../../assets/images/kelly-headshot-2026.webp';
@@ -67,7 +68,17 @@ const projects = [
     roadmap: ['Strengthen on-device persistence', 'Edit and delete existing memories', 'Optional song links and multi-photo entries'],
   },
   {
-    no: '03', status: 'COLLABORATIVE BUILD', title: 'Markowitz Portfolio Optimizer', type: 'FINTECH / DATA VISUALIZATION',
+    no: '03', status: 'TEAM UI PROJECT', title: 'Study Buddy', type: 'USER INTERFACE DESIGN / COLUMBIA',
+    description: 'A team-designed semester project for my User Interface Design class at Columbia University. Explore the team project website and Figma design for the interface work.',
+    highlight: 'Collaborative UI design · semester project',
+    skills: ['Figma', 'UI Design', 'Team Project'],
+    site: 'https://www.krgodesign.com/',
+    figma: 'https://www.figma.com/design/sSTbOr0Uc0K6kS1FGANxi8/UI-Semester-Project?t=nm4ZH2jNAE0C46gY-1',
+    visual: 'studybuddy-visual',
+    note: 'Columbia University · team-based course project',
+  },
+  {
+    no: '04', status: 'COLLABORATIVE BUILD', title: 'Markowitz Portfolio Optimizer', type: 'FINTECH / DATA VISUALIZATION',
     description: 'A collaborative web application exploring Modern Portfolio Theory. I implemented risk-return analytics including Sharpe ratio and portfolio variance with NumPy and visualized the efficient frontier using interactive charts.',
     highlight: 'Interactive efficient frontier and portfolio analytics',
     skills: ['Python', 'Flask', 'NumPy', 'Chart.js', 'Git'],
@@ -78,7 +89,7 @@ const projects = [
     note: 'Collaborative project · optimization',
   },
   {
-    no: '04', status: 'LIVE CREATIVE CODE', title: 'ASCII Daydream', type: 'CREATIVE CODING / FRONTEND',
+    no: '05', status: 'LIVE CREATIVE CODE', title: 'ASCII Daydream', type: 'CREATIVE CODING / FRONTEND',
     description: 'This portfolio is a small creative coding experiment: a custom Canvas ASCII bunny with autonomous hopping, flowing glyphs, and a generative flower garden.',
     highlight: 'Custom Canvas animation · responsive, accessible interactions',
     skills: ['React', 'JavaScript', 'Canvas', 'SVG', 'SCSS'],
@@ -88,6 +99,19 @@ const projects = [
     internal: '#playground',
   },
 ];
+
+function StudyBuddyArt() {
+  return <div className="studybuddy-illustration" role="img" aria-label="Abstract editorial illustration for the team Study Buddy UI design project; not a screenshot of the Figma prototype">
+    <span className="studybuddy-kicker">UI DESIGN / COLLABORATION</span>
+    <div className="studybuddy-window">
+      <div className="studybuddy-window-top"><span>study buddy<span className="studybuddy-flower"> ✳</span></span><span className="studybuddy-dots">···</span></div>
+      <div className="studybuddy-skeleton"><span className="studybuddy-avatar">✿</span><div className="studybuddy-lines"><i/><i/></div><span className="studybuddy-check">✓</span></div>
+      <div className="studybuddy-skeleton alt"><span className="studybuddy-avatar">✧</span><div className="studybuddy-lines"><i/><i/></div><span className="studybuddy-check">↗</span></div>
+      <div className="studybuddy-tags"><span>design</span><span>together</span><span>learn</span></div>
+    </div>
+    <span className="studybuddy-visual-note">CONCEPT ART · NOT A FIGMA SCREENSHOT</span>
+  </div>;
+}
 
 function ScrapArt() {
   return <div className="scrap-illustration" role="img" aria-label="Illustration of the Scrap iOS memory journal concept; not a screenshot">
@@ -125,6 +149,7 @@ function AgentDiagram() {
         <text x="133" y="161" textAnchor="middle" fill="#718b77" fontSize="9" fontFamily="monospace">state · tools · people</text>
       </svg>
       <span className="agent-art-stamp">made of many little moving parts ✳</span>
+
     </div>
   );
 }
@@ -135,6 +160,7 @@ function ThreadDivider() {
 
 export default function Home() {
   const [menuOpen,setMenuOpen] = useState(false);
+  const [crochetOpen,setCrochetOpen] = useState(false);
   useEffect(()=>{
     if(!('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}})},{threshold:.07});
@@ -157,10 +183,10 @@ export default function Home() {
       <main>
         <section className="site-container hero" id="home" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / CURIOUS MAKER</div>
+            <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / AI SYSTEMS + PRODUCT</div>
             <h1 id="hero-title">hi, i'm <em>kelly.</em></h1>
             <h2>i make complex things<br/><i>feel a little more human.</i></h2>
-            <p>I'm a Columbia computer science student who builds across AI infrastructure, full-stack systems, and thoughtful iOS experiences — with a soft spot for design.</p>
+            <p>I build AI infrastructure and human-centered software. From agent workflows at IBM to machine-learning tools and native iOS apps, I care about both how systems work and how they feel.</p>
             <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my work <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
             <div className="hero-side-note"><span>NEW YORK, NY</span><span>EXPECTED GRADUATION · MAY 2027</span></div>
           </div>
@@ -168,16 +194,16 @@ export default function Home() {
         </section>
         <div className="site-container fineprint-strip"><span>001 / A LITTLE CURIOSITY</span><span>IBM + BP ✳ AI AGENTS ✳ IOS ✳ CREATIVE COMPUTING</span><span>SCROLL TO WANDER ↓</span></div>
         <section className="site-container section-pad" id="work" aria-labelledby="work-title">
-          <div className="section-header fade-up"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>Selected technical work with real implementation details. The playful experiments have their own space below.</p></div>
+          <div className="section-header fade-up"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>Selected engineering and design projects, with the technical decisions and outcomes behind each one.</p></div>
           <article className="work-feature fade-up">
             <AgentDiagram />
-            <div className="work-feature-copy"><div className="eyebrow">FEATURED EXPERIENCE / IBM · 2026</div><h3>Building for<br/><em>AI agents.</em></h3><p>At IBM, I worked on human-in-the-loop workflows, stateful LangGraph execution, Node.js support in the Agent Development Kit, and file-message handling across the full stack.</p><div className="tag-row">{["LangGraph", "Node.js", "TypeScript", "Python"].map(name => <TechTag key={name} name={name} />)}</div><a href="#experience" className="inline-link">read about my experience <span>↗</span></a></div>
+            <div className="work-feature-copy"><div className="eyebrow">ENGINEERING HIGHLIGHT / IBM · 2026</div><h3>Building for<br/><em>AI agents.</em></h3><p>At IBM, I implemented checkpoint-backed interrupts for concurrent human–agent workflows, extended the ADK with Node.js agent support, and connected files across the UI, APIs, and runtime.</p><div className="tag-row">{["LangGraph", "Node.js", "TypeScript", "Python"].map(name => <TechTag key={name} name={name} />)}</div><a href="#experience" className="inline-link">read about my experience <span>↗</span></a></div>
           </article>
           <div className="project-grid">
             {projects.map(p => <article className="project-card fade-up" key={p.no}>
               <div className={`project-image-wrap ${p.visual}`}>
                 <div className="project-image-index">{p.no} / PROJECT STUDY</div>
-                {p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'scrap-visual' ? <ScrapArt /> : <DaydreamArt />}
+                {p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : <DaydreamArt />}
               </div>
               <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
               <h3>{p.title}</h3>
@@ -186,13 +212,13 @@ export default function Home() {
               <p className="project-highlight"><span aria-hidden="true">✳</span>{p.highlight}</p>
               <div className="tag-row">{p.skills.map(name => <TechTag key={name} name={name}/>)}</div>
               {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
-              <div className="project-actions"><a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> view source <span>↗</span></a>{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
+              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> view source <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">project site <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
             </article>)}
           </div>
         </section>
         <div className="site-container"><ThreadDivider /></div>
         <section className="site-container section-pad experience-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">02 / THE REAL-WORLD BITS</div><h2 id="experience-title" className="section-heading">a bit of <em>experience.</em></h2></div><p>A few places where I've gotten to turn ideas into working systems.</p></div>
+          <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">02 / INDUSTRY EXPERIENCE</div><h2 id="experience-title" className="section-heading">engineering <em>impact.</em></h2></div><p>Building agent infrastructure and optimization systems in professional engineering teams.</p></div>
           <div className="experience-list fade-up">
             <article className="experience-item">
               <div className="experience-date"><span className="experience-index">01 / INDUSTRY</span><time>MAY — AUG 2026</time><span>AUSTIN, TX</span></div>
@@ -222,6 +248,31 @@ export default function Home() {
               <span className="experience-ornament" aria-hidden="true">✧</span>
             </article>
           </div>
+
+          <section className="earlier-work fade-up" aria-label="Earlier engineering and research experience">
+            <div className="earlier-work-intro">
+              <span className="eyebrow">MORE EXPERIENCE / 2024</span>
+              <h3>from games to <em>safer streets.</em></h3>
+            </div>
+            <div className="earlier-work-grid">
+              <article className="earlier-work-card">
+                <div className="earlier-work-top"><span>GAME DEVELOPMENT · NEW YORK</span><span>2024</span></div>
+                <h4>Lunchbox Entertainment</h4>
+                <p className="earlier-work-role">Game Development Intern</p>
+                <p>Tested <strong>Sirocco</strong> during beta, identifying bugs and contributing gameplay feedback and fixes as the team refined the experience.</p>
+                <div className="earlier-work-tags"><span>Game testing</span><span>Debugging</span><span>Playtesting</span></div>
+                <a href="https://www.lunchboxentertainment.com/" target="_blank" rel="noopener noreferrer">studio / Sirocco <span aria-hidden="true">↗</span></a>
+              </article>
+              <article className="earlier-work-card">
+                <div className="earlier-work-top"><span>RESEARCH & DEVELOPMENT · COLUMBIA</span><span>2024</span></div>
+                <h4>DitecT Lab</h4>
+                <p className="earlier-work-role">Software Developer / Research Assistant</p>
+                <p>Worked with a <strong>10-person research team</strong> on an Apple Watch pedestrian-safety prototype, using camera-sourced traffic data and MQTT messaging to support approaching-traffic warnings.</p>
+                <div className="earlier-work-tags"><span>Swift / Xcode</span><span>MQTT</span><span>Wearables</span></div>
+                <a href="https://ditectlab.civil.columbia.edu/safety-warning/" target="_blank" rel="noopener noreferrer">explore the research <span aria-hidden="true">↗</span></a>
+              </article>
+            </div>
+          </section>
           <div className="education-card fade-up"><div className="eyebrow">EDUCATION & COMMUNITY</div><strong>{education[0]}</strong><span>{education[1]}</span><p>QuestBridge National Match Scholar · Gates Scholar · Dell Scholar</p><p>CodePath · iOS Development Honors Certificate (iOS101) · Technical Interview Prep (TIP102)</p><p>Columbia Vietnamese Students Association · VP / Marketing Chair · Columbia Esports Gaming · Treasurer / Marketing</p></div>
           <div className="skills-area fade-up"><div className="eyebrow">A FEW TOOLS I REACH FOR</div><div className="skills-grid"><div><strong>languages</strong><p>Python · Java · Swift · C · JavaScript · TypeScript · SQL</p></div><div><strong>frameworks & libraries</strong><p>React · Flask · Node.js · LangGraph · PyTorch · NumPy · Chart.js</p></div><div><strong>tools & cloud</strong><p>Git · GitHub Actions · AWS S3 · AWS CLI · Netlify · Xcode · VS Code</p></div></div></div>
         </section>
@@ -244,13 +295,14 @@ export default function Home() {
         </section>
         <section className="about-section" id="about" aria-labelledby="about-title"><div className="site-container about-grid">
           <div className="about-photo-wrap fade-up"><div className="about-photo-frame"><img loading="lazy" decoding="async" src={headshot} alt="Portrait of Kelly Truong smiling in a white top" /></div><span className="about-doodle doodle-one">✳</span><span className="about-doodle doodle-two">hello, from the other side of the screen ↗</span></div>
-          <div className="about-copy fade-up"><div className="eyebrow">04 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I'm Kelly, a computer science student at Columbia University who likes building at the intersection of systems, design, and the way people actually use technology.</p><p>I also love how software and visual design influence one another. I'm learning crochet, making matcha, and making space for drawing, product thinking, and new iOS ideas.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
+          <div className="about-copy fade-up"><div className="eyebrow">04 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I'm Kelly, a computer science student at Columbia University who likes building at the intersection of systems, design, and the way people actually use technology.</p><p>I also love how software and visual design influence one another. I'm learning crochet, making matcha, and making space for drawing, product thinking, and new iOS ideas.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><button className="crochet-about-link" type="button" onClick={()=>setCrochetOpen(true)}>little stitches ↗</button><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
         </div></section>
         <section className="playground-section" id="playground" aria-labelledby="playground-title"><div className="site-container playground-grid">
           <div className="playground-copy fade-up"><div className="eyebrow">05 / LITTLE WORLDS</div><h2 id="playground-title" className="section-heading">a little<br/><em>wonder.</em></h2><p>Three tiny scenes. Pick one, then play.</p></div><CreativeScenes />
         </div></section>
       </main>
       <footer className="site-container daydream-footer" id="contact"><div className="eyebrow">06 / SAY HELLO</div><h2>have a little <em>idea?</em></h2><p>Whether it's a collaboration, an engineering challenge, or a curious question, I'd love to hear about it.</p><div className="footer-actions"><a className="btn btn-dark" href="mailto:truong.kelly17@gmail.com">send me a note ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a></span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} KELLY TRUONG</span><span>MADE WITH CODE, CURIOSITY & A LITTLE YARN ✳</span><a href="#top">back to top ↑</a></div></footer>
+      {crochetOpen && <CrochetGallery onClose={()=>setCrochetOpen(false)}/>}
     </div>
   );
 }

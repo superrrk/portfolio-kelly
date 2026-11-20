@@ -1,0 +1,21 @@
+.crochet-about-link{border:0;padding:0;background:none;color:#607c68;border-bottom:1px solid #a5b8a7;font:500 11px/1.6 var(--mono,monospace);margin:20px 23px 0 0;cursor:pointer;transition:color .2s}
+.crochet-about-link:hover{color:#385541}
+.crochet-overlay{position:fixed;inset:0;z-index:1000;background:rgba(35,48,40,.55);padding:clamp(14px,3vw,36px);display:flex;align-items:center;justify-content:center;overflow:auto;overscroll-behavior:contain}
+.crochet-dialog{background:#FAF8F4;color:#344238;width:min(940px,100%);max-height:min(900px,calc(100vh - 30px));overflow:auto;border-radius:16px;box-shadow:0 30px 90px #18271f3d;padding:clamp(20px,4vw,50px);position:relative}
+.crochet-dialog-top{display:flex;justify-content:space-between;align-items:center;gap:15px;font:10px var(--mono,monospace);color:#819383;letter-spacing:.06em}
+.crochet-dialog-top button{border:1px solid #dce4da;border-radius:50px;padding:8px 14px;background:transparent;color:#435a4c;cursor:pointer}
+.crochet-dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0 28px}
+.crochet-dialog-heading h2{font:normal clamp(52px,8vw,90px)/1 var(--serif,Georgia);letter-spacing:-.05em;margin:0 0 8px}
+.crochet-dialog-heading h2 em{color:#90a591;font-weight:400}
+.crochet-dialog-heading p{color:#7e8d80;font-size:13px;margin:0}
+.crochet-dialog-heading>span{font:58px var(--serif,Georgia);color:#C6A6AB;transform:rotate(-12deg);opacity:.7}
+.crochet-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.crochet-photo{margin:0;min-width:0}
+.crochet-photo-space{position:relative;aspect-ratio:4/5;background:linear-gradient(140deg,#eaece5,#eee7e2);border:1px solid #e3e7dc;border-radius:7px;overflow:hidden;display:grid;place-items:center}
+.crochet-photo:nth-child(2n) .crochet-photo-space{background:linear-gradient(145deg,#efe8e9,#e9eee7)}
+.crochet-photo:nth-child(3n) .crochet-photo-space{background:linear-gradient(145deg,#ebe8e2,#e5ede3)}
+.crochet-placeholder{font:68px var(--serif,Georgia);opacity:.45;color:#a7b7a7}
+.crochet-photo-space img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.crochet-photo figcaption{color:#819183;font:10px var(--mono,monospace);padding-top:9px;letter-spacing:.025em}
+.crochet-dialog-footer{color:#a29895;font:italic 19px var(--serif,Georgia);text-align:center;padding-top:22px;margin:0}
+@media(max-width:650px){.crochet-overlay{padding:0}.crochet-dialog{border-radius:0;max-height:100dvh;min-height:100dvh;padding:24px 19px}.crochet-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.crochet-dialog-heading>span{display:none}}

@@ -118,3 +118,29 @@ The new source lives in `client/src/components/Home/CreativeScenes.js` and `Crea
 ## v11 visual refinement
 
 LinkedIn and GitHub are now small monochrome, accessible icon-only links in the hero and contact area. Technical project links retain descriptive labels.
+
+## Study Buddy UI project
+A Columbia team semester UI design project is linked via `krgodesign.com` and the supplied Figma design. Because the linked Figma frames could not be inspected, the visual tile is intentionally an original placeholder rather than a claimed product screenshot. Confirm personal contributions and replace the tile with approved Figma exports before publishing an in-depth case study.
+
+### V12 — Study Buddy / personal sketchbook
+Added Columbia team UI design project Study Buddy with the team website and Figma links. Included a private-to-About crochet photo gallery using six user-provided photos, while keeping the main engineering portfolio uncluttered. Improved the meadow flowers and night sky with restrained animation.
+
+
+## v13 – Illustrated Meadow
+The Meadow scene has been re-illustrated with proportional, multi-petal SVG blooms, curved stems, layered hills, distant grasses, subtle sunlight, and soft depth shading. No new dependencies, with reduced-motion support preserved. Open `preview.html` to test it.
+
+
+## v14 visual refinement
+- Experience now has a consistent, wider inset on desktop and safe mobile spacing.
+- Meadow uses flat, rounded, hand-drawn cartoon petals and a simplified layered landscape without gradients or shadows on the blooms.
+
+
+## V15 recruiter polish
+Read `RECRUITER_REVIEW.md` for changes and the priority checklist.
+
+## V16 — Earlier game and lab experience
+
+Added **Lunchbox Entertainment** (beta testing, development feedback and bug fixes for *Sirocco*) and Columbia's **DitecT Lab** (Apple Watch pedestrian-safety research prototype using Swift/Xcode, camera-sourced data, and MQTT) as compact earlier-experience cards beneath IBM and bp. Both are labeled **2024** rather than claimed to be ongoing because the source résumé is from 2024. Each has a relevant external website link, but no claim that Sirocco servers are currently online. The current 2026 résumé PDF remains unchanged.
+
+
+Deployment lint fix: see `README_DEPLOY_FIX.md`.

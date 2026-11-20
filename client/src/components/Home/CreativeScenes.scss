@@ -70,3 +70,43 @@
 @keyframes duckBobLeft{0%{transform:scaleX(-1) translateY(0) rotate(-1deg)}100%{transform:scaleX(-1) translateY(-3px) rotate(1.5deg)}}
 @media(max-width:520px){.world-duck{width:88px;height:63px}.world-duck.duck-tiny{width:69px;height:51px}}
 @media(prefers-reduced-motion:reduce){.world-duck,.world-duck-svg,.world-duck.duck-left .world-duck-svg{animation:none}.world-duck.duck-left .world-duck-svg{transform:scaleX(-1)}}
+
+/* v12: varied botanical silhouettes instead of identical six-petal blossoms. */
+.world-flower{width:62px;filter:drop-shadow(0 2px 1px rgba(121,148,116,.08));animation:littleFlowerGrow .75s cubic-bezier(.18,1.2,.28,1) both,littleFlowerSway 4.8s ease-in-out var(--flower-delay,0s) infinite alternate}
+.world-meadow{background:linear-gradient(180deg,#F3F6F0 0%,#EAF1E6 63%,#DBE8D6 100%)}
+.world-meadow .world-backdrop-art{opacity:.9}
+@keyframes littleFlowerSway{from{rotate:-2.5deg}to{rotate:2.5deg}}
+
+/* A night worth exploring: a deep gradient, star layers, faint clouds and rare meteor. */
+.world-night{background:radial-gradient(ellipse at 73% 18%,#586773 0%,#374D5A 45%,#233943 100%);border-color:#6D8580}
+.world-night-haze{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 55% 47%,rgba(184,199,187,.10),transparent 62%);z-index:1}
+.world-moon-glow{position:absolute;top:29px;right:15%;width:145px;height:145px;pointer-events:none;border-radius:100%;background:radial-gradient(circle,rgba(246,239,203,.18),rgba(244,230,202,.04) 50%,transparent 75%);z-index:2}
+.world-moon{top:69px;right:20%;width:52px;height:52px;z-index:4;box-shadow:0 0 30px rgba(255,241,202,.15)}
+.world-moon:after{background:#495F6A}
+.world-night-cloud{position:absolute;pointer-events:none;z-index:3;height:32px;width:180px;border-radius:100%;background:rgba(183,197,190,.06);filter:blur(10px);animation:nightCloud 22s ease-in-out infinite alternate}
+.night-cloud-a{top:27%;left:8%}.night-cloud-b{top:55%;right:3%;width:125px;animation-duration:28s;animation-delay:-6s}
+.world-stardust{position:absolute;z-index:4;display:block;border-radius:100%;background:#F3EBD5;opacity:.62;pointer-events:none;box-shadow:0 0 5px rgba(252,239,204,.25);animation:stardustTwinkle var(--star-duration,4s) ease-in-out var(--star-delay,0s) infinite alternate}
+.world-shooting-star{position:absolute;z-index:5;right:-15%;top:8%;height:1px;width:96px;pointer-events:none;transform:rotate(-27deg);transform-origin:right center;background:linear-gradient(90deg,transparent,rgba(247,242,213,.15),rgba(252,244,218,.8));filter:drop-shadow(0 0 3px rgba(255,248,226,.35));opacity:0;animation:shootingStar 12s 4s ease-in-out infinite}
+.world-star{color:#F9E9B6;text-shadow:0 0 12px rgba(252,237,187,.55);z-index:8;animation:littleStarAppear .5s ease-out both,littleStarTwinkle 3.4s .45s ease-in-out infinite alternate}
+.world-night .world-tap-note{color:#CFD8C9}
+@keyframes stardustTwinkle{0%{opacity:.24;transform:scale(.7)}100%{opacity:.9;transform:scale(1.15)}}
+@keyframes nightCloud{from{transform:translateX(-10px)}to{transform:translateX(20px)}}
+@keyframes shootingStar{0%,74%{opacity:0;translate:0 0}76%{opacity:.9}81%{opacity:0;translate:-270px 135px}100%{opacity:0;translate:-270px 135px}}
+@media(max-width:520px){.world-flower{width:52px}.world-moon-glow{right:8%}}
+@media(prefers-reduced-motion:reduce){.world-flower,.world-stardust,.world-night-cloud,.world-shooting-star,.world-star{animation:none}.world-shooting-star{display:none}}
+
+/* v13: layered, botanical meadow. SVG proportions stay intact across all flower heights. */
+.world-meadow{background:#E6EFE6;box-shadow:inset 0 0 0 1px rgba(255,255,255,.32),0 17px 38px rgba(79,105,86,.09)}
+.world-meadow .world-cloud,.world-meadow .world-ground-line,.world-meadow .world-meadow-hill{display:none}
+.world-meadow .world-backdrop-art{opacity:1}
+.world-flower{position:absolute;bottom:17px;left:50%;width:82px;height:160px;max-width:none;overflow:visible;transform-origin:50% 100%;transform:translateX(-50%) scale(var(--flower-size,.9));filter:drop-shadow(1px 5px 2px rgba(57,94,64,.12));animation:meadowBloomIn .7s cubic-bezier(.15,1.1,.28,1) both,meadowWind 5.1s ease-in-out var(--flower-delay,0s) infinite alternate}
+@keyframes meadowBloomIn {from{opacity:0;transform:translateX(-50%) translateY(24px) scale(.2)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(var(--flower-size,.9))}}
+@keyframes meadowWind {from{rotate:-2deg}to{rotate:2deg}}
+@media(max-width:520px){.world-flower{width:68px;height:132px;bottom:15px}}
+@media(prefers-reduced-motion:reduce){.world-flower{animation:none;transform:translateX(-50%) scale(var(--flower-size,.9))}}
+
+/* v14: two-dimensional, playful paper-cut meadow (no petal gradients or 3D shadows). */
+.world-meadow{background:#F3F6EF;box-shadow:none}
+.world-flower{width:67px;height:148px;bottom:12px;filter:none;}
+.world-meadow .world-backdrop-art{opacity:1}
+@media(max-width:520px){.world-flower{width:57px;height:131px;bottom:12px}}
