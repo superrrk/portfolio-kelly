@@ -70,7 +70,6 @@ const projects = [
     github: 'https://github.com/yoav-zibin/course',
     sourceLabel: 'course source code',
     image: buildplayCover,
-    image: buildplayCover,
     alt: 'Pastel BuildPlay project artwork featuring a collaborative tabletop game; concept art, not gameplay footage',
     visual: 'buildplay-visual',
     note: 'Columbia University · Casual Multiplayer Games · team project',
