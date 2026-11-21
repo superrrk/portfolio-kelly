@@ -176,22 +176,6 @@ function DaydreamArt() {
   </div>;
 }
 
-function AgentDiagram() {
-  const points = [[45,82],[133,35],[221,82],[133,132],[307,46],[307,123]];
-  return (
-    <div className="agent-art" aria-label="Abstract system diagram connecting agents and workflows" role="img">
-      <span className="agent-art-label">AGENT SYSTEMS / FIELD NOTES</span>
-      <svg viewBox="0 0 350 175" aria-hidden="true">
-        <path d="M45 82L133 35L221 82L133 132Z M133 35V132 M45 82H221 M221 82L307 46 M221 82L307 123" fill="none" stroke="#8ca999" strokeWidth="1.25" />
-        {points.map(([x,y],index)=><g key={index}><circle cx={x} cy={y} r={index===2?14:8} fill={index===2?'#adc5b1':'#eef4ed'} stroke="#7f9f8a" strokeWidth="1.4"/><circle cx={x} cy={y} r="2.5" fill="#82a58b" /></g>)}
-        <text x="133" y="161" textAnchor="middle" fill="#718b77" fontSize="9" fontFamily="monospace">state · tools · people</text>
-      </svg>
-      <span className="agent-art-stamp">made of many little moving parts ✳</span>
-
-    </div>
-  );
-}
-
 function ThreadDivider() {
   return <svg className="daydream-thread" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 98 C134 140 236 13 345 84 S552 153 637 76 S803 14 852 81 S1053 118 1200 36" /></svg>;
 }
@@ -208,92 +192,34 @@ export default function Home() {
   const closeMenu=()=>setMenuOpen(false);
   return (
     <div className="daydream-site" id="top">
-      <a className="skip-link" href="#work">Skip to work</a>
+      <a className="skip-link" href="#experience">Skip to experience</a>
       <header className="daydream-header">
         <div className="site-container header-inner">
           <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Kelly Truong, back to top">kelly.truong <span>✳</span></a>
           <button className="mobile-menu-toggle" onClick={()=>setMenuOpen(o=>!o)} aria-label={menuOpen?'Close menu':'Open menu'} aria-controls="daydream-nav" aria-expanded={menuOpen}>{menuOpen?'close ×':'menu +'}</button>
           <nav id="daydream-nav" className={`header-links ${menuOpen?'is-open':''}`} aria-label="Main navigation">
-            <a onClick={closeMenu} href="#work">work</a><a onClick={closeMenu} href="#education">education</a><a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#studio">the studio</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">play</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
+            <a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#work">work</a><a onClick={closeMenu} href="#education">education</a><a onClick={closeMenu} href="#studio">the studio</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">play</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
           </nav>
         </div>
       </header>
       <main>
         <section className="site-container hero" id="home" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / AI SYSTEMS + PRODUCT</div>
+            <div className="hero-identity-row">
+              <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / AI SYSTEMS + PRODUCT</div>
+              <div className="hero-photo-stamp"><img src={headshot} alt="Portrait of Kelly Truong" loading="eager" decoding="async" /><span>hello, it's me ✳</span></div>
+            </div>
             <h1 id="hero-title">hi, i'm <em>kelly.</em></h1>
             <h2>i make complex things<br/><i>feel a little more human.</i></h2>
-            <p>I build AI infrastructure and human-centered software. From agent workflows at IBM to machine-learning tools and native iOS apps, I care about both how systems work and how they feel.</p>
-            <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my work <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
+            <p>Columbia CS student and software engineer building AI infrastructure, full-stack applications, and thoughtful products. Previously at IBM and bp.</p>
+            <div className="hero-ctas"><a className="btn btn-dark" href="#experience">see my experience <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
             <div className="hero-side-note"><span>COLUMBIA UNIVERSITY · COMPUTER SCIENCE</span><span>CLASS OF 2027 · NEW YORK</span></div>
           </div>
           <AsciiBunny />
         </section>
-        <div className="site-container fineprint-strip"><span>001 / A LITTLE CURIOSITY</span><span>IBM + BP ✳ AI AGENTS ✳ IOS ✳ CREATIVE COMPUTING</span><span>SCROLL TO WANDER ↓</span></div>
-        <section className="site-container education-spotlight fade-up" id="education" aria-labelledby="education-title">
-          <div className="education-spotlight-heading">
-            <span className="eyebrow">00 / ACADEMIC FOUNDATION</span>
-            <span className="education-spotlight-date">NEW YORK CITY · EXPECTED MAY 2027</span>
-          </div>
-          <div className="education-spotlight-content">
-            <div className="education-spotlight-primary">
-              <h2 id="education-title">Columbia <em>University.</em></h2>
-              <p className="education-spotlight-degree">B.S. in Computer Science</p>
-              <p className="education-spotlight-school">Fu Foundation School of Engineering and Applied Science</p>
-              <div className="education-spotlight-awards" aria-label="Scholarships and honors">
-                <span>QuestBridge National Match Scholar</span>
-                <span>Gates Scholar</span>
-                <span>Dell Scholar</span>
-              </div>
-            </div>
-            <div className="education-spotlight-secondary">
-              <div className="education-spotlight-detail">
-                <h3>Selected coursework</h3>
-                <p>Machine Learning · Artificial Intelligence · Databases · Advanced Programming · Data Structures · Computer Systems · UI Design</p>
-              </div>
-              <div className="education-spotlight-detail">
-                <div className="education-detail-title"><h3>CodePath</h3><span>2025</span></div>
-                <p>Honors Certificate in iOS Development (iOS101) · Technical Interview Preparation (TIP102)</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="site-container section-pad" id="work" aria-labelledby="work-title">
-          <div className="section-header fade-up"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>Selected engineering and design projects, with the technical decisions and outcomes behind each one.</p></div>
-          <article className="work-feature fade-up">
-            <AgentDiagram />
-            <div className="work-feature-copy"><div className="eyebrow">ENGINEERING HIGHLIGHT / IBM · 2026</div><h3>Building for<br/><em>AI agents.</em></h3><p>At IBM, I implemented checkpoint-backed interrupts for concurrent human–agent workflows, extended the ADK with Node.js agent support, and connected files across the UI, APIs, and runtime.</p><div className="tag-row">{["LangGraph", "Node.js", "TypeScript", "Python"].map(name => <TechTag key={name} name={name} />)}</div><a href="#experience" className="inline-link">read about my experience <span>↗</span></a></div>
-          </article>
-          <div className="project-grid">
-            {projects.map(p => <article className="project-card fade-up" key={p.no}>
-              <div className={`project-image-wrap ${p.visual}`}>
-                <div className="project-image-index">{p.no} / PROJECT STUDY</div>
-                {p.forensics && p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
-              </div>
-              <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
-              <h3>{p.title}</h3>
-              <span className="project-context">{p.note}</span>
-              <p>{p.description}</p>
-              <p className="project-highlight"><span aria-hidden="true">✳</span>{p.highlight}</p>
-              <div className="tag-row">{p.skills.map(name => <TechTag key={name} name={name}/>)}</div>
-              {p.forensics && <details className="forensics-case-study"><summary>engineering notes &amp; model evaluation <span aria-hidden="true">↗</span></summary>
-                <div className="forensics-case-body">
-                  <p><strong>What I built.</strong> A responsive, single-view inspection UI with drag-and-drop, clipboard paste, replace-image flow, descriptive image signals and a Flask inference endpoint. Packaged CPU inference in Docker and deployed to Google Cloud Run with a scale-to-zero configuration and readiness checks.</p>
-                  <div className="forensics-metrics" aria-label="Held-out ELSA D3 image generator zero pilot results"><div><strong>88.3%</strong><span>test accuracy</span></div><div><strong>78.3%</strong><span>AI-image recall</span></div><div><strong>1 / 60</strong><span>real images flagged</span></div><div><strong>0.966</strong><span>ROC AUC</span></div></div>
-                  <p><strong>ML workflow.</strong> Built a source-paired manifest with 594 matched real/AI pairs and group-aware train/validation/test splits (475 / 59 / 60 pairs). Trained a pretrained ResNet18 on 950 training images, chose the 79.6% raw-score threshold using validation data, and evaluated once on 120 held-out images.</p>
-                  <p><strong>What didn't work.</strong> Added 1,128 eligible multi-generator training images and excluded 318 held-out examples. The experimental v3 checkpoint scored 75.0% on the original test set versus v2's 88.3%, so I retained v2 instead of shipping the regression.</p>
-                  <p className="forensics-caution"><strong>Important limitation:</strong> these are small, source-specific pilot results, not real-world detection guarantees. The raw output is not a calibrated probability; illustration-heavy and unfamiliar-generator images can be misclassified. Metadata and recompression artifacts are descriptive clues, not proof of authenticity.</p>
-                </div>
-              </details>}
-              {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
-              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> {p.sourceLabel || 'view source'} <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : p.playWeb ? 'play on the web' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
-            </article>)}
-          </div>
-        </section>
-        <div className="site-container"><ThreadDivider /></div>
+        <div className="site-container fineprint-strip"><span>IBM · SOFTWARE ENGINEERING</span><span>BP · OPTIMIZATION &amp; QUANTUM</span><span>COLUMBIA CS · 2027</span></div>
         <section className="site-container section-pad experience-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">02 / INDUSTRY EXPERIENCE</div><h2 id="experience-title" className="section-heading">engineering <em>impact.</em></h2></div><p>Building agent infrastructure and optimization systems in professional engineering teams.</p></div>
+          <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">01 / INDUSTRY EXPERIENCE</div><h2 id="experience-title" className="section-heading">engineering <em>impact.</em></h2></div><p>Building agent infrastructure and optimization systems in professional engineering teams.</p></div>
           <div className="experience-list fade-up">
             <article className="experience-item">
               <div className="experience-date"><span className="experience-index">01 / INDUSTRY</span><time>MAY — AUG 2026</time><span>AUSTIN, TX</span></div>
@@ -350,10 +276,67 @@ export default function Home() {
           </section>
           <div className="skills-area fade-up"><div className="eyebrow">A FEW TOOLS I REACH FOR</div><div className="skills-grid"><div><strong>languages</strong><p>Python · Java · Swift · C · JavaScript · TypeScript · SQL</p></div><div><strong>frameworks & libraries</strong><p>React · Flask · Node.js · LangGraph · PyTorch · NumPy · Chart.js</p></div><div><strong>tools & cloud</strong><p>Git · GitHub Actions · AWS S3 · AWS CLI · Netlify · Xcode · VS Code</p></div></div></div>
         </section>
+        <div className="site-container"><ThreadDivider /></div>
+        <section className="site-container section-pad" id="work" aria-labelledby="work-title">
+          <div className="section-header fade-up"><div><div className="eyebrow">02 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>Selected engineering and design projects, with the technical decisions and outcomes behind each one.</p></div>
+          <div className="project-grid">
+            {projects.map(p => <article className="project-card fade-up" key={p.no}>
+              <div className={`project-image-wrap ${p.visual}`}>
+                <div className="project-image-index">{p.no} / PROJECT STUDY</div>
+                {p.forensics && p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
+              </div>
+              <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
+              <h3>{p.title}</h3>
+              <span className="project-context">{p.note}</span>
+              <p>{p.description}</p>
+              <p className="project-highlight"><span aria-hidden="true">✳</span>{p.highlight}</p>
+              <div className="tag-row">{p.skills.map(name => <TechTag key={name} name={name}/>)}</div>
+              {p.forensics && <details className="forensics-case-study"><summary>engineering notes &amp; model evaluation <span aria-hidden="true">↗</span></summary>
+                <div className="forensics-case-body">
+                  <p><strong>What I built.</strong> A responsive, single-view inspection UI with drag-and-drop, clipboard paste, replace-image flow, descriptive image signals and a Flask inference endpoint. Packaged CPU inference in Docker and deployed to Google Cloud Run with a scale-to-zero configuration and readiness checks.</p>
+                  <div className="forensics-metrics" aria-label="Held-out ELSA D3 image generator zero pilot results"><div><strong>88.3%</strong><span>test accuracy</span></div><div><strong>78.3%</strong><span>AI-image recall</span></div><div><strong>1 / 60</strong><span>real images flagged</span></div><div><strong>0.966</strong><span>ROC AUC</span></div></div>
+                  <p><strong>ML workflow.</strong> Built a source-paired manifest with 594 matched real/AI pairs and group-aware train/validation/test splits (475 / 59 / 60 pairs). Trained a pretrained ResNet18 on 950 training images, chose the 79.6% raw-score threshold using validation data, and evaluated once on 120 held-out images.</p>
+                  <p><strong>What didn't work.</strong> Added 1,128 eligible multi-generator training images and excluded 318 held-out examples. The experimental v3 checkpoint scored 75.0% on the original test set versus v2's 88.3%, so I retained v2 instead of shipping the regression.</p>
+                  <p className="forensics-caution"><strong>Important limitation:</strong> these are small, source-specific pilot results, not real-world detection guarantees. The raw output is not a calibrated probability; illustration-heavy and unfamiliar-generator images can be misclassified. Metadata and recompression artifacts are descriptive clues, not proof of authenticity.</p>
+                </div>
+              </details>}
+              {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
+              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> {p.sourceLabel || 'view source'} <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : p.playWeb ? 'play on the web' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
+            </article>)}
+          </div>
+        </section>
+        <section className="site-container education-spotlight fade-up" id="education" aria-labelledby="education-title">
+          <div className="education-spotlight-heading">
+            <span className="eyebrow">03 / EDUCATION & TRAINING</span>
+            <span className="education-spotlight-date">NEW YORK CITY · EXPECTED MAY 2027</span>
+          </div>
+          <div className="education-spotlight-content">
+            <div className="education-spotlight-primary">
+              <h2 id="education-title">Columbia <em>University.</em></h2>
+              <p className="education-spotlight-degree">B.S. in Computer Science</p>
+              <p className="education-spotlight-school">Fu Foundation School of Engineering and Applied Science</p>
+              <div className="education-spotlight-awards" aria-label="Scholarships and honors">
+                <span>QuestBridge National Match Scholar</span>
+                <span>Gates Scholar</span>
+                <span>Dell Scholar</span>
+              </div>
+            </div>
+            <div className="education-spotlight-secondary">
+              <div className="education-spotlight-detail">
+                <h3>Selected coursework</h3>
+                <p>Machine Learning · Artificial Intelligence · Databases · Advanced Programming · Data Structures · Computer Systems · UI Design</p>
+              </div>
+              <div className="education-spotlight-detail">
+                <div className="education-detail-title"><h3>CodePath</h3><span>2025</span></div>
+                <p>Honors Certificate in iOS Development (iOS101) · Technical Interview Preparation (TIP102)</p>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="studio-section" id="studio" aria-labelledby="studio-title">
           <div className="site-container">
             <div className="studio-header fade-up">
-              <div><div className="eyebrow">03 / THE CREATIVE STUDIO</div><h2 id="studio-title" className="section-heading">in the <em>oven.</em></h2></div>
+              <div><div className="eyebrow">04 / THE CREATIVE STUDIO</div><h2 id="studio-title" className="section-heading">in the <em>oven.</em></h2></div>
               <div className="studio-intro"><p>Not every idea begins as a finished product. This is where iOS design and small interactive experiments keep evolving.</p><span>WORK IN PROGRESS / IDEAS ARE NOT SHIPPED FEATURES</span></div>
             </div>
             <div className="studio-grid">
@@ -368,14 +351,13 @@ export default function Home() {
           </div>
         </section>
         <section className="about-section" id="about" aria-labelledby="about-title"><div className="site-container about-grid">
-          <div className="about-photo-wrap fade-up"><div className="about-photo-frame"><img loading="lazy" decoding="async" src={headshot} alt="Portrait of Kelly Truong smiling in a white top" /></div><span className="about-doodle doodle-one">✳</span><span className="about-doodle doodle-two">hello, from the other side of the screen ↗</span></div>
-          <div className="about-copy fade-up"><div className="eyebrow">04 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I'm Kelly, a computer science student at Columbia University who likes building at the intersection of systems, design, and the way people actually use technology.</p><p>I also love how software and visual design influence one another. I'm learning crochet, making matcha, and making space for drawing, product thinking, and new iOS ideas.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><button className="crochet-about-link" type="button" onClick={()=>setCrochetOpen(true)}>little stitches ↗</button><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
+          <div className="about-copy fade-up"><div className="eyebrow">05 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I enjoy working where engineering meets design—making complex systems reliable, useful, and easier to understand.</p><p>Outside engineering, I sketch, crochet, and experiment with small interactive ideas. There is usually matcha involved.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><button className="crochet-about-link" type="button" onClick={()=>setCrochetOpen(true)}>little stitches ↗</button><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
         </div></section>
         <section className="playground-section" id="playground" aria-labelledby="playground-title"><div className="site-container playground-grid">
-          <div className="playground-copy fade-up"><div className="eyebrow">05 / LITTLE WORLDS</div><h2 id="playground-title" className="section-heading">a little<br/><em>wonder.</em></h2><p>Three tiny scenes. Pick one, then play.</p></div><CreativeScenes />
+          <div className="playground-copy fade-up"><div className="eyebrow">06 / LITTLE WORLDS</div><h2 id="playground-title" className="section-heading">a little<br/><em>wonder.</em></h2><p>Three tiny scenes. Pick one, then play.</p></div><CreativeScenes />
         </div></section>
       </main>
-      <footer className="site-container daydream-footer" id="contact"><div className="eyebrow">06 / SAY HELLO</div><h2>have a little <em>idea?</em></h2><p>Whether it's a collaboration, an engineering challenge, or a curious question, I'd love to hear about it.</p><div className="footer-actions"><a className="btn btn-dark" href="mailto:truong.kelly17@gmail.com">send me a note ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a></span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} KELLY TRUONG</span><span>MADE WITH CODE, CURIOSITY & A LITTLE YARN ✳</span><a href="#top">back to top ↑</a></div></footer>
+      <footer className="site-container daydream-footer" id="contact"><div className="eyebrow">07 / SAY HELLO</div><h2>have a little <em>idea?</em></h2><p>Whether it's a collaboration, an engineering challenge, or a curious question, I'd love to hear about it.</p><div className="footer-actions"><a className="btn btn-dark" href="mailto:truong.kelly17@gmail.com">send me a note ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a></span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} KELLY TRUONG</span><span>MADE WITH CODE, CURIOSITY & A LITTLE YARN ✳</span><a href="#top">back to top ↑</a></div></footer>
       {crochetOpen && <CrochetGallery onClose={()=>setCrochetOpen(false)}/>}
     </div>
   );
