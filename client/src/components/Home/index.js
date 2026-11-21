@@ -101,6 +101,16 @@ const projects = [
     note: 'You are exploring it right now',
     internal: '#playground',
   },
+  {
+    no: '06', status: 'PLAY ONLINE · IOS IN TESTFLIGHT', title: 'BuildPlay', type: 'CASUAL MULTIPLAYER GAMES / COLUMBIA',
+    description: 'A collaborative class project created with my teammates for Casual Multiplayer Games at Columbia University. The web experience is available to play now; the companion iOS app is currently in TestFlight as our team prepares for a public release.',
+    highlight: 'Playable web experience · companion iOS app in testing',
+    skills: ['Multiplayer', 'Web', 'iOS', 'Team Project'],
+    site: 'https://buildplay.fun/',
+    visual: 'buildplay-visual',
+    note: 'Columbia University · Casual Multiplayer Games · team project',
+    playWeb: true,
+  },
 ];
 
 function ForensicsArt() {
@@ -111,6 +121,21 @@ function ForensicsArt() {
       <div className="forensics-preview-signals"><span className="forensics-preview-label">02 / INSPECTION</span><strong>Look closer.</strong><div><i/><i/><i/></div><span className="forensics-preview-hint">signals ≠ proof</span></div>
     </div>
     <span className="forensics-preview-footer">PYTORCH / FLASK / CLOUD RUN <span>↗</span></span>
+  </div>;
+}
+
+function BuildPlayArt() {
+  return <div className="buildplay-art" role="img" aria-label="Decorative, abstract card for the BuildPlay multiplayer game project; not a gameplay screenshot">
+    <div className="buildplay-art-header"><span>buildplay<span aria-hidden="true">✳</span></span><span>web / ios</span></div>
+    <div className="buildplay-art-stage" aria-hidden="true">
+      <span className="buildplay-art-piece one">✳</span>
+      <span className="buildplay-art-piece two">●</span>
+      <span className="buildplay-art-piece three">✦</span>
+      <span className="buildplay-art-piece four">◆</span>
+      <div className="buildplay-art-orbit orbit-one"/><div className="buildplay-art-orbit orbit-two"/>
+    </div>
+    <div className="buildplay-art-bottom"><span>little games, better together.</span><span>PLAY ↗</span></div>
+    <span className="buildplay-art-disclaimer">ILLUSTRATIVE CARD · NOT GAMEPLAY</span>
   </div>;
 }
 
@@ -220,7 +245,7 @@ export default function Home() {
                 {p.forensics && p.image ? <div className="forensics-browser-frame">
                   <div className="forensics-browser-bar" aria-hidden="true"><span className="forensics-browser-dots"><i/><i/><i/></span><span className="forensics-browser-url">image-forensics-lab · live app preview</span><span className="forensics-browser-globe">↗</span></div>
                   <img loading="lazy" src={p.image} alt={p.alt} />
-                </div> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : <DaydreamArt />}
+                </div> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
               </div>
               <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
               <h3>{p.title}</h3>
@@ -238,7 +263,7 @@ export default function Home() {
                 </div>
               </details>}
               {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
-              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> view source <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
+              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> view source <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : p.playWeb ? 'play on the web' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
             </article>)}
           </div>
         </section>
