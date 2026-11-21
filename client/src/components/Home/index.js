@@ -4,7 +4,8 @@ import { faReact, faPython, faSwift, faNodeJs, faJs, faGithub, faLinkedin, faGit
 import AsciiBunny from './AsciiBunny';
 import CreativeScenes from './CreativeScenes';
 import CrochetGallery from './CrochetGallery';
-import detectorImage from '../../assets/images/image_forensics_screenshot.png';
+import detectorImage from '../../assets/images/image_forensics_ai_or_not_preview.webp';
+import buildplayCover from '../../assets/images/buildplay-cover.webp';
 import optimizerImage from '../../assets/images/portfolio_optimizer_kelly.png';
 import headshot from '../../assets/images/kelly-headshot-2026.webp';
 import './index.scss';
@@ -55,13 +56,25 @@ const projects = [
     site: 'https://image-forensics-lab-b2kau74dlq-ue.a.run.app',
     github: 'https://github.com/superrrk/image-detector',
     image: detectorImage,
-    alt: 'Actual Image Forensics Lab interface showing upload and forensic inspection panels',
+    alt: 'Illustrative AI or Not portfolio preview featuring a fictional pastel landscape and an AI-like example verdict, not a live prediction',
     visual: 'forensics-visual',
     note: 'ResNet18-v2 · ELSA_D3 pilot · validation-selected threshold',
     forensics: true,
   },
   {
-    no: '02', status: 'IOS CAPSTONE', title: 'Scrap', type: 'IOS DEVELOPMENT / PRODUCT DESIGN',
+    no: '02', status: 'PLAY ONLINE · IOS IN TESTFLIGHT', title: 'BuildPlay', type: 'CASUAL MULTIPLAYER GAMES / COLUMBIA',
+    description: 'A collaborative class project created with my teammates for Casual Multiplayer Games at Columbia University. The web experience is available to play now; the companion iOS app is currently in TestFlight as our team prepares for a public release.',
+    highlight: 'Playable web experience · companion iOS app in testing',
+    skills: ['Multiplayer', 'Web', 'iOS', 'Team Project'],
+    site: 'https://buildplay.fun/',
+    image: buildplayCover,
+    alt: 'Pastel BuildPlay project artwork featuring a collaborative tabletop game; concept art, not gameplay footage',
+    visual: 'buildplay-visual',
+    note: 'Columbia University · Casual Multiplayer Games · team project',
+    playWeb: true,
+  },
+  {
+    no: '03', status: 'IOS CAPSTONE', title: 'Scrap', type: 'IOS DEVELOPMENT / PRODUCT DESIGN',
     description: 'An iOS memory scrapbook for couples and friends. Built in Swift and UIKit, it lets people capture a photo, date and caption, choose a background color, browse a memory feed, and open individual memory pages.',
     highlight: 'Native iOS experience · photo-based memory cards',
     skills: ['Swift', 'UIKit', 'Xcode', 'iOS'],
@@ -71,7 +84,7 @@ const projects = [
     roadmap: ['Strengthen on-device persistence', 'Edit and delete existing memories', 'Optional song links and multi-photo entries'],
   },
   {
-    no: '03', status: 'TEAM UI PROJECT', title: 'Study Buddy', type: 'USER INTERFACE DESIGN / COLUMBIA',
+    no: '04', status: 'TEAM UI PROJECT', title: 'Study Buddy', type: 'USER INTERFACE DESIGN / COLUMBIA',
     description: 'A team-designed semester project for my User Interface Design class at Columbia University. Explore the team project website and Figma design for the interface work.',
     highlight: 'Collaborative UI design · semester project',
     skills: ['Figma', 'UI Design', 'Team Project'],
@@ -81,7 +94,7 @@ const projects = [
     note: 'Columbia University · team-based course project',
   },
   {
-    no: '04', status: 'COLLABORATIVE BUILD', title: 'Markowitz Portfolio Optimizer', type: 'FINTECH / DATA VISUALIZATION',
+    no: '05', status: 'COLLABORATIVE BUILD', title: 'Markowitz Portfolio Optimizer', type: 'FINTECH / DATA VISUALIZATION',
     description: 'A collaborative web application exploring Modern Portfolio Theory. I implemented risk-return analytics including Sharpe ratio and portfolio variance with NumPy and visualized the efficient frontier using interactive charts.',
     highlight: 'Interactive efficient frontier and portfolio analytics',
     skills: ['Python', 'Flask', 'NumPy', 'Chart.js', 'Git'],
@@ -92,7 +105,7 @@ const projects = [
     note: 'Collaborative project · optimization',
   },
   {
-    no: '05', status: 'LIVE CREATIVE CODE', title: 'ASCII Daydream', type: 'CREATIVE CODING / FRONTEND',
+    no: '06', status: 'LIVE CREATIVE CODE', title: 'ASCII Daydream', type: 'CREATIVE CODING / FRONTEND',
     description: 'This portfolio is a small creative coding experiment: a custom Canvas ASCII bunny with autonomous hopping, flowing glyphs, and a generative flower garden.',
     highlight: 'Custom Canvas animation · responsive, accessible interactions',
     skills: ['React', 'JavaScript', 'Canvas', 'SVG', 'SCSS'],
@@ -100,16 +113,6 @@ const projects = [
     visual: 'daydream-visual',
     note: 'You are exploring it right now',
     internal: '#playground',
-  },
-  {
-    no: '06', status: 'PLAY ONLINE · IOS IN TESTFLIGHT', title: 'BuildPlay', type: 'CASUAL MULTIPLAYER GAMES / COLUMBIA',
-    description: 'A collaborative class project created with my teammates for Casual Multiplayer Games at Columbia University. The web experience is available to play now; the companion iOS app is currently in TestFlight as our team prepares for a public release.',
-    highlight: 'Playable web experience · companion iOS app in testing',
-    skills: ['Multiplayer', 'Web', 'iOS', 'Team Project'],
-    site: 'https://buildplay.fun/',
-    visual: 'buildplay-visual',
-    note: 'Columbia University · Casual Multiplayer Games · team project',
-    playWeb: true,
   },
 ];
 
@@ -242,10 +245,7 @@ export default function Home() {
             {projects.map(p => <article className="project-card fade-up" key={p.no}>
               <div className={`project-image-wrap ${p.visual}`}>
                 <div className="project-image-index">{p.no} / PROJECT STUDY</div>
-                {p.forensics && p.image ? <div className="forensics-browser-frame">
-                  <div className="forensics-browser-bar" aria-hidden="true"><span className="forensics-browser-dots"><i/><i/><i/></span><span className="forensics-browser-url">image-forensics-lab · live app preview</span><span className="forensics-browser-globe">↗</span></div>
-                  <img loading="lazy" src={p.image} alt={p.alt} />
-                </div> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
+                {p.forensics && p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
               </div>
               <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
               <h3>{p.title}</h3>
