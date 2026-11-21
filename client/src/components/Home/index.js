@@ -87,7 +87,7 @@ const projects = [
   },
   {
     no: '04', status: 'TEAM UI PROJECT', title: 'Study Buddy', type: 'USER INTERFACE DESIGN / COLUMBIA',
-    description: 'A team-designed semester project for my User Interface Design class at Columbia University. Explore the team project website and Figma design for the interface work.',
+    description: 'Explore the team project website and Figma design for the interface work.',
     highlight: 'Collaborative UI design · semester project',
     skills: ['Figma', 'UI Design', 'Team Project'],
     figma: 'https://www.figma.com/design/sSTbOr0Uc0K6kS1FGANxi8/UI-Semester-Project?t=nm4ZH2jNAE0C46gY-1',
