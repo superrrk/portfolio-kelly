@@ -47,15 +47,16 @@ const studioIdeas = [
 
 const projects = [
   {
-    no: '01', status: 'BUILT + TESTED', title: 'AI-Generated Image Detector', type: 'MACHINE LEARNING / FULL STACK',
-    description: 'A full-stack tool for checking whether face images are AI-generated. I trained a custom PyTorch CNN, exposed predictions through Flask, and built an interactive React interface with model confidence and saliency maps.',
-    highlight: '87% accuracy on a 1,000+ image dataset',
-    skills: ['Python', 'PyTorch', 'Flask', 'React', 'AWS S3'],
+    // image-forensics-case-study-v1: documented pilot results; not a universal authenticity verdict.
+    no: '01', status: 'LIVE · EXPERIMENTAL', title: 'Image Forensics Lab', type: 'COMPUTER VISION / FULL-STACK ENGINEERING',
+    description: 'An interactive image-forensics lab, built end-to-end: upload, drag-and-drop or paste JPEG/PNG/WEBP images; inspect EXIF, sharpness, entropy and recompression differences; and run an experimental PyTorch ResNet18 classifier through a Flask API. Deployed as a Docker container on Google Cloud Run.',
+    highlight: '88.3% held-out pilot accuracy · 1.7% false-positive rate (n=120)',
+    skills: ['Python', 'PyTorch', 'Flask', 'Docker', 'Google Cloud Run'],
+    site: 'https://image-forensics-lab-b2kau74dlq-ue.a.run.app',
     github: 'https://github.com/superrrk/image-detector',
-    image: detectorImage,
-    alt: 'Screenshot of the AI-generated image detector interface',
-    visual: 'image-visual',
-    note: 'Deep learning · deployed application',
+    visual: 'forensics-visual',
+    note: 'ResNet18-v2 · ELSA_D3 pilot · validation-selected threshold',
+    forensics: true,
   },
   {
     no: '02', status: 'IOS CAPSTONE', title: 'Scrap', type: 'IOS DEVELOPMENT / PRODUCT DESIGN',
@@ -99,6 +100,17 @@ const projects = [
     internal: '#playground',
   },
 ];
+
+function ForensicsArt() {
+  return <div className="forensics-illustration" role="img" aria-label="Editorial preview of Image Forensics Lab showing an image upload and measured image signals; this is an illustration, not a model prediction">
+    <div className="forensics-illustration-head"><span>image<span className="forensics-slash">/</span>forensics<span className="forensics-period">.</span></span><span>LIVE LAB ↗</span></div>
+    <div className="forensics-preview-columns">
+      <div className="forensics-preview-upload"><span className="forensics-preview-label">01 / YOUR IMAGE</span><span className="forensics-preview-glyph" aria-hidden="true">✳</span><span>drop · paste · upload</span></div>
+      <div className="forensics-preview-signals"><span className="forensics-preview-label">02 / INSPECTION</span><strong>Look closer.</strong><div><i/><i/><i/></div><span className="forensics-preview-hint">signals ≠ proof</span></div>
+    </div>
+    <span className="forensics-preview-footer">PYTORCH / FLASK / CLOUD RUN <span>↗</span></span>
+  </div>;
+}
 
 function StudyBuddyArt() {
   return <div className="studybuddy-illustration" role="img" aria-label="Abstract editorial illustration for the team Study Buddy UI design project; not a screenshot of the Figma prototype">
@@ -203,7 +215,7 @@ export default function Home() {
             {projects.map(p => <article className="project-card fade-up" key={p.no}>
               <div className={`project-image-wrap ${p.visual}`}>
                 <div className="project-image-index">{p.no} / PROJECT STUDY</div>
-                {p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : <DaydreamArt />}
+                {p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : <DaydreamArt />}
               </div>
               <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
               <h3>{p.title}</h3>
@@ -211,8 +223,17 @@ export default function Home() {
               <p>{p.description}</p>
               <p className="project-highlight"><span aria-hidden="true">✳</span>{p.highlight}</p>
               <div className="tag-row">{p.skills.map(name => <TechTag key={name} name={name}/>)}</div>
+              {p.forensics && <details className="forensics-case-study"><summary>engineering notes &amp; model evaluation <span aria-hidden="true">↗</span></summary>
+                <div className="forensics-case-body">
+                  <p><strong>What I built.</strong> A responsive, single-view inspection UI with drag-and-drop, clipboard paste, replace-image flow, descriptive image signals and a Flask inference endpoint. Packaged CPU inference in Docker and deployed to Google Cloud Run with a scale-to-zero configuration and readiness checks.</p>
+                  <div className="forensics-metrics" aria-label="Held-out ELSA D3 image generator zero pilot results"><div><strong>88.3%</strong><span>test accuracy</span></div><div><strong>78.3%</strong><span>AI-image recall</span></div><div><strong>1 / 60</strong><span>real images flagged</span></div><div><strong>0.966</strong><span>ROC AUC</span></div></div>
+                  <p><strong>ML workflow.</strong> Built a source-paired manifest with 594 matched real/AI pairs and group-aware train/validation/test splits (475 / 59 / 60 pairs). Trained a pretrained ResNet18 on 950 training images, chose the 79.6% raw-score threshold using validation data, and evaluated once on 120 held-out images.</p>
+                  <p><strong>What didn't work.</strong> Added 1,128 eligible multi-generator training images and excluded 318 held-out examples. The experimental v3 checkpoint scored 75.0% on the original test set versus v2's 88.3%, so I retained v2 instead of shipping the regression.</p>
+                  <p className="forensics-caution"><strong>Important limitation:</strong> these are small, source-specific pilot results, not real-world detection guarantees. The raw output is not a calibrated probability; illustration-heavy and unfamiliar-generator images can be misclassified. Metadata and recompression artifacts are descriptive clues, not proof of authenticity.</p>
+                </div>
+              </details>}
               {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
-              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> view source <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">project site <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
+              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> view source <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
             </article>)}
           </div>
         </section>

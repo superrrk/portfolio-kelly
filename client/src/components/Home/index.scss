@@ -324,3 +324,30 @@
 .earlier-work-card>a{align-self:flex-start;text-decoration:none;color:#456e52;font-size:12px;font-weight:650;border-bottom:1px solid #afc5b2;padding-bottom:4px}
 .earlier-work-card>a:hover{color:#263d2d}
 @media(max-width:780px){.earlier-work-intro{align-items:start;flex-direction:column;gap:8px}.earlier-work-grid{grid-template-columns:1fr}.earlier-work-card{padding:22px 23px}.earlier-work{margin-top:40px}}
+
+
+/* Image Forensics Lab — editorial case study, intentionally matches existing sage/cream palette. */
+.forensics-visual{background:#e8ede6;padding:32px 25px 20px}
+.forensics-illustration{width:100%;height:100%;background:#faf9f5;border:1px solid #dce4d9;border-radius:11px;padding:16px 17px 12px;display:flex;flex-direction:column;box-shadow:0 15px 28px #4a535314;min-width:0}
+.forensics-illustration-head{display:flex;align-items:center;justify-content:space-between;gap:8px;font:600 15px/1.1 Arial,sans-serif;color:#233b35;letter-spacing:-.06em}
+.forensics-illustration-head>span:last-child{font:9px var(--mono);letter-spacing:0;color:#7b8c80}
+.forensics-slash,.forensics-period{color:#aa7158}
+.forensics-preview-columns{display:grid;grid-template-columns:1fr 1fr;gap:11px;flex:1;min-height:0;margin:16px 0 10px}
+.forensics-preview-upload,.forensics-preview-signals{border:1px solid #e2e7de;border-radius:8px;padding:12px;min-width:0;background:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.forensics-preview-upload{align-items:center;border-style:dashed;background:#f5f7f2;color:#789080;font:10px var(--mono);text-align:center}
+.forensics-preview-label{font:9px var(--mono);color:#8d978d;align-self:flex-start}
+.forensics-preview-glyph{font:68px/1 var(--serif);color:#bd8b72}
+.forensics-preview-signals strong{font:400 clamp(19px,2vw,29px)/1.1 var(--serif);color:#315247}
+.forensics-preview-signals>div{display:grid;gap:7px}.forensics-preview-signals i{display:block;height:7px;border-radius:20px;background:#e4eae2}.forensics-preview-signals i:nth-child(2){width:72%;background:#adc4ae}.forensics-preview-signals i:nth-child(3){width:87%}
+.forensics-preview-hint{font:10px var(--mono);color:#a4816c}
+.forensics-preview-footer{display:flex;justify-content:space-between;color:#829588;font:9px var(--mono)}
+.forensics-case-study{border-top:1px solid #dae5d9;border-bottom:1px solid #dae5d9;margin:8px 0 22px;padding:12px 0}
+.forensics-case-study summary{cursor:pointer;font-size:12px;font-weight:650;color:#41644e;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.forensics-case-study summary::-webkit-details-marker{display:none}.forensics-case-study summary:focus-visible{outline:2px solid #617f64;outline-offset:4px}
+.forensics-case-study[open] summary{margin-bottom:16px}
+.forensics-case-body p{font-size:12px;line-height:1.75;color:#647669;margin:12px 0}
+.forensics-case-body p strong{color:#375743}.forensics-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.forensics-metrics>div{display:flex;flex-direction:column;gap:3px;border:1px solid #e0e9db;border-radius:8px;background:#f3f6f0;padding:10px}
+.forensics-metrics strong{font:500 23px var(--serif);color:#345c44}.forensics-metrics span{font:9px var(--mono);color:#718b79}
+.forensics-case-body .forensics-caution{border-left:2px solid #b58a73;padding-left:11px;color:#845e4e}
+@media(max-width:520px){.forensics-visual{padding:26px 15px 15px}.forensics-illustration{padding:12px}.forensics-preview-columns{gap:7px}.forensics-preview-upload,.forensics-preview-signals{padding:8px}.forensics-preview-glyph{font-size:45px}}
