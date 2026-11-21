@@ -90,7 +90,6 @@ const projects = [
     description: 'A team-designed semester project for my User Interface Design class at Columbia University. Explore the team project website and Figma design for the interface work.',
     highlight: 'Collaborative UI design · semester project',
     skills: ['Figma', 'UI Design', 'Team Project'],
-    site: 'https://www.krgodesign.com/',
     figma: 'https://www.figma.com/design/sSTbOr0Uc0K6kS1FGANxi8/UI-Semester-Project?t=nm4ZH2jNAE0C46gY-1',
     visual: 'studybuddy-visual',
     note: 'Columbia University · team-based course project',
