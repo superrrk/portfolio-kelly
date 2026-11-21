@@ -385,3 +385,134 @@
 .buildplay-art-bottom>span:last-child { font:11px var(--mono); letter-spacing:.07em; color:#8a9d8f; }
 .buildplay-art-disclaimer { position:absolute; right:21px; bottom:5px; font:8px var(--mono); color:#aaa9a0; }
 @media (max-width:520px) { .buildplay-visual{padding:25px 14px 16px}.buildplay-art{padding:15px 15px 11px}.buildplay-art-header>span:first-child{font-size:23px}.buildplay-art-piece{width:42px;height:42px;font-size:23px}.buildplay-art-bottom{font-size:14px}.buildplay-art-disclaimer{font-size:7px;right:15px} }
+
+/* EDUCATION SPOTLIGHT — November 2026 */
+/* A compact editorial prelude before Selected Work, not another résumé wall. */
+.daydream-site .education-spotlight {
+  padding-top: 54px;
+  padding-bottom: 24px;
+}
+.daydream-site .education-spotlight-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.daydream-site .education-spotlight-date {
+  font: 10px var(--mono);
+  letter-spacing: .08em;
+  color: #667f6d;
+}
+.daydream-site .education-spotlight-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+  align-items: stretch;
+  border: 1px solid #dce6da;
+  border-radius: 14px;
+  background: linear-gradient(120deg,#edf2e9 0%,#f4f5ef 64%,#f7f6f0 100%);
+  box-shadow: 0 14px 35px rgba(72,92,74,.055);
+  overflow: hidden;
+}
+.daydream-site .education-spotlight-primary {
+  padding: clamp(29px,3.4vw,46px);
+  min-width: 0;
+}
+.daydream-site .education-spotlight-primary h2 {
+  margin: 0 0 10px;
+  font: 400 clamp(41px,4.25vw,62px)/1.03 var(--serif);
+  letter-spacing: -.06em;
+  color: #324a3b;
+}
+.daydream-site .education-spotlight-primary h2 em {
+  color: #879e8b;
+  font-weight: 400;
+}
+.daydream-site .education-spotlight-degree {
+  margin: 0;
+  color: #354c3c;
+  font-size: clamp(16px,1.5vw,19px);
+  font-weight: 650;
+  line-height: 1.45;
+}
+.daydream-site .education-spotlight-school {
+  margin: 6px 0 0;
+  color: #697d6f;
+  line-height: 1.7;
+  font-size: 12px;
+}
+.daydream-site .education-spotlight-awards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 25px;
+}
+.daydream-site .education-spotlight-awards span {
+  padding: 8px 11px;
+  border: 1px solid #ccdbce;
+  border-radius: 30px;
+  background: rgba(255,255,255,.62);
+  color: #4b6a54;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.daydream-site .education-spotlight-secondary {
+  padding: clamp(24px,2.8vw,38px) clamp(25px,2.8vw,36px);
+  border-left: 1px solid #d9e4d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.daydream-site .education-spotlight-detail + .education-spotlight-detail {
+  border-top: 1px solid #d9e3d7;
+  padding-top: 20px;
+}
+.daydream-site .education-spotlight-detail h3 {
+  font: 600 11px var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .095em;
+  color: #52745c;
+  margin: 0 0 9px;
+}
+.daydream-site .education-spotlight-detail p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: #596c5f;
+  margin: 0;
+}
+.daydream-site .education-detail-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.daydream-site .education-detail-title span {
+  font: 10px var(--mono);
+  color: #78917b;
+}
+@media (max-width: 840px) {
+  .daydream-site .education-spotlight-content {grid-template-columns: 1fr;}
+  .daydream-site .education-spotlight-secondary {
+    border-left: 0;
+    border-top: 1px solid #d9e4d8;
+    padding-top: 24px;
+    padding-bottom: 28px;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 25px;
+  }
+  .daydream-site .education-spotlight-detail + .education-spotlight-detail {padding-top:0;border-top:0;}
+}
+@media (max-width: 560px) {
+  .daydream-site .education-spotlight {padding-top: 35px;padding-bottom:0;}
+  .daydream-site .education-spotlight-heading {align-items: start;flex-direction:column;gap:3px;}
+  .daydream-site .education-spotlight-primary {padding:28px 24px;}
+  .daydream-site .education-spotlight-primary h2 {font-size:clamp(38px,10.5vw,49px);}
+  .daydream-site .education-spotlight-secondary {grid-template-columns:1fr;gap:18px;padding:24px;}
+  .daydream-site .education-spotlight-detail + .education-spotlight-detail {border-top:1px solid #d9e3d7;padding-top:18px;}
+  .daydream-site .education-spotlight-awards span {font-size:10px;}
+}
+

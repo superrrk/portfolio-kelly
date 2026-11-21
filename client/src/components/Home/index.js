@@ -12,11 +12,6 @@ import './index.scss';
 
 const RESUME_URL = `${process.env.PUBLIC_URL || ''}/TRUONG_KELLY.pdf`;
 
-const education = [
-  'Columbia University · B.S. Computer Science',
-  'Expected May 2027',
-];
-
 // Resume + repository-backed case studies. Planned Scrap improvements are
 // explicitly separated from features already checked off in its README.
 const projectIcon = {
@@ -219,7 +214,7 @@ export default function Home() {
           <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Kelly Truong, back to top">kelly.truong <span>✳</span></a>
           <button className="mobile-menu-toggle" onClick={()=>setMenuOpen(o=>!o)} aria-label={menuOpen?'Close menu':'Open menu'} aria-controls="daydream-nav" aria-expanded={menuOpen}>{menuOpen?'close ×':'menu +'}</button>
           <nav id="daydream-nav" className={`header-links ${menuOpen?'is-open':''}`} aria-label="Main navigation">
-            <a onClick={closeMenu} href="#work">work</a><a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#studio">the studio</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">play</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
+            <a onClick={closeMenu} href="#work">work</a><a onClick={closeMenu} href="#education">education</a><a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#studio">the studio</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">play</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
           </nav>
         </div>
       </header>
@@ -231,11 +226,39 @@ export default function Home() {
             <h2>i make complex things<br/><i>feel a little more human.</i></h2>
             <p>I build AI infrastructure and human-centered software. From agent workflows at IBM to machine-learning tools and native iOS apps, I care about both how systems work and how they feel.</p>
             <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my work <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
-            <div className="hero-side-note"><span>NEW YORK, NY</span><span>EXPECTED GRADUATION · MAY 2027</span></div>
+            <div className="hero-side-note"><span>COLUMBIA UNIVERSITY · COMPUTER SCIENCE</span><span>CLASS OF 2027 · NEW YORK</span></div>
           </div>
           <AsciiBunny />
         </section>
         <div className="site-container fineprint-strip"><span>001 / A LITTLE CURIOSITY</span><span>IBM + BP ✳ AI AGENTS ✳ IOS ✳ CREATIVE COMPUTING</span><span>SCROLL TO WANDER ↓</span></div>
+        <section className="site-container education-spotlight fade-up" id="education" aria-labelledby="education-title">
+          <div className="education-spotlight-heading">
+            <span className="eyebrow">00 / ACADEMIC FOUNDATION</span>
+            <span className="education-spotlight-date">NEW YORK CITY · EXPECTED MAY 2027</span>
+          </div>
+          <div className="education-spotlight-content">
+            <div className="education-spotlight-primary">
+              <h2 id="education-title">Columbia <em>University.</em></h2>
+              <p className="education-spotlight-degree">B.S. in Computer Science</p>
+              <p className="education-spotlight-school">Fu Foundation School of Engineering and Applied Science</p>
+              <div className="education-spotlight-awards" aria-label="Scholarships and honors">
+                <span>QuestBridge National Match Scholar</span>
+                <span>Gates Scholar</span>
+                <span>Dell Scholar</span>
+              </div>
+            </div>
+            <div className="education-spotlight-secondary">
+              <div className="education-spotlight-detail">
+                <h3>Selected coursework</h3>
+                <p>Machine Learning · Artificial Intelligence · Databases · Advanced Programming · Data Structures · Computer Systems · UI Design</p>
+              </div>
+              <div className="education-spotlight-detail">
+                <div className="education-detail-title"><h3>CodePath</h3><span>2025</span></div>
+                <p>Honors Certificate in iOS Development (iOS101) · Technical Interview Preparation (TIP102)</p>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="site-container section-pad" id="work" aria-labelledby="work-title">
           <div className="section-header fade-up"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>Selected engineering and design projects, with the technical decisions and outcomes behind each one.</p></div>
           <article className="work-feature fade-up">
@@ -325,7 +348,6 @@ export default function Home() {
               </article>
             </div>
           </section>
-          <div className="education-card fade-up"><div className="eyebrow">EDUCATION & COMMUNITY</div><strong>{education[0]}</strong><span>{education[1]}</span><p>QuestBridge National Match Scholar · Gates Scholar · Dell Scholar</p><p>CodePath · iOS Development Honors Certificate (iOS101) · Technical Interview Prep (TIP102)</p><p>Columbia Vietnamese Students Association · VP / Marketing Chair · Columbia Esports Gaming · Treasurer / Marketing</p></div>
           <div className="skills-area fade-up"><div className="eyebrow">A FEW TOOLS I REACH FOR</div><div className="skills-grid"><div><strong>languages</strong><p>Python · Java · Swift · C · JavaScript · TypeScript · SQL</p></div><div><strong>frameworks & libraries</strong><p>React · Flask · Node.js · LangGraph · PyTorch · NumPy · Chart.js</p></div><div><strong>tools & cloud</strong><p>Git · GitHub Actions · AWS S3 · AWS CLI · Netlify · Xcode · VS Code</p></div></div></div>
         </section>
         <section className="studio-section" id="studio" aria-labelledby="studio-title">
