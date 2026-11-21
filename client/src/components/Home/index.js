@@ -4,7 +4,7 @@ import { faReact, faPython, faSwift, faNodeJs, faJs, faGithub, faLinkedin, faGit
 import AsciiBunny from './AsciiBunny';
 import CreativeScenes from './CreativeScenes';
 import CrochetGallery from './CrochetGallery';
-import detectorImage from '../../assets/images/image_detector.png';
+import detectorImage from '../../assets/images/image_forensics_screenshot.png';
 import optimizerImage from '../../assets/images/portfolio_optimizer_kelly.png';
 import headshot from '../../assets/images/kelly-headshot-2026.webp';
 import './index.scss';
@@ -54,6 +54,8 @@ const projects = [
     skills: ['Python', 'PyTorch', 'Flask', 'Docker', 'Google Cloud Run'],
     site: 'https://image-forensics-lab-b2kau74dlq-ue.a.run.app',
     github: 'https://github.com/superrrk/image-detector',
+    image: detectorImage,
+    alt: 'Actual Image Forensics Lab interface showing upload and forensic inspection panels',
     visual: 'forensics-visual',
     note: 'ResNet18-v2 · ELSA_D3 pilot · validation-selected threshold',
     forensics: true,
@@ -215,7 +217,10 @@ export default function Home() {
             {projects.map(p => <article className="project-card fade-up" key={p.no}>
               <div className={`project-image-wrap ${p.visual}`}>
                 <div className="project-image-index">{p.no} / PROJECT STUDY</div>
-                {p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : <DaydreamArt />}
+                {p.forensics && p.image ? <div className="forensics-browser-frame">
+                  <div className="forensics-browser-bar" aria-hidden="true"><span className="forensics-browser-dots"><i/><i/><i/></span><span className="forensics-browser-url">image-forensics-lab · live app preview</span><span className="forensics-browser-globe">↗</span></div>
+                  <img loading="lazy" src={p.image} alt={p.alt} />
+                </div> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : <DaydreamArt />}
               </div>
               <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
               <h3>{p.title}</h3>

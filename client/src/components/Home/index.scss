@@ -351,3 +351,17 @@
 .forensics-metrics strong{font:500 23px var(--serif);color:#345c44}.forensics-metrics span{font:9px var(--mono);color:#718b79}
 .forensics-case-body .forensics-caution{border-left:2px solid #b58a73;padding-left:11px;color:#845e4e}
 @media(max-width:520px){.forensics-visual{padding:26px 15px 15px}.forensics-illustration{padding:12px}.forensics-preview-columns{gap:7px}.forensics-preview-upload,.forensics-preview-signals{padding:8px}.forensics-preview-glyph{font-size:45px}}
+
+
+/* Real Image Forensics Lab screenshot — not illustration; quiet browser frame. */
+.forensics-visual { background:#e9eee8; padding:38px 20px 22px; }
+.forensics-visual .forensics-browser-frame { width:100%; max-width:540px; background:#fff; border:1px solid #cbd8ce; border-radius:10px; overflow:hidden; box-shadow:0 18px 36px rgba(45,68,55,.14); transform:translateY(0); transition:transform .3s ease, box-shadow .3s ease; }
+.forensics-visual .forensics-browser-bar { display:flex; height:31px; align-items:center; justify-content:space-between; padding:0 12px; gap:12px; background:#f8faf6; border-bottom:1px solid #dce6dd; color:#6a806f; }
+.forensics-visual .forensics-browser-dots { display:flex; gap:4px; flex-shrink:0; }
+.forensics-visual .forensics-browser-dots i { height:6px; width:6px; border-radius:100%; background:#c1d0c1; }
+.forensics-visual .forensics-browser-dots i:nth-child(2) { background:#d8c6b5; }
+.forensics-visual .forensics-browser-url { font:10px var(--mono); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.forensics-visual .forensics-browser-globe { font-size:13px; }
+.forensics-visual .forensics-browser-frame img { display:block; width:100%; height:auto; max-height:240px; border-radius:0; object-fit:contain; box-shadow:none; transform:none !important; }
+.project-card:hover .forensics-visual .forensics-browser-frame { transform:translateY(-4px); box-shadow:0 23px 45px rgba(45,68,55,.16); }
+@media(max-width:520px) { .forensics-visual { padding:36px 11px 18px; } .forensics-visual .forensics-browser-url { font-size:8px; } }
