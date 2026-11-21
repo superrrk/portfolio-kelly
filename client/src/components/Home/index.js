@@ -198,26 +198,23 @@ export default function Home() {
           <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Kelly Truong, back to top">kelly.truong <span>✳</span></a>
           <button className="mobile-menu-toggle" onClick={()=>setMenuOpen(o=>!o)} aria-label={menuOpen?'Close menu':'Open menu'} aria-controls="daydream-nav" aria-expanded={menuOpen}>{menuOpen?'close ×':'menu +'}</button>
           <nav id="daydream-nav" className={`header-links ${menuOpen?'is-open':''}`} aria-label="Main navigation">
-            <a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#work">work</a><a onClick={closeMenu} href="#education">education</a><a onClick={closeMenu} href="#studio">the studio</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">play</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
+            <a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#work">projects</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">play</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
           </nav>
         </div>
       </header>
       <main>
         <section className="site-container hero" id="home" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <div className="hero-identity-row">
-              <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / AI SYSTEMS + PRODUCT</div>
-              <div className="hero-photo-stamp"><img src={headshot} alt="Portrait of Kelly Truong" loading="eager" decoding="async" /><span>hello, it's me ✳</span></div>
-            </div>
+            <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / AI SYSTEMS + PRODUCT</div>
             <h1 id="hero-title">hi, i'm <em>kelly.</em></h1>
             <h2>i make complex things<br/><i>feel a little more human.</i></h2>
-            <p>Columbia CS student and software engineer building AI infrastructure, full-stack applications, and thoughtful products. Previously at IBM and bp.</p>
-            <div className="hero-ctas"><a className="btn btn-dark" href="#experience">see my experience <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
+            <p>I'm a Columbia CS student who likes turning complicated ideas into useful, thoughtful software. I've built AI agent tools at IBM, explored optimization at bp, and love making things people can actually use.</p>
+            <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my projects <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
             <div className="hero-side-note"><span>COLUMBIA UNIVERSITY · COMPUTER SCIENCE</span><span>CLASS OF 2027 · NEW YORK</span></div>
           </div>
           <AsciiBunny />
         </section>
-        <div className="site-container fineprint-strip"><span>IBM · SOFTWARE ENGINEERING</span><span>BP · OPTIMIZATION &amp; QUANTUM</span><span>COLUMBIA CS · 2027</span></div>
+        <div className="site-container fineprint-strip"><span>COLUMBIA CS · CLASS OF 2027</span><span>IBM &amp; BP · SOFTWARE ENGINEERING</span><span>BUILT WITH CARE ✳</span></div>
         <section className="site-container section-pad experience-section" id="experience" aria-labelledby="experience-title">
           <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">01 / INDUSTRY EXPERIENCE</div><h2 id="experience-title" className="section-heading">engineering <em>impact.</em></h2></div><p>Building agent infrastructure and optimization systems in professional engineering teams.</p></div>
           <div className="experience-list fade-up">
@@ -333,10 +330,14 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="about-section" id="about" aria-labelledby="about-title"><div className="site-container about-grid">
+          <div className="about-photo-wrap fade-up"><div className="about-photo-frame"><img loading="lazy" decoding="async" src={headshot} alt="Portrait of Kelly Truong smiling in a white top" /></div><span className="about-doodle doodle-one">✳</span><span className="about-doodle doodle-two">hello, from the other side of the screen ↗</span></div>
+          <div className="about-copy fade-up"><div className="eyebrow">04 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I like the space between engineering and design: building things that work well, look considered, and feel easy to use.</p><p>When I’m not coding, I’m usually sketching, crocheting, trying a new matcha spot, or making small creative experiments.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><button className="crochet-about-link" type="button" onClick={()=>setCrochetOpen(true)}>little stitches ↗</button><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
+        </div></section>
         <section className="studio-section" id="studio" aria-labelledby="studio-title">
           <div className="site-container">
             <div className="studio-header fade-up">
-              <div><div className="eyebrow">04 / THE CREATIVE STUDIO</div><h2 id="studio-title" className="section-heading">in the <em>oven.</em></h2></div>
+              <div><div className="eyebrow">05 / THE CREATIVE STUDIO</div><h2 id="studio-title" className="section-heading">in the <em>oven.</em></h2></div>
               <div className="studio-intro"><p>Not every idea begins as a finished product. This is where iOS design and small interactive experiments keep evolving.</p><span>WORK IN PROGRESS / IDEAS ARE NOT SHIPPED FEATURES</span></div>
             </div>
             <div className="studio-grid">
@@ -350,9 +351,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="about-section" id="about" aria-labelledby="about-title"><div className="site-container about-grid">
-          <div className="about-copy fade-up"><div className="eyebrow">05 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I enjoy working where engineering meets design—making complex systems reliable, useful, and easier to understand.</p><p>Outside engineering, I sketch, crochet, and experiment with small interactive ideas. There is usually matcha involved.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><button className="crochet-about-link" type="button" onClick={()=>setCrochetOpen(true)}>little stitches ↗</button><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
-        </div></section>
         <section className="playground-section" id="playground" aria-labelledby="playground-title"><div className="site-container playground-grid">
           <div className="playground-copy fade-up"><div className="eyebrow">06 / LITTLE WORLDS</div><h2 id="playground-title" className="section-heading">a little<br/><em>wonder.</em></h2><p>Three tiny scenes. Pick one, then play.</p></div><CreativeScenes />
         </div></section>
