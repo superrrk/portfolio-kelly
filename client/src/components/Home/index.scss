@@ -925,3 +925,13 @@
   .daydream-site .more-projects summary span,
   .daydream-site .earlier-work-toggle summary span { transition: none; }
 }
+
+/* KELLY_COMFORTABLE_MARGINS_2026_11_21
+   Small desktop-width refinement after the broader layout polish.
+   Narrow the editorial canvas, not the bunny or typography. */
+@media (min-width: 1051px) {
+  .daydream-site .site-container {
+    max-width: 1600px;
+    padding-inline: clamp(40px, 5.8vw, 96px);
+  }
+}
