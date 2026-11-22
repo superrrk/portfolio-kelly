@@ -935,3 +935,14 @@
     padding-inline: clamp(40px, 5.8vw, 96px);
   }
 }
+
+/* KELLY_SPACIOUS_MARGINS_2026_11_22
+   Final desktop-only width refinement: a calmer editorial column.
+   At 1660px wide, body content starts ~216px from either edge
+   instead of ~126px. Responsive tablet and mobile CSS stays unchanged. */
+@media (min-width: 1051px) {
+  .daydream-site .site-container {
+    max-width: 1420px;
+    padding-inline: clamp(60px, 6vw, 96px);
+  }
+}
