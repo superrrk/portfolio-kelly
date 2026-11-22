@@ -578,3 +578,87 @@
 @media (max-width: 520px) {
   .daydream-site .hero-ctas .resume-alt-link { font-size: 11px; }
 }
+
+
+/* PORTFOLIO_SIMPLE_FIVE_SECTIONS_2026: calm, recruiter-friendly composition. */
+.daydream-site .hero {min-height:570px;padding-top:40px;padding-bottom:62px;}
+.daydream-site .hero h1 {font-size:clamp(66px,7vw,108px);}
+.daydream-site .hero-copy>p {line-height:1.75;max-width:480px;}
+.daydream-site .hero-side-note {color:#67806e;}
+.daydream-site .bunny-window {height:420px;}
+.daydream-site .fineprint-strip {display:none;}
+.daydream-site #work {padding-top:75px;padding-bottom:76px;}
+.daydream-site #work .section-header {margin-bottom:35px;}
+.daydream-site .project-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:0;}
+.daydream-site .project-card {min-width:0;padding-top:17px;}
+.daydream-site .project-image-wrap {height:225px;padding:37px 16px 16px;}
+.daydream-site .project-image-wrap img {max-width:100%;max-height:100%;}
+.daydream-site .project-card h3 {font-size:clamp(29px,2.75vw,39px);margin:12px 0;}
+.daydream-site .project-card>p {min-height:0;max-width:none;font-size:13px;line-height:1.65;}
+.daydream-site .project-card .tag-row {margin:15px 0 17px;gap:6px;}
+.daydream-site .project-card .tag-row .tech-tag {font-size:10px;}
+.daydream-site .project-context {line-height:1.5;}
+.daydream-site .project-highlight {margin-top:12px;}
+.daydream-site .project-actions {gap:13px;flex-wrap:wrap;}
+.daydream-site .forensics-case-study {font-size:12px;}
+.daydream-site .experience-section {padding-top:48px;padding-bottom:68px;}
+.daydream-site .experience-section .section-header {margin-bottom:35px;}
+.daydream-site .experience-item {padding-top:23px;padding-bottom:25px;}
+.daydream-site .experience-item li {line-height:1.65;margin:6px 0;}
+.daydream-site .earlier-work {margin-top:15px;padding-top:20px;}
+.daydream-site .earlier-work-grid {gap:13px;}
+.daydream-site .earlier-work-card {padding:21px;}
+.daydream-site .about-section {padding:82px 0 90px;}
+.daydream-site .about-grid {grid-template-columns:minmax(0,.75fr) minmax(0,1fr);gap:clamp(30px,5vw,74px);}
+.daydream-site .about-photo-wrap {max-width:340px;}
+.daydream-site .about-copy .section-heading {font-size:clamp(44px,4.6vw,70px);}
+.daydream-site .about-copy p {line-height:1.7;}
+.daydream-site .about-copy .crochet-about-link,.daydream-site .about-copy .inline-link {margin-right:16px;}
+.daydream-site .about-education {border-top:1px solid #cfdbd0;margin-top:26px;padding-top:20px;}
+.daydream-site .about-education h3 {font:400 29px/1.16 var(--serif);letter-spacing:-.035em;margin:8px 0;}
+.daydream-site .about-education p {font-size:12px;line-height:1.7;margin:7px 0;color:#556b59;}
+.daydream-site .about-education p strong {font-weight:600;}
+.daydream-site .more-projects,.daydream-site .earlier-work-toggle {border-top:1px solid var(--line);margin-top:30px;padding-top:18px;}
+.daydream-site .more-projects summary,.daydream-site .earlier-work-toggle summary {cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none;font-size:13px;font-weight:650;color:#3d604a;padding:12px 3px;}
+.daydream-site .more-projects summary::-webkit-details-marker,.daydream-site .earlier-work-toggle summary::-webkit-details-marker {display:none;}
+.daydream-site .more-projects summary span,.daydream-site .earlier-work-toggle summary span {font-size:20px;color:#839b86;}
+.daydream-site .more-projects-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:15px;}
+.daydream-site .more-project-item {padding:20px 23px;border:1px solid #dce5dc;background:#f5f6f1;border-radius:10px;min-width:0;}
+.daydream-site .more-project-item>span {font:9px/1.5 var(--mono);color:#678373;letter-spacing:.06em;}
+.daydream-site .more-project-item h3 {font:400 25px/1.1 var(--serif);margin:9px 0;color:#314738;}
+.daydream-site .more-project-item p {font-size:12px;line-height:1.65;color:#617563;min-height:39px;margin:10px 0;}
+.daydream-site .more-project-item a {font-size:12px;font-weight:650;color:#41634a;text-decoration:underline;text-underline-offset:3px;}
+.daydream-site .creative-peek {border-top:1px solid #e7e6e0;border-bottom:1px solid #e7e6e0;background:#f7f6f1;padding:31px 0;}
+.daydream-site .creative-peek-inner {display:flex;align-items:center;justify-content:space-between;gap:18px;}
+.daydream-site .creative-peek h2 {font:400 clamp(31px,3vw,42px)/1.1 var(--serif);margin:3px 0;color:#374e3d;}
+.daydream-site .creative-peek h2 em {color:#8da795;}
+.daydream-site .creative-peek p {color:#6c816e;font-size:13px;margin:7px 0 0;}
+.daydream-site .creative-toggle {font:600 12px var(--sans);border:1px solid #bdcfc1;background:#fff;border-radius:30px;color:#34583f;padding:14px 21px;cursor:pointer;white-space:nowrap;}
+.daydream-site .creative-toggle:hover {background:#e9f0e8;}
+.daydream-site .creative-toggle:focus-visible {outline:2px solid #3b6446;outline-offset:3px;}
+.daydream-site .creative-peek .studio-section {padding:50px 0 45px;border-top:0;}
+.daydream-site .creative-peek .playground-section {padding:50px 0 60px;}
+.daydream-site .creative-peek .section-heading {font-size:clamp(44px,5vw,64px);}
+.daydream-site .daydream-footer {padding-top:64px;}
+@media(max-width:1050px){
+ .daydream-site .project-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .daydream-site .bunny-window {height:405px;}
+}
+@media(max-width:700px){
+ .daydream-site .hero {min-height:0;padding-top:52px;padding-bottom:47px;}
+ .daydream-site .hero h1 {font-size:clamp(66px,12vw,94px);}
+ .daydream-site .bunny-window {height:335px;}
+ .daydream-site #work {padding-top:54px;padding-bottom:57px;}
+ .daydream-site .project-grid,.daydream-site .more-projects-grid {grid-template-columns:1fr;}
+ .daydream-site .project-image-wrap {height:255px;}
+ .daydream-site .experience-section {padding-top:32px;}
+ .daydream-site .about-grid {grid-template-columns:1fr;gap:22px;}
+ .daydream-site .about-section {padding:62px 0;}
+ .daydream-site .creative-peek-inner {align-items:flex-start;flex-direction:column;}
+}
+@media(max-width:420px){
+ .daydream-site .project-image-wrap {height:225px;}
+ .daydream-site .creative-toggle {width:100%;}
+ .daydream-site .about-photo-wrap {max-width:275px;}
+}
+@media(prefers-reduced-motion:reduce){.daydream-site .project-card:hover .project-image-wrap img{transform:none;}}

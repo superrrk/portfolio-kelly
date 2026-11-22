@@ -1,3 +1,4 @@
+/* PORTFOLIO_SIMPLE_FIVE_SECTIONS_2026 */
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faPython, faSwift, faNodeJs, faJs, faGithub, faLinkedin, faGitAlt } from '@fortawesome/free-brands-svg-icons';
@@ -47,6 +48,7 @@ const projects = [
     // image-forensics-case-study-v1: documented pilot results; not a universal authenticity verdict.
     no: '01', status: 'LIVE · EXPERIMENTAL', title: 'Image Forensics Lab', type: 'COMPUTER VISION / FULL-STACK ENGINEERING',
     description: 'An interactive image-forensics lab, built end-to-end: upload, drag-and-drop or paste JPEG/PNG/WEBP images; inspect EXIF, sharpness, entropy and recompression differences; and run an experimental PyTorch ResNet18 classifier through a Flask API. Deployed as a Docker container on Google Cloud Run.',
+    shortDescription: 'A live image-inspection app combining forensic signals and PyTorch ResNet18 inference through Flask, deployed on Google Cloud Run.',
     highlight: '88.3% held-out pilot accuracy · 1.7% false-positive rate (n=120)',
     skills: ['Python', 'PyTorch', 'Flask', 'Docker', 'Google Cloud Run'],
     site: 'https://image-forensics-lab-b2kau74dlq-ue.a.run.app',
@@ -60,6 +62,7 @@ const projects = [
   {
     no: '02', status: 'PLAY ONLINE · IOS IN TESTFLIGHT', title: 'BuildPlay', type: 'CASUAL MULTIPLAYER GAMES / COLUMBIA',
     description: 'A collaborative class project created with my teammates for Casual Multiplayer Games at Columbia University. The web experience is available to play now; the companion iOS app is currently in TestFlight as our team prepares for a public release.',
+    shortDescription: 'A multiplayer games platform built with classmates at Columbia. Play on the web; the iOS companion is being tested through TestFlight.',
     highlight: 'Playable web experience · companion iOS app in testing',
     skills: ['Multiplayer', 'Web', 'iOS', 'Team Project'],
     site: 'https://buildplay.fun/',
@@ -74,6 +77,7 @@ const projects = [
   {
     no: '03', status: 'IOS CAPSTONE', title: 'Scrap', type: 'IOS DEVELOPMENT / PRODUCT DESIGN',
     description: 'An iOS memory scrapbook for couples and friends. Built in Swift and UIKit, it lets people capture a photo, date and caption, choose a background color, browse a memory feed, and open individual memory pages.',
+    shortDescription: 'A native Swift and UIKit scrapbook for saving photos, dates, and memories, with a customizable feed and detail views.',
     highlight: 'Native iOS experience · photo-based memory cards',
     skills: ['Swift', 'UIKit', 'Xcode', 'iOS'],
     github: 'https://github.com/superrrk/ios101-capstone',
@@ -177,19 +181,16 @@ function DaydreamArt() {
   </div>;
 }
 
-function ThreadDivider() {
-  return <svg className="daydream-thread" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 98 C134 140 236 13 345 84 S552 153 637 76 S803 14 852 81 S1053 118 1200 36" /></svg>;
-}
-
 export default function Home() {
   const [menuOpen,setMenuOpen] = useState(false);
   const [crochetOpen,setCrochetOpen] = useState(false);
+  const [creativeOpen,setCreativeOpen] = useState(false);
   useEffect(()=>{
     if(!('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}})},{threshold:.07});
     document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
     return ()=>observer.disconnect();
-  },[]);
+  },[creativeOpen]);
   const closeMenu=()=>setMenuOpen(false);
   return (
     <div className="daydream-site" id="top">
@@ -199,7 +200,7 @@ export default function Home() {
           <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Kelly Truong, back to top">kelly.truong <span>✳</span></a>
           <button className="mobile-menu-toggle" onClick={()=>setMenuOpen(o=>!o)} aria-label={menuOpen?'Close menu':'Open menu'} aria-controls="daydream-nav" aria-expanded={menuOpen}>{menuOpen?'close ×':'menu +'}</button>
           <nav id="daydream-nav" className={`header-links ${menuOpen?'is-open':''}`} aria-label="Main navigation">
-            <a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#work">projects</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#playground">play</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
+            <a onClick={closeMenu} href="#work">work</a><a onClick={closeMenu} href="#experience">experience</a><a onClick={closeMenu} href="#about">about</a><a onClick={closeMenu} href="#contact">contact</a><a onClick={closeMenu} className="resume-nav" href={RESUME_URL} target="_blank" rel="noopener noreferrer">résumé ↗</a>
           </nav>
         </div>
       </header>
@@ -209,15 +210,60 @@ export default function Home() {
             <div className="kicker"><span className="kicker-dot"/> SOFTWARE ENGINEER / AI SYSTEMS + PRODUCT</div>
             <h1 id="hero-title">hi, i'm <em>kelly.</em></h1>
             <h2>i make complex things<br/><i>feel a little more human.</i></h2>
-            <p>I'm a Columbia CS student who likes turning complicated ideas into useful, thoughtful software. I've built AI agent tools at IBM, explored optimization at bp, and love making things people can actually use.</p>
-            <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my projects <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><a className="resume-alt-link" href={IOS_RESUME_URL} target="_blank" rel="noopener noreferrer" aria-label="View iOS engineering résumé">iOS résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
+            <p>I’m a Columbia CS student and software engineer building useful, human-centered software. Previously at IBM and bp.</p>
+            <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my projects <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
             <div className="hero-side-note"><span>COLUMBIA UNIVERSITY · COMPUTER SCIENCE</span><span>CLASS OF 2027 · NEW YORK</span></div>
           </div>
           <AsciiBunny />
         </section>
         <div className="site-container fineprint-strip"><span>COLUMBIA CS · CLASS OF 2027</span><span>IBM &amp; BP · SOFTWARE ENGINEERING</span><span>BUILT WITH CARE ✳</span></div>
+        <section className="site-container section-pad" id="work" aria-labelledby="work-title">
+          <div className="section-header fade-up"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>A few things I have made, with links to explore or try them.</p></div>
+          <div className="project-grid">
+            {projects.slice(0, 3).map(p => <article className="project-card fade-up" key={p.no}>
+              <div className={`project-image-wrap ${p.visual}`}>
+                <div className="project-image-index">{p.no} / PROJECT STUDY</div>
+                {p.forensics && p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
+              </div>
+              <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
+              <h3>{p.title}</h3>
+              <span className="project-context">{p.note}</span>
+              <p>{p.shortDescription || p.description}</p>
+              <p className="project-highlight"><span aria-hidden="true">✳</span>{p.highlight}</p>
+              <div className="tag-row">{p.skills.map(name => <TechTag key={name} name={name}/>)}</div>
+              {p.forensics && <details className="forensics-case-study"><summary>engineering notes &amp; model evaluation <span aria-hidden="true">↗</span></summary>
+                <div className="forensics-case-body">
+                  <p><strong>What I built.</strong> A responsive, single-view inspection UI with drag-and-drop, clipboard paste, replace-image flow, descriptive image signals and a Flask inference endpoint. Packaged CPU inference in Docker and deployed to Google Cloud Run with a scale-to-zero configuration and readiness checks.</p>
+                  <div className="forensics-metrics" aria-label="Held-out ELSA D3 image generator zero pilot results"><div><strong>88.3%</strong><span>test accuracy</span></div><div><strong>78.3%</strong><span>AI-image recall</span></div><div><strong>1 / 60</strong><span>real images flagged</span></div><div><strong>0.966</strong><span>ROC AUC</span></div></div>
+                  <p><strong>ML workflow.</strong> Built a source-paired manifest with 594 matched real/AI pairs and group-aware train/validation/test splits (475 / 59 / 60 pairs). Trained a pretrained ResNet18 on 950 training images, chose the 79.6% raw-score threshold using validation data, and evaluated once on 120 held-out images.</p>
+                  <p><strong>What didn't work.</strong> Added 1,128 eligible multi-generator training images and excluded 318 held-out examples. The experimental v3 checkpoint scored 75.0% on the original test set versus v2's 88.3%, so I retained v2 instead of shipping the regression.</p>
+                  <p className="forensics-caution"><strong>Important limitation:</strong> these are small, source-specific pilot results, not real-world detection guarantees. The raw output is not a calibrated probability; illustration-heavy and unfamiliar-generator images can be misclassified. Metadata and recompression artifacts are descriptive clues, not proof of authenticity.</p>
+                </div>
+              </details>}
+              {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
+              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> {p.sourceLabel || 'view source'} <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : p.playWeb ? 'play on the web' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
+            </article>)}
+          </div>
+          <details className="more-projects">
+            <summary>More projects <span aria-hidden="true">＋</span></summary>
+            <div className="more-projects-grid">
+              <article className="more-project-item">
+                <span>FULL-STACK · TEAM PROJECT</span>
+                <h3>VSA Social Media App</h3>
+                <p>React, Express, and Supabase social platform for a Columbia student organization.</p>
+                <a href="https://github.com/tvytran/VSAWebsite" target="_blank" rel="noopener noreferrer">shared source code ↗</a>
+              </article>
+              {projects.slice(3).map(p => <article className="more-project-item" key={p.no}>
+                <span>{p.type}</span>
+                <h3>{p.title}</h3>
+                <p>{p.highlight}</p>
+                {p.github ? <a href={p.github} target="_blank" rel="noopener noreferrer">view source ↗</a> : p.figma ? <a href={p.figma} target="_blank" rel="noopener noreferrer">view design ↗</a> : null}
+              </article>)}
+            </div>
+          </details>
+        </section>
         <section className="site-container section-pad experience-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">01 / INDUSTRY EXPERIENCE</div><h2 id="experience-title" className="section-heading">engineering <em>impact.</em></h2></div><p>Building agent infrastructure and optimization systems in professional engineering teams.</p></div>
+          <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">02 / EXPERIENCE</div><h2 id="experience-title" className="section-heading">engineering <em>impact.</em></h2></div><p>What I have worked on with engineering teams.</p></div>
           <div className="experience-list fade-up">
             <article className="experience-item">
               <div className="experience-date"><span className="experience-index">01 / INDUSTRY</span><time>MAY — AUG 2026</time><span>AUSTIN, TX</span></div>
@@ -248,6 +294,7 @@ export default function Home() {
             </article>
           </div>
 
+          <details className="earlier-work-toggle"><summary>Earlier work &amp; research <span aria-hidden="true">＋</span></summary>
           <section className="earlier-work fade-up" aria-label="Earlier engineering and research experience">
             <div className="earlier-work-intro">
               <span className="eyebrow">MORE EXPERIENCE / 2024</span>
@@ -272,73 +319,29 @@ export default function Home() {
               </article>
             </div>
           </section>
-          <div className="skills-area fade-up"><div className="eyebrow">A FEW TOOLS I REACH FOR</div><div className="skills-grid"><div><strong>languages</strong><p>Python · Java · Swift · C · JavaScript · TypeScript · SQL</p></div><div><strong>frameworks & libraries</strong><p>React · Flask · Node.js · LangGraph · PyTorch · NumPy · Chart.js</p></div><div><strong>tools & cloud</strong><p>Git · GitHub Actions · AWS S3 · AWS CLI · Netlify · Xcode · VS Code</p></div></div></div>
-        </section>
-        <div className="site-container"><ThreadDivider /></div>
-        <section className="site-container section-pad" id="work" aria-labelledby="work-title">
-          <div className="section-header fade-up"><div><div className="eyebrow">02 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>Selected engineering and design projects, with the technical decisions and outcomes behind each one.</p></div>
-          <div className="project-grid">
-            {projects.map(p => <article className="project-card fade-up" key={p.no}>
-              <div className={`project-image-wrap ${p.visual}`}>
-                <div className="project-image-index">{p.no} / PROJECT STUDY</div>
-                {p.forensics && p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
-              </div>
-              <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
-              <h3>{p.title}</h3>
-              <span className="project-context">{p.note}</span>
-              <p>{p.description}</p>
-              <p className="project-highlight"><span aria-hidden="true">✳</span>{p.highlight}</p>
-              <div className="tag-row">{p.skills.map(name => <TechTag key={name} name={name}/>)}</div>
-              {p.forensics && <details className="forensics-case-study"><summary>engineering notes &amp; model evaluation <span aria-hidden="true">↗</span></summary>
-                <div className="forensics-case-body">
-                  <p><strong>What I built.</strong> A responsive, single-view inspection UI with drag-and-drop, clipboard paste, replace-image flow, descriptive image signals and a Flask inference endpoint. Packaged CPU inference in Docker and deployed to Google Cloud Run with a scale-to-zero configuration and readiness checks.</p>
-                  <div className="forensics-metrics" aria-label="Held-out ELSA D3 image generator zero pilot results"><div><strong>88.3%</strong><span>test accuracy</span></div><div><strong>78.3%</strong><span>AI-image recall</span></div><div><strong>1 / 60</strong><span>real images flagged</span></div><div><strong>0.966</strong><span>ROC AUC</span></div></div>
-                  <p><strong>ML workflow.</strong> Built a source-paired manifest with 594 matched real/AI pairs and group-aware train/validation/test splits (475 / 59 / 60 pairs). Trained a pretrained ResNet18 on 950 training images, chose the 79.6% raw-score threshold using validation data, and evaluated once on 120 held-out images.</p>
-                  <p><strong>What didn't work.</strong> Added 1,128 eligible multi-generator training images and excluded 318 held-out examples. The experimental v3 checkpoint scored 75.0% on the original test set versus v2's 88.3%, so I retained v2 instead of shipping the regression.</p>
-                  <p className="forensics-caution"><strong>Important limitation:</strong> these are small, source-specific pilot results, not real-world detection guarantees. The raw output is not a calibrated probability; illustration-heavy and unfamiliar-generator images can be misclassified. Metadata and recompression artifacts are descriptive clues, not proof of authenticity.</p>
-                </div>
-              </details>}
-              {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
-              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> {p.sourceLabel || 'view source'} <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : p.playWeb ? 'play on the web' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
-            </article>)}
-          </div>
-        </section>
-        <section className="site-container education-spotlight fade-up" id="education" aria-labelledby="education-title">
-          <div className="education-spotlight-heading">
-            <span className="eyebrow">03 / EDUCATION & TRAINING</span>
-            <span className="education-spotlight-date">NEW YORK CITY · EXPECTED MAY 2027</span>
-          </div>
-          <div className="education-spotlight-content">
-            <div className="education-spotlight-primary">
-              <h2 id="education-title">Columbia <em>University.</em></h2>
-              <p className="education-spotlight-degree">B.S. in Computer Science</p>
-              <p className="education-spotlight-school">Fu Foundation School of Engineering and Applied Science</p>
-              <div className="education-spotlight-awards" aria-label="Scholarships and honors">
-                <span>QuestBridge National Match Scholar</span>
-                <span>Gates Scholar</span>
-                <span>Dell Scholar</span>
-              </div>
-            </div>
-            <div className="education-spotlight-secondary">
-              <div className="education-spotlight-detail">
-                <h3>Selected coursework</h3>
-                <p>Machine Learning · Artificial Intelligence · Databases · Advanced Programming · Data Structures · Computer Systems · UI Design</p>
-              </div>
-              <div className="education-spotlight-detail">
-                <div className="education-detail-title"><h3>CodePath</h3><span>2025</span></div>
-                <p>Honors Certificate in iOS Development (iOS101) · Technical Interview Preparation (TIP102)</p>
-              </div>
-            </div>
-          </div>
+          </details>
         </section>
         <section className="about-section" id="about" aria-labelledby="about-title"><div className="site-container about-grid">
           <div className="about-photo-wrap fade-up"><div className="about-photo-frame"><img loading="lazy" decoding="async" src={headshot} alt="Portrait of Kelly Truong smiling in a white top" /></div><span className="about-doodle doodle-one">✳</span><span className="about-doodle doodle-two">hello, from the other side of the screen ↗</span></div>
-          <div className="about-copy fade-up"><div className="eyebrow">04 / BEHIND THE CODE</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I like the space between engineering and design: building things that work well, look considered, and feel easy to use.</p><p>When I’m not coding, I’m usually sketching, crocheting, trying a new matcha spot, or making small creative experiments.</p><div className="little-things"><span>✳ learning crochet</span><span>♡ little bunnies</span><span>🍵 matcha breaks</span></div><button className="crochet-about-link" type="button" onClick={()=>setCrochetOpen(true)}>little stitches ↗</button><a className="inline-link" href={RESUME_URL} target="_blank" rel="noopener noreferrer">the more official version ↗</a></div>
+          <div className="about-copy fade-up"><div className="eyebrow">03 / ABOUT ME</div><h2 id="about-title" className="section-heading">a curious mind,<br/><em>busy hands.</em></h2><p>I like building at the intersection of engineering, design, and the everyday experiences people care about.</p><p>Outside of code: sketches, crochet, and a good matcha.</p><button className="crochet-about-link" type="button" onClick={()=>setCrochetOpen(true)}>little stitches ↗</button><a className="inline-link" href={IOS_RESUME_URL} target="_blank" rel="noopener noreferrer">iOS-focused résumé ↗</a>
+            <div className="about-education" id="education" aria-label="Education and training">
+              <div className="eyebrow">EDUCATION · MAY 2027</div>
+              <h3>Columbia University</h3>
+              <p><strong>B.S. Computer Science</strong> · Fu Foundation School of Engineering and Applied Science</p>
+              <p>QuestBridge National Match Scholar · Gates Scholar · Dell Scholar</p>
+              <p><strong>CodePath:</strong> iOS Development Honors Certificate and Technical Interview Preparation.</p>
+            </div></div>
         </div></section>
+        <section className="creative-peek" id="creative" aria-label="Creative corner">
+          <div className="site-container creative-peek-inner">
+            <div><span className="eyebrow">04 / OFF THE CLOCK</span><h2>the <em>playful side.</em></h2><p>Little experiments in iOS, motion, and design.</p></div>
+            <button type="button" className="creative-toggle" onClick={() => setCreativeOpen(o => !o)} aria-expanded={creativeOpen} aria-controls="creative-content">{creativeOpen ? 'close little worlds −' : 'explore a little ↗'}</button>
+          </div>
+          {creativeOpen && <div id="creative-content">
         <section className="studio-section" id="studio" aria-labelledby="studio-title">
           <div className="site-container">
             <div className="studio-header fade-up">
-              <div><div className="eyebrow">05 / THE CREATIVE STUDIO</div><h2 id="studio-title" className="section-heading">in the <em>oven.</em></h2></div>
+              <div><div className="eyebrow">04 / CREATIVE CORNER</div><h2 id="studio-title" className="section-heading">in the <em>oven.</em></h2></div>
               <div className="studio-intro"><p>Not every idea begins as a finished product. This is where iOS design and small interactive experiments keep evolving.</p><span>WORK IN PROGRESS / IDEAS ARE NOT SHIPPED FEATURES</span></div>
             </div>
             <div className="studio-grid">
@@ -353,10 +356,12 @@ export default function Home() {
           </div>
         </section>
         <section className="playground-section" id="playground" aria-labelledby="playground-title"><div className="site-container playground-grid">
-          <div className="playground-copy fade-up"><div className="eyebrow">06 / LITTLE WORLDS</div><h2 id="playground-title" className="section-heading">a little<br/><em>wonder.</em></h2><p>Three tiny scenes. Pick one, then play.</p></div><CreativeScenes />
+          <div className="playground-copy fade-up"><div className="eyebrow">LITTLE WORLDS</div><h2 id="playground-title" className="section-heading">a little<br/><em>wonder.</em></h2><p>Three tiny scenes. Pick one, then play.</p></div><CreativeScenes />
         </div></section>
+          </div>}
+        </section>
       </main>
-      <footer className="site-container daydream-footer" id="contact"><div className="eyebrow">07 / SAY HELLO</div><h2>have a little <em>idea?</em></h2><p>Whether it's a collaboration, an engineering challenge, or a curious question, I'd love to hear about it.</p><div className="footer-actions"><a className="btn btn-dark" href="mailto:truong.kelly17@gmail.com">send me a note ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a></span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} KELLY TRUONG</span><span>MADE WITH CODE, CURIOSITY & A LITTLE YARN ✳</span><a href="#top">back to top ↑</a></div></footer>
+      <footer className="site-container daydream-footer" id="contact"><div className="eyebrow">05 / SAY HELLO</div><h2>have a little <em>idea?</em></h2><p>Whether it's a collaboration, an engineering challenge, or a curious question, I'd love to hear about it.</p><div className="footer-actions"><a className="btn btn-dark" href="mailto:truong.kelly17@gmail.com">send me a note ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a></span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} KELLY TRUONG</span><span>MADE WITH CODE, CURIOSITY & A LITTLE YARN ✳</span><a href="#top">back to top ↑</a></div></footer>
       {crochetOpen && <CrochetGallery onClose={()=>setCrochetOpen(false)}/>}
     </div>
   );
