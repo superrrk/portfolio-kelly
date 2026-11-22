@@ -946,3 +946,37 @@
     padding-inline: clamp(60px, 6vw, 96px);
   }
 }
+
+/* KELLY_PANGEA_EARLIER_EXPERIENCE_2026_11_22
+   Give the site a more comfortable editorial width and let real community
+   and research work be seen without requiring a click. Desktop only for width. */
+@media (min-width: 1051px) {
+  .daydream-site .site-container {
+    max-width: 1300px;
+    padding-inline: clamp(58px, 6vw, 86px);
+  }
+  .daydream-site .hero { gap: clamp(30px, 3vw, 56px); }
+  .daydream-site .hero h1 { font-size: clamp(70px, 6vw, 110px); }
+  .daydream-site .hero h2 { font-size: clamp(34px, 3vw, 47px); }
+  .daydream-site .bunny-window { height: clamp(390px, 32vw, 485px); }
+}
+.daydream-site .earlier-work-always-visible {
+  margin-top: 38px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.daydream-site .earlier-work-always-visible .earlier-work {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 12px;
+}
+.daydream-site .earlier-work-always-visible .earlier-work-intro { margin-bottom: 20px; }
+.daydream-site .earlier-work-pangea { background: #f3f5ef; }
+@media (min-width: 1181px) {
+  .daydream-site .earlier-work-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+  .daydream-site .earlier-work-card { padding: 22px 21px; }
+}
+@media (max-width: 700px) {
+  .daydream-site .earlier-work-grid { grid-template-columns: 1fr; }
+  .daydream-site .earlier-work-always-visible { margin-top: 27px; }
+}

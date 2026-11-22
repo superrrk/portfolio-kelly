@@ -294,13 +294,21 @@ export default function Home() {
             </article>
           </div>
 
-          <details className="earlier-work-toggle"><summary>Earlier work &amp; research <span aria-hidden="true">＋</span></summary>
-          <section className="earlier-work fade-up" aria-label="Earlier engineering and research experience">
+          <div className="earlier-work-always-visible">
+          <section className="earlier-work" aria-label="Earlier work, nonprofit service and research">
             <div className="earlier-work-intro">
-              <span className="eyebrow">MORE EXPERIENCE / 2024</span>
-              <h3>from games to <em>safer streets.</em></h3>
+              <span className="eyebrow">EARLIER EXPERIENCE & COMMUNITY / 2024</span>
+              <h3>engineering, service <em>&amp; research.</em></h3>
             </div>
             <div className="earlier-work-grid">
+              <article className="earlier-work-card earlier-work-pangea">
+                <div className="earlier-work-top"><span>NONPROFIT · YOUTH LEADERSHIP</span><span>2024</span></div>
+                <h4>The Pangea Network</h4>
+                <p className="earlier-work-role">Nonprofit Intern</p>
+                <p>Coordinated a week-long leadership conference for <strong>70 high-school students</strong> from underrepresented and refugee communities, and supported ongoing mentorship.</p>
+                <div className="earlier-work-tags"><span>Community impact</span><span>Leadership</span><span>Mentorship</span></div>
+                <a href="https://thepangeanetwork.org/ywlc/" target="_blank" rel="noopener noreferrer">youth leadership program <span aria-hidden="true">↗</span></a>
+              </article>
               <article className="earlier-work-card">
                 <div className="earlier-work-top"><span>GAME DEVELOPMENT · NEW YORK</span><span>2024</span></div>
                 <h4>Lunchbox Entertainment</h4>
@@ -319,7 +327,7 @@ export default function Home() {
               </article>
             </div>
           </section>
-          </details>
+          </div>
         </section>
         <section className="about-section" id="about" aria-labelledby="about-title"><div className="site-container about-grid">
           <div className="about-photo-wrap fade-up"><div className="about-photo-frame"><img loading="lazy" decoding="async" src={headshot} alt="Portrait of Kelly Truong smiling in a white top" /></div><span className="about-doodle doodle-one">✳</span><span className="about-doodle doodle-two">hello, from the other side of the screen ↗</span></div>
