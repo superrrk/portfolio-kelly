@@ -11,6 +11,7 @@ import headshot from '../../assets/images/kelly-headshot-2026.webp';
 import './index.scss';
 
 const RESUME_URL = `${process.env.PUBLIC_URL || ''}/TRUONG_KELLY.pdf`;
+const IOS_RESUME_URL = `${process.env.PUBLIC_URL || ''}/TRUONG_KELLY_iOS.pdf`;
 
 // Resume + repository-backed case studies. Planned Scrap improvements are
 // explicitly separated from features already checked off in its README.
@@ -209,7 +210,7 @@ export default function Home() {
             <h1 id="hero-title">hi, i'm <em>kelly.</em></h1>
             <h2>i make complex things<br/><i>feel a little more human.</i></h2>
             <p>I'm a Columbia CS student who likes turning complicated ideas into useful, thoughtful software. I've built AI agent tools at IBM, explored optimization at bp, and love making things people can actually use.</p>
-            <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my projects <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
+            <div className="hero-ctas"><a className="btn btn-dark" href="#work">explore my projects <span aria-hidden="true">↗</span></a><a className="btn btn-light" href={RESUME_URL} target="_blank" rel="noopener noreferrer">view résumé ↗</a><a className="resume-alt-link" href={IOS_RESUME_URL} target="_blank" rel="noopener noreferrer" aria-label="View iOS engineering résumé">iOS résumé ↗</a><span className="social-icon-pair" aria-label="Social profiles"><a className="social-icon-link" href="https://www.linkedin.com/in/kellybtruong/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><FontAwesomeIcon icon={faLinkedin} aria-hidden="true" /></a><a className="social-icon-link" href="https://github.com/superrrk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><FontAwesomeIcon icon={faGithub} aria-hidden="true" /></a></span></div>
             <div className="hero-side-note"><span>COLUMBIA UNIVERSITY · COMPUTER SCIENCE</span><span>CLASS OF 2027 · NEW YORK</span></div>
           </div>
           <AsciiBunny />

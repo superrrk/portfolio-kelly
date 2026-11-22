@@ -554,3 +554,27 @@
   .daydream-site .about-section {padding:59px 0 70px;}
 }
 
+
+
+/* Compact alternate resume link — general SWE remains the default */
+.daydream-site .hero-ctas .resume-alt-link {
+  color: #56705b;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-decoration-color: #9bb29e;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+.daydream-site .hero-ctas .resume-alt-link:hover {
+  color: #2b4933;
+  text-decoration-color: currentColor;
+}
+.daydream-site .hero-ctas .resume-alt-link:focus-visible {
+  outline: 2px solid #56705b;
+  outline-offset: 4px;
+}
+@media (max-width: 520px) {
+  .daydream-site .hero-ctas .resume-alt-link { font-size: 11px; }
+}
