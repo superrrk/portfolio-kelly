@@ -662,3 +662,167 @@
  .daydream-site .about-photo-wrap {max-width:275px;}
 }
 @media(prefers-reduced-motion:reduce){.daydream-site .project-card:hover .project-image-wrap img{transform:none;}}
+
+/* KELLY_PORTFOLIO_FINAL_FLUID_POLISH_2026
+   A restrained responsive finish on the five-section portfolio.
+   Appended at the end so it wins against earlier experimental overrides.
+   Never changes content, project links, or bunny animation logic. */
+
+/* Let the editorial composition use a wide monitor without edge-to-edge text. */
+.daydream-site .site-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: clamp(24px, 4vw, 76px);
+}
+.daydream-site .header-inner { min-width: 0; }
+.daydream-site .header-links { gap: clamp(18px, 2.1vw, 38px); }
+
+/* Hero: larger canvas, better alignment, and no floating footer note. */
+.daydream-site .hero {
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
+  gap: clamp(40px, 4.5vw, 88px);
+  min-height: 640px;
+  padding-top: clamp(32px, 3.2vw, 55px);
+  padding-bottom: 50px;
+  align-items: center;
+}
+.daydream-site .hero-copy { min-width: 0; padding-bottom: 0; }
+.daydream-site .hero h1 {
+  font-size: clamp(80px, 7.2vw, 145px);
+  line-height: .98;
+  margin-top: 24px;
+  margin-bottom: 18px;
+  white-space: normal;
+  text-wrap: balance;
+}
+.daydream-site .hero h2 {
+  font-size: clamp(37px, 3.05vw, 53px);
+  line-height: 1.14;
+  text-wrap: balance;
+  max-width: 760px;
+}
+.daydream-site .hero-copy > p {
+  font-size: clamp(15px, .94vw, 17px);
+  max-width: 610px;
+  line-height: 1.75;
+  color: #4e6855;
+}
+.daydream-site .hero-ctas { margin-top: 27px; gap: 12px; }
+.daydream-site .hero-side-note {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+  margin-top: 39px;
+  color: #637f6d;
+  font-size: 10px;
+}
+.daydream-site .bunny-composition { width: 100%; max-width: 790px; justify-self: center; }
+.daydream-site .bunny-window { height: clamp(420px, 34vw, 620px); }
+.daydream-site .hand-note { right: 0; top: 0; }
+.daydream-site .bunny-caption { font-size: 10px; }
+
+/* Featured work: images stay large and text remains readable. */
+.daydream-site #work { padding-top: 57px; padding-bottom: 80px; }
+.daydream-site #work .section-header { margin-bottom: 30px; }
+.daydream-site .section-header { gap: clamp(26px, 4vw, 75px); }
+.daydream-site .section-header > p { max-width: 350px; color: #546c59; font-size: 14px; }
+.daydream-site .project-grid { gap: clamp(23px, 2.4vw, 43px); }
+.daydream-site .project-card { min-width: 0; padding-top: 20px; }
+.daydream-site .project-image-wrap { height: clamp(240px, 18.5vw, 315px); padding: 38px 16px 18px; }
+.daydream-site .project-image-wrap img { max-height: 100%; object-fit: contain; }
+.daydream-site .project-card h3 { font-size: clamp(32px, 2.55vw, 43px); margin: 13px 0; }
+.daydream-site .project-card > p { font-size: 14px; line-height: 1.7; color: #536e5a; }
+.daydream-site .project-context { color: #607866; font-size: 12px; }
+.daydream-site .project-card-meta { line-height: 1.55; }
+.daydream-site .project-card .tag-row { margin: 17px 0 22px; }
+.daydream-site .project-actions { row-gap: 12px; }
+.daydream-site .more-projects { margin-top: 45px; }
+
+/* Scan-friendly experience and education, without full-screen panels. */
+.daydream-site .experience-section { padding-top: 62px; padding-bottom: 80px; }
+.daydream-site .experience-item { padding-block: 31px; grid-template-columns: 160px minmax(0,1fr) 20px; }
+.daydream-site .experience-item ul { max-width: 1000px; }
+.daydream-site .experience-item li { font-size: 14px; line-height: 1.72; color: #4e6956; }
+.daydream-site .about-section { padding-block: 82px; }
+.daydream-site .about-grid { grid-template-columns: minmax(0, .76fr) minmax(0, 1.24fr); gap: clamp(40px, 6vw, 100px); }
+.daydream-site .about-photo-wrap { max-width: 375px; }
+.daydream-site .about-copy p { max-width: 690px; color: #536b59; }
+.daydream-site .about-education { margin-top: 27px; }
+.daydream-site .about-education p { color: #536b59; font-size: 13px; }
+.daydream-site .creative-peek { padding-block: 29px; }
+.daydream-site .daydream-footer { padding-top: 70px; }
+
+/* Keyboard access: no invisible focus on interactive links or disclosures. */
+.daydream-site a:focus-visible,
+.daydream-site button:focus-visible,
+.daydream-site summary:focus-visible {
+  outline: 2px solid #385b43;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.daydream-site .project-actions a { text-underline-offset: 4px; }
+
+/* Notebooks and tablets: don't force two tiny columns. */
+@media (max-width: 1120px) {
+  .daydream-site .hero { grid-template-columns: minmax(0,1fr) minmax(0,.92fr); gap: 32px; min-height: 0; padding-block: 65px; }
+  .daydream-site .hero h1 { font-size: clamp(57px, 7vw, 82px); }
+  .daydream-site .hero h2 { font-size: clamp(31px, 3.5vw, 41px); }
+  .daydream-site .bunny-window { height: clamp(325px, 38vw, 435px); }
+  .daydream-site .project-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .daydream-site .project-image-wrap { height: 280px; }
+  .daydream-site .experience-item { grid-template-columns: 115px minmax(0,1fr); gap: 24px; }
+  .daydream-site .experience-ornament { display: none; }
+}
+@media (max-width: 860px) {
+  .daydream-site .site-container { padding-inline: clamp(22px, 4.2vw, 40px); }
+  .daydream-site .hero { grid-template-columns: 1fr; padding-block: 52px 32px; gap: 28px; }
+  .daydream-site .hero-copy { max-width: 700px; }
+  .daydream-site .hero h1 { font-size: clamp(72px, 11vw, 102px); }
+  .daydream-site .hero h2 { font-size: clamp(34px, 5.3vw, 46px); }
+  .daydream-site .hero-copy > p { max-width: 650px; }
+  .daydream-site .hero-side-note { margin-top: 30px; }
+  .daydream-site .bunny-composition { width: min(100%, 560px); }
+  .daydream-site .bunny-window { height: clamp(330px, 60vw, 430px); }
+  .daydream-site #work { padding-top: 45px; }
+  .daydream-site .experience-section { padding-top: 45px; }
+  .daydream-site .about-grid { grid-template-columns: 1fr; gap: 24px; }
+  .daydream-site .about-photo-wrap { max-width: 315px; }
+}
+@media (max-width: 660px) {
+  .daydream-site .hero { padding-block: 35px 25px; }
+  .daydream-site .hero h1 { font-size: clamp(61px, 12.5vw, 82px); }
+  .daydream-site .hero h2 { font-size: clamp(32px, 7vw, 41px); }
+  .daydream-site .hero-copy > p { font-size: 14px; }
+  .daydream-site .hero-ctas { gap: 10px; }
+  .daydream-site .hero-side-note { margin-top: 26px; font-size: 9px; }
+  .daydream-site .bunny-window { height: clamp(300px, 75vw, 395px); }
+  .daydream-site .project-grid, .daydream-site .more-projects-grid { grid-template-columns: 1fr; gap: 30px; }
+  .daydream-site .project-image-wrap { height: clamp(235px, 68vw, 300px); }
+  .daydream-site #work { padding-top: 38px; padding-bottom: 54px; }
+  .daydream-site .section-header { display: block; }
+  .daydream-site .section-header > p { margin-top: 18px; }
+  .daydream-site .experience-item { grid-template-columns: 1fr; gap: 12px; }
+  .daydream-site .experience-date { flex-direction: row; flex-wrap: wrap; gap: 8px 12px; }
+  .daydream-site .experience-item h3 { font-size: 33px; }
+  .daydream-site .about-section { padding-block: 56px; }
+  .daydream-site .about-photo-wrap { max-width: 290px; }
+  .daydream-site .about-copy .section-heading { font-size: clamp(49px, 9vw, 66px); }
+  .daydream-site .creative-peek-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 390px) {
+  .daydream-site .site-container { padding-inline: 18px; }
+  .daydream-site .hero h1 { font-size: 60px; }
+  .daydream-site .hero h2 { font-size: 31px; }
+  .daydream-site .btn { white-space: normal; text-align: center; }
+  .daydream-site .bunny-window { height: 295px; }
+  .daydream-site .project-card h3 { font-size: 33px; }
+  .daydream-site .creative-toggle { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .daydream-site .project-card:hover .project-image-wrap img,
+  .daydream-site .bunny-window:hover,
+  .daydream-site .btn:hover { transform: none; }
+}
