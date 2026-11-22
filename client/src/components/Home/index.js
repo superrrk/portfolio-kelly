@@ -75,7 +75,18 @@ const projects = [
     playWeb: true,
   },
   {
-    no: '03', status: 'IOS CAPSTONE', title: 'Scrap', type: 'IOS DEVELOPMENT / PRODUCT DESIGN',
+    no: '03', status: 'COLLABORATIVE BUILD', title: 'VSA Social Media App', type: 'FULL-STACK / COMMUNITY PLATFORM',
+    description: 'A collaborative React, Express, and Supabase social platform for Columbia\'s Vietnamese Students Association, with member profiles, family groups, event tracking, and administration workflows.',
+    shortDescription: 'A React and Supabase community platform for VSA member profiles, family groups, and student events.',
+    highlight: 'Community-centered product · full-stack team development',
+    skills: ['React', 'Node.js', 'Supabase', 'Team Project'],
+    github: 'https://github.com/tvytran/VSAWebsite',
+    sourceLabel: 'shared source code',
+    visual: 'vsa-visual',
+    note: 'Columbia Vietnamese Students Association · team project',
+  },
+  {
+    no: '04', status: 'IOS CAPSTONE', title: 'Scrap', type: 'IOS DEVELOPMENT / PRODUCT DESIGN',
     description: 'An iOS memory scrapbook for couples and friends. Built in Swift and UIKit, it lets people capture a photo, date and caption, choose a background color, browse a memory feed, and open individual memory pages.',
     shortDescription: 'A native Swift and UIKit scrapbook for saving photos, dates, and memories, with a customizable feed and detail views.',
     highlight: 'Native iOS experience · photo-based memory cards',
@@ -86,7 +97,7 @@ const projects = [
     roadmap: ['Strengthen on-device persistence', 'Edit and delete existing memories', 'Optional song links and multi-photo entries'],
   },
   {
-    no: '04', status: 'TEAM UI PROJECT', title: 'Study Buddy', type: 'USER INTERFACE DESIGN / COLUMBIA',
+    no: '05', status: 'TEAM UI PROJECT', title: 'Study Buddy', type: 'USER INTERFACE DESIGN / COLUMBIA',
     description: 'Explore the Figma design for our interface work.',
     highlight: 'Collaborative UI design · semester project',
     skills: ['Figma', 'UI Design', 'Team Project'],
@@ -95,7 +106,7 @@ const projects = [
     note: 'Columbia University · team-based course project',
   },
   {
-    no: '05', status: 'COLLABORATIVE BUILD', title: 'Markowitz Portfolio Optimizer', type: 'FINTECH / DATA VISUALIZATION',
+    no: '06', status: 'COLLABORATIVE BUILD', title: 'Markowitz Portfolio Optimizer', type: 'FINTECH / DATA VISUALIZATION',
     description: 'A collaborative web application exploring Modern Portfolio Theory. I implemented risk-return analytics including Sharpe ratio and portfolio variance with NumPy and visualized the efficient frontier using interactive charts.',
     highlight: 'Interactive efficient frontier and portfolio analytics',
     skills: ['Python', 'Flask', 'NumPy', 'Chart.js', 'Git'],
@@ -106,7 +117,7 @@ const projects = [
     note: 'Collaborative project · optimization',
   },
   {
-    no: '06', status: 'LIVE CREATIVE CODE', title: 'ASCII Daydream', type: 'CREATIVE CODING / FRONTEND',
+    no: '07', status: 'LIVE CREATIVE CODE', title: 'ASCII Daydream', type: 'CREATIVE CODING / FRONTEND',
     description: 'This portfolio is a small creative coding experiment: a custom Canvas ASCII bunny with autonomous hopping, flowing glyphs, and a generative flower garden.',
     highlight: 'Custom Canvas animation · responsive, accessible interactions',
     skills: ['React', 'JavaScript', 'Canvas', 'SVG', 'SCSS'],
@@ -166,6 +177,20 @@ function ScrapArt() {
   </div>;
 }
 
+function VsaArt() {
+  return <div className="vsa-art" role="img" aria-label="Illustrative VSA community app concept preview, not an actual product screenshot">
+    <div className="vsa-ui-shell" aria-hidden="true">
+      <div className="vsa-ui-top"><span className="vsa-ui-brand">vsa<span>✳</span></span><span className="vsa-ui-top-note">community space</span><span className="vsa-ui-dot">●</span></div>
+      <div className="vsa-ui-content">
+        <div className="vsa-ui-heading"><span className="vsa-ui-eyebrow">COLUMBIA COMMUNITY</span><strong>find your people.</strong><small>connect, celebrate, belong</small></div>
+        <div className="vsa-ui-people"><span>✿</span><span>✳</span><span>✧</span><span>♡</span></div>
+        <div className="vsa-ui-bottom"><span>family groups</span><span>upcoming events</span><span>student life</span></div>
+      </div>
+    </div>
+    <span className="vsa-art-label">illustrative project preview · not a product screenshot</span>
+  </div>;
+}
+
 function DaydreamArt() {
   return <div className="daydream-illustration" role="img" aria-label="An illustration of characters that form a rabbit, reflecting the live Canvas animation in this portfolio">
     <span className="daydream-mini-label">CREATIVE COMPUTING / 004</span>
@@ -220,10 +245,10 @@ export default function Home() {
         <section className="site-container section-pad" id="work" aria-labelledby="work-title">
           <div className="section-header fade-up"><div><div className="eyebrow">01 / SELECTED WORK</div><h2 id="work-title" className="section-heading">things i've <em>built.</em></h2></div><p>A few things I have made, with links to explore or try them.</p></div>
           <div className="project-grid">
-            {projects.slice(0, 3).map(p => <article className="project-card fade-up" key={p.no}>
+            {projects.map(p => <article className="project-card fade-up" key={p.no}>
               <div className={`project-image-wrap ${p.visual}`}>
                 <div className="project-image-index">{p.no} / PROJECT STUDY</div>
-                {p.forensics && p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
+                {p.forensics && p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.image ? <img loading="lazy" src={p.image} alt={p.alt} /> : p.visual === 'forensics-visual' ? <ForensicsArt /> : p.visual === 'scrap-visual' ? <ScrapArt /> : p.visual === 'vsa-visual' ? <VsaArt /> : p.visual === 'studybuddy-visual' ? <StudyBuddyArt /> : p.visual === 'buildplay-visual' ? <BuildPlayArt /> : <DaydreamArt />}
               </div>
               <div className="project-card-meta"><span>{p.type}</span><span className="project-status">{p.status}</span></div>
               <h3>{p.title}</h3>
@@ -241,26 +266,9 @@ export default function Home() {
                 </div>
               </details>}
               {p.roadmap && <details className="project-roadmap"><summary>what i'm building next <span aria-hidden="true">↗</span></summary><ul>{p.roadmap.map(item=><li key={item}>{item}</li>)}</ul><small>Planned improvements, not released features.</small></details>}
-              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> {p.sourceLabel || 'view source'} <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : p.playWeb ? 'play on the web' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href={p.internal} className="inline-link">try the experiment <span>↗</span></a>}</div>
+              <div className="project-actions">{p.github && <a className="inline-link" href={p.github} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} className="project-link-icon" aria-hidden="true"/> {p.sourceLabel || 'view source'} <span>↗</span></a>}{p.site && <a className="inline-link" href={p.site} target="_blank" rel="noopener noreferrer">{p.forensics ? 'try live detector' : p.playWeb ? 'play on the web' : 'project site'} <span>↗</span></a>}{p.figma && <a className="inline-link" href={p.figma} target="_blank" rel="noopener noreferrer">Figma design <span>↗</span></a>}{p.internal && <a href="#creative" onClick={() => setCreativeOpen(true)} className="inline-link">try the experiment <span>↗</span></a>}</div>
             </article>)}
           </div>
-          <details className="more-projects">
-            <summary>More projects <span aria-hidden="true">＋</span></summary>
-            <div className="more-projects-grid">
-              <article className="more-project-item">
-                <span>FULL-STACK · TEAM PROJECT</span>
-                <h3>VSA Social Media App</h3>
-                <p>React, Express, and Supabase social platform for a Columbia student organization.</p>
-                <a href="https://github.com/tvytran/VSAWebsite" target="_blank" rel="noopener noreferrer">shared source code ↗</a>
-              </article>
-              {projects.slice(3).map(p => <article className="more-project-item" key={p.no}>
-                <span>{p.type}</span>
-                <h3>{p.title}</h3>
-                <p>{p.highlight}</p>
-                {p.github ? <a href={p.github} target="_blank" rel="noopener noreferrer">view source ↗</a> : p.figma ? <a href={p.figma} target="_blank" rel="noopener noreferrer">view design ↗</a> : null}
-              </article>)}
-            </div>
-          </details>
         </section>
         <section className="site-container section-pad experience-section" id="experience" aria-labelledby="experience-title">
           <div className="section-header experience-intro-block fade-up"><div><div className="eyebrow">02 / EXPERIENCE</div><h2 id="experience-title" className="section-heading">engineering <em>impact.</em></h2></div><p>What I have worked on with engineering teams.</p></div>
